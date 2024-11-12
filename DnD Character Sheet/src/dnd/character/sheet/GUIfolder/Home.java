@@ -158,13 +158,13 @@ public class Home extends javax.swing.JFrame {
 
     private void btnCharactersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCharactersMouseClicked
         // TODO add your handling code here:
-        new CharacterHomePage().setVisible(true);
+        new CharacterPage().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnCharactersMouseClicked
 
     private void btnSpellsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSpellsMouseClicked
         // TODO add your handling code here:
-        new SpellHomePage().setVisible(true);
+        new SpellPage().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnSpellsMouseClicked
 
