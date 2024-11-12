@@ -178,7 +178,7 @@ public class SpellCreation extends javax.swing.JFrame {
 
     private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
         // TODO add your handling code here:
-        new SpellPage().setVisible(true);
+        new SpellHomePage().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnCancelMouseClicked
 
