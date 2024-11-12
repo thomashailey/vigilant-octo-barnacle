@@ -32,9 +32,10 @@ public class Home extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        btnItems = new javax.swing.JButton();
         btnSpells = new javax.swing.JButton();
         btnCharacters = new javax.swing.JButton();
+        btnSignOut = new javax.swing.JButton();
+        btnItems = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,13 +63,6 @@ public class Home extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Enjoy.");
 
-        btnItems.setText("Items");
-        btnItems.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnItemsMouseClicked(evt);
-            }
-        });
-
         btnSpells.setText("Spells");
         btnSpells.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -93,6 +87,15 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        btnSignOut.setText("Sign Out");
+
+        btnItems.setText("Items");
+        btnItems.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnItemsMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,15 +110,12 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(148, 148, 148)
-                                .addComponent(btnCharacters, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(147, 147, 147)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnSpells, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnItems, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(148, 148, 148)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSpells, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCharacters, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnItems, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnSignOut, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(154, 154, 154)))
                 .addContainerGap())
         );
@@ -138,9 +138,11 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(btnCharacters)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnItems)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSpells)
-                .addGap(25, 25, 25))
+                .addGap(18, 18, 18)
+                .addComponent(btnSignOut)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -156,21 +158,21 @@ public class Home extends javax.swing.JFrame {
 
     private void btnCharactersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCharactersMouseClicked
         // TODO add your handling code here:
-        new CharacterHomepage().setVisible(true);
+        new CharacterHomePage().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnCharactersMouseClicked
 
-    private void btnItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnItemsMouseClicked
-        // TODO add your handling code here:
-        new ItemHomepage().setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_btnItemsMouseClicked
-
     private void btnSpellsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSpellsMouseClicked
         // TODO add your handling code here:
-        new SpellHomepage().setVisible(true);
+        new SpellHomePage().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnSpellsMouseClicked
+
+    private void btnItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnItemsMouseClicked
+        // TODO add your handling code here:
+        new ItemsHomePage().setVisible(true);
+        
+    }//GEN-LAST:event_btnItemsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -210,6 +212,7 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCharacters;
     private javax.swing.JButton btnItems;
+    private javax.swing.JButton btnSignOut;
     private javax.swing.JButton btnSpells;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
