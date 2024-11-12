@@ -164,7 +164,7 @@ public class Home extends javax.swing.JFrame {
 
     private void btnSpellsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSpellsMouseClicked
         // TODO add your handling code here:
-        new SpellHomepage().setVisible(true);
+        new SpellHomePage().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnSpellsMouseClicked
 
