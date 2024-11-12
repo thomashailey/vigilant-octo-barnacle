@@ -136,6 +136,15 @@ public class UserAuth extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Home().setVisible(true);
         setVisible(false);
+        
+//        TODO:
+
+//        Add code to connect to the database
+//        Check for existing user account
+//        Check for matching username/password
+//        Trigger code check input
+//        If that matches, save the userID
+//        Open the Home page
     }//GEN-LAST:event_btnLogInMouseClicked
 
     /**
