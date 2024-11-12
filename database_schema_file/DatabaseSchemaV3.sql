@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `dnd_app_database` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `dnd_app_database`;
 -- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dnd_app_database
@@ -27,8 +25,8 @@ DROP TABLE IF EXISTS `character_armor`;
 CREATE TABLE `character_armor` (
   `characterArmorID` int NOT NULL AUTO_INCREMENT,
   `characterIDarmor` int NOT NULL,
-  `armorName` varchar(45) COLLATE utf8mb3_unicode_ci NOT NULL,
-  `armorDescription` varchar(100) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `armorName` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `armorDescription` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   PRIMARY KEY (`characterArmorID`),
   UNIQUE KEY `characterArmorID_UNIQUE` (`characterArmorID`),
   KEY `characterIDarmor_idx` (`characterIDarmor`),
@@ -47,7 +45,7 @@ CREATE TABLE `character_basics` (
   `characterID` int NOT NULL AUTO_INCREMENT,
   `characterIDuser` int NOT NULL,
   `characterName` varchar(60) NOT NULL,
-  `characterLevel` varchar(45) NOT NULL,
+  `characterLevel` int NOT NULL,
   `characterRace` varchar(45) NOT NULL,
   `characterClass` varchar(45) NOT NULL,
   `characterAC` int NOT NULL,
@@ -55,8 +53,29 @@ CREATE TABLE `character_basics` (
   `characterHP` int NOT NULL,
   PRIMARY KEY (`characterID`),
   UNIQUE KEY `characterID_UNIQUE` (`characterID`),
-  KEY `characterIDuser_idx` (`characterIDuser`)
+  KEY `characterIDuser_idx` (`characterIDuser`),
+  CONSTRAINT `characterIDuser` FOREIGN KEY (`characterIDuser`) REFERENCES `user_data` (`userID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `character_feats`
+--
+
+DROP TABLE IF EXISTS `character_feats`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `character_feats` (
+  `characterFeatID` int NOT NULL AUTO_INCREMENT,
+  `characterIDfeat` int NOT NULL,
+  `featListID` int NOT NULL,
+  PRIMARY KEY (`characterFeatID`),
+  UNIQUE KEY `characterFeatID_UNIQUE` (`characterFeatID`),
+  KEY `characterIDfeat_idx` (`characterIDfeat`),
+  KEY `featListID_idx` (`featListID`),
+  CONSTRAINT `characterIDfeat` FOREIGN KEY (`characterIDfeat`) REFERENCES `character_basics` (`characterID`),
+  CONSTRAINT `featListID` FOREIGN KEY (`featListID`) REFERENCES `feats_list` (`featID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -112,7 +131,6 @@ CREATE TABLE `character_proficiencies` (
   `proficiencyTotal` int NOT NULL,
   PRIMARY KEY (`characterProficiencyID`),
   UNIQUE KEY `characterProficiencyID_UNIQUE` (`characterProficiencyID`),
-  UNIQUE KEY `characterIDprof_UNIQUE` (`characterIDprof`),
   KEY `characterIDprof_idx` (`characterIDprof`),
   CONSTRAINT `characterIDprof` FOREIGN KEY (`characterIDprof`) REFERENCES `character_basics` (`characterID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=240 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -128,7 +146,6 @@ DROP TABLE IF EXISTS `character_spells`;
 CREATE TABLE `character_spells` (
   `characterSpellID` int NOT NULL AUTO_INCREMENT,
   `characterIDspell` int NOT NULL,
-  `spellName` varchar(100) NOT NULL,
   `spellListID` int NOT NULL,
   PRIMARY KEY (`characterSpellID`),
   UNIQUE KEY `characterSpellID_UNIQUE` (`characterSpellID`),
@@ -155,7 +172,7 @@ CREATE TABLE `character_spellslots` (
   `spellSlotLevel` int DEFAULT NULL,
   PRIMARY KEY (`characterSlotID`),
   UNIQUE KEY `characterSlotID_UNIQUE` (`characterSlotID`),
-  UNIQUE KEY `characterIDspells_UNIQUE` (`characterIDspells`),
+  KEY `characterIDspells_idx` (`characterIDspells`),
   CONSTRAINT `characterIDspells` FOREIGN KEY (`characterIDspells`) REFERENCES `character_basics` (`characterID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -184,6 +201,7 @@ CREATE TABLE `character_stats` (
   `characterCHASave` enum('Yes','No') NOT NULL DEFAULT 'No',
   PRIMARY KEY (`characterStatKey`),
   UNIQUE KEY `characterStatKey_UNIQUE` (`characterStatKey`),
+  UNIQUE KEY `characterID_UNIQUE` (`characterID`),
   KEY `characterID_idx` (`characterID`),
   CONSTRAINT `characterID` FOREIGN KEY (`characterID`) REFERENCES `character_basics` (`characterID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -231,6 +249,25 @@ CREATE TABLE `character_weapons` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `feats_list`
+--
+
+DROP TABLE IF EXISTS `feats_list`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `feats_list` (
+  `featID` int NOT NULL AUTO_INCREMENT,
+  `featCreatorID` int NOT NULL,
+  `featName` varchar(100) NOT NULL,
+  `featDescription` text NOT NULL,
+  PRIMARY KEY (`featID`),
+  UNIQUE KEY `featID_UNIQUE` (`featID`),
+  KEY `featCreatorID_idx` (`featCreatorID`),
+  CONSTRAINT `featCreatorID` FOREIGN KEY (`featCreatorID`) REFERENCES `user_data` (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `saved_items`
 --
 
@@ -245,7 +282,7 @@ CREATE TABLE `saved_items` (
   `itemRarity` enum('Common','Uncommon','Rare','Very Rare','Legendary') NOT NULL,
   `itemCostNum` int NOT NULL DEFAULT '0',
   `itemCostType` enum('Copper','Silver','Electrum','Gold','Platinum') NOT NULL DEFAULT 'Gold',
-  `itemAttuned` enum('True','False') DEFAULT 'False',
+  `itemAttuned` enum('True','False') NOT NULL DEFAULT 'False',
   `userID` int NOT NULL,
   PRIMARY KEY (`itemID`),
   UNIQUE KEY `itemID_UNIQUE` (`itemID`),
@@ -264,10 +301,10 @@ DROP TABLE IF EXISTS `spell_table`;
 CREATE TABLE `spell_table` (
   `spellID` int NOT NULL AUTO_INCREMENT,
   `spellName` varchar(100) NOT NULL,
-  `spellLevel` int NOT NULL,
-  `spellRange` int NOT NULL,
-  `spellEffect` text NOT NULL,
-  `spellSchool` enum('Abjuration','Conjuration','Divination','Enchantment','Evocation','Illusion','Necromancy','Transmutation') NOT NULL,
+  `spellLevel` int DEFAULT NULL,
+  `spellRange` int DEFAULT NULL,
+  `spellEffect` text,
+  `spellSchool` enum('-','Abjuration','Conjuration','Divination','Enchantment','Evocation','Illusion','Necromancy','Transmutation') DEFAULT NULL,
   `spellCreatorID` int NOT NULL,
   PRIMARY KEY (`spellID`),
   UNIQUE KEY `spellID_UNIQUE` (`spellID`),
@@ -291,7 +328,7 @@ CREATE TABLE `user_data` (
   PRIMARY KEY (`userID`),
   UNIQUE KEY `userID_UNIQUE` (`userID`),
   UNIQUE KEY `userName_UNIQUE` (`userName`)
-) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -303,4 +340,4 @@ CREATE TABLE `user_data` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-11  2:37:53
+-- Dump completed on 2024-11-11 20:48:51
