@@ -76,12 +76,41 @@ public class CharacterSheet extends javax.swing.JFrame {
         txtCharLevel = new javax.swing.JFormattedTextField();
         txtCharHP = new javax.swing.JFormattedTextField();
         txtCharAC = new javax.swing.JFormattedTextField();
+        tabProficiencies = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
         tabWeapons = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lstWeapons = new javax.swing.JList<>();
+        jLabel20 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txaWeaponsDisplay = new javax.swing.JTextArea();
+        jLabel21 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        txtWeaponName = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        txtWeaponDamage = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txtWeaponDescription = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
+        txtWeaponRange = new javax.swing.JFormattedTextField();
+        txtWeaponAttackBonus = new javax.swing.JFormattedTextField();
         tabSpells = new javax.swing.JPanel();
         tabInventory = new javax.swing.JPanel();
+        tabAdditionalNotes = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txaAdditionalNotes = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         btnCancel = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
+        chkPublic = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -337,7 +366,7 @@ public class CharacterSheet extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addContainerGap(62, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -425,20 +454,199 @@ public class CharacterSheet extends javax.swing.JFrame {
                 .addGroup(tabBasicsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         tpaneCharacterSheet.addTab("Basics", tabBasics);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 342, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 393, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout tabProficienciesLayout = new javax.swing.GroupLayout(tabProficiencies);
+        tabProficiencies.setLayout(tabProficienciesLayout);
+        tabProficienciesLayout.setHorizontalGroup(
+            tabProficienciesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabProficienciesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(386, Short.MAX_VALUE))
+        );
+        tabProficienciesLayout.setVerticalGroup(
+            tabProficienciesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabProficienciesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        tpaneCharacterSheet.addTab("Proficiencies", tabProficiencies);
+
+        lstWeapons.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(lstWeapons);
+
+        jLabel20.setText("Weapons List:");
+
+        txaWeaponsDisplay.setColumns(20);
+        txaWeaponsDisplay.setRows(25);
+        jScrollPane2.setViewportView(txaWeaponsDisplay);
+
+        jLabel21.setText("Weapon Details:");
+
+        jButton1.setText("Edit");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel21))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
+
+        jLabel22.setText("Weapon Editor:");
+
+        jLabel23.setText("Name:");
+
+        jLabel24.setText("Attack Bonus:");
+
+        jLabel25.setText("Range:");
+
+        jLabel26.setText("Damage:");
+
+        jLabel27.setText("Description:");
+
+        txtWeaponDescription.setColumns(20);
+        txtWeaponDescription.setRows(5);
+        jScrollPane4.setViewportView(txtWeaponDescription);
+
+        jButton2.setText("Add to List");
+
+        txtWeaponRange.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtWeaponRange.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtWeaponRangeFocusLost(evt);
+            }
+        });
+
+        txtWeaponAttackBonus.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtWeaponAttackBonus.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtWeaponAttackBonusFocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel27)
+                        .addComponent(jLabel22)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel25)
+                                .addComponent(jLabel26)
+                                .addComponent(jLabel23))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtWeaponName, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                    .addComponent(txtWeaponRange, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel24)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtWeaponAttackBonus, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtWeaponDamage)))
+                        .addComponent(jScrollPane4))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel22)
+                .addGap(15, 15, 15)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(txtWeaponName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel24)
+                    .addComponent(txtWeaponRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtWeaponAttackBonus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(txtWeaponDamage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addContainerGap(9, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout tabWeaponsLayout = new javax.swing.GroupLayout(tabWeapons);
         tabWeapons.setLayout(tabWeaponsLayout);
         tabWeaponsLayout.setHorizontalGroup(
             tabWeaponsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGroup(tabWeaponsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         tabWeaponsLayout.setVerticalGroup(
             tabWeaponsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
+            .addGroup(tabWeaponsLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(tabWeaponsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         tpaneCharacterSheet.addTab("Weapons", tabWeapons);
@@ -447,11 +655,11 @@ public class CharacterSheet extends javax.swing.JFrame {
         tabSpells.setLayout(tabSpellsLayout);
         tabSpellsLayout.setHorizontalGroup(
             tabSpellsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGap(0, 734, Short.MAX_VALUE)
         );
         tabSpellsLayout.setVerticalGroup(
             tabSpellsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
+            .addGap(0, 399, Short.MAX_VALUE)
         );
 
         tpaneCharacterSheet.addTab("Spells", tabSpells);
@@ -460,14 +668,56 @@ public class CharacterSheet extends javax.swing.JFrame {
         tabInventory.setLayout(tabInventoryLayout);
         tabInventoryLayout.setHorizontalGroup(
             tabInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGap(0, 734, Short.MAX_VALUE)
         );
         tabInventoryLayout.setVerticalGroup(
             tabInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
+            .addGap(0, 399, Short.MAX_VALUE)
         );
 
         tpaneCharacterSheet.addTab("Inventory", tabInventory);
+
+        txaAdditionalNotes.setColumns(20);
+        txaAdditionalNotes.setLineWrap(true);
+        txaAdditionalNotes.setRows(50);
+        txaAdditionalNotes.setWrapStyleWord(true);
+        jScrollPane3.setViewportView(txaAdditionalNotes);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout tabAdditionalNotesLayout = new javax.swing.GroupLayout(tabAdditionalNotes);
+        tabAdditionalNotes.setLayout(tabAdditionalNotesLayout);
+        tabAdditionalNotesLayout.setHorizontalGroup(
+            tabAdditionalNotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabAdditionalNotesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        tabAdditionalNotesLayout.setVerticalGroup(
+            tabAdditionalNotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabAdditionalNotesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        tpaneCharacterSheet.addTab("Additional Notes", tabAdditionalNotes);
 
         jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -487,6 +737,8 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         btnSave.setText("Save");
 
+        chkPublic.setText("Public Character");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -498,6 +750,8 @@ public class CharacterSheet extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(chkPublic)
+                .addGap(18, 18, 18)
                 .addComponent(btnCancel)
                 .addGap(18, 18, 18)
                 .addComponent(btnSave)
@@ -513,7 +767,8 @@ public class CharacterSheet extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel)
-                    .addComponent(btnSave))
+                    .addComponent(btnSave)
+                    .addComponent(chkPublic))
                 .addGap(136, 136, 136))
         );
 
@@ -556,6 +811,8 @@ public class CharacterSheet extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
             txtCharLevel.setValue(null);
+            
+            txtCharLevel.requestFocusInWindow();
         }
         else if(txtCharLevel.getText().isEmpty()) {
             txtCharLevel.setValue(null);
@@ -568,6 +825,8 @@ public class CharacterSheet extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
             txtCharHP.setValue(null);
+            
+            txtCharHP.requestFocusInWindow();
         }
         else if(txtCharHP.getText().isEmpty()) {
             txtCharHP.setValue(null);
@@ -580,6 +839,8 @@ public class CharacterSheet extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
             txtCharAC.setValue(null);
+            
+            txtCharAC.requestFocusInWindow();
         }
         else if(txtCharAC.getText().isEmpty()) {
             txtCharAC.setValue(null);
@@ -592,6 +853,8 @@ public class CharacterSheet extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
             txtCharProficiencyModifier.setValue(null);
+            
+            txtCharProficiencyModifier.requestFocusInWindow();
         }
         else if(txtCharProficiencyModifier.getText().isEmpty()) {
             txtCharProficiencyModifier.setValue(null);
@@ -604,6 +867,8 @@ public class CharacterSheet extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
             txtCharSTR.setValue(null);
+            
+            txtCharSTR.requestFocusInWindow();
         }
         else if(txtCharSTR.getText().isEmpty()) {
             txtCharSTR.setValue(null);
@@ -616,6 +881,8 @@ public class CharacterSheet extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
             txtCharDEX.setValue(null);
+            
+            txtCharDEX.requestFocusInWindow();
         }
         else if(txtCharDEX.getText().isEmpty()) {
             txtCharDEX.setValue(null);
@@ -628,6 +895,8 @@ public class CharacterSheet extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
             txtCharCON.setValue(null);
+            
+            txtCharCON.requestFocusInWindow();
         }
         else if(txtCharCON.getText().isEmpty()) {
             txtCharCON.setValue(null);
@@ -640,6 +909,8 @@ public class CharacterSheet extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
             txtCharINT.setValue(null);
+            
+            txtCharINT.requestFocusInWindow();
         }
         else if(txtCharINT.getText().isEmpty()) {
             txtCharINT.setValue(null);
@@ -653,6 +924,8 @@ public class CharacterSheet extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
             txtCharWIS.setValue(null);
+            
+            txtCharWIS.requestFocusInWindow();
         }
         else if(txtCharWIS.getText().isEmpty()) {
             txtCharWIS.setValue(null);
@@ -665,11 +938,41 @@ public class CharacterSheet extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
             txtCharCHA.setValue(null);
+            
+            txtCharCHA.requestFocusInWindow();
         }
         else if(txtCharCHA.getText().isEmpty()) {
             txtCharCHA.setValue(null);
         }
     }//GEN-LAST:event_txtCharCHAFocusLost
+
+    private void txtWeaponRangeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtWeaponRangeFocusLost
+        // TODO add your handling code here:
+        if (!txtWeaponRange.getText().matches("[0-9]+") && !txtWeaponRange.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtWeaponRange.setValue(null);
+            
+            txtWeaponRange.requestFocusInWindow();
+        }
+        else if(txtWeaponRange.getText().isEmpty()) {
+            txtWeaponRange.setValue(null);
+        }
+    }//GEN-LAST:event_txtWeaponRangeFocusLost
+
+    private void txtWeaponAttackBonusFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtWeaponAttackBonusFocusLost
+        // TODO add your handling code here:
+        if (!txtWeaponAttackBonus.getText().matches("[0-9]+") && !txtWeaponAttackBonus.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtWeaponAttackBonus.setValue(null);
+            
+            txtWeaponAttackBonus.requestFocusInWindow();
+        }
+        else if(txtWeaponAttackBonus.getText().isEmpty()) {
+            txtWeaponAttackBonus.setValue(null);
+        }
+    }//GEN-LAST:event_txtWeaponAttackBonusFocusLost
 
     /**
      * @param args the command line arguments
@@ -715,6 +1018,9 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkProficiencyINT;
     private javax.swing.JCheckBox chkProficiencySTR;
     private javax.swing.JCheckBox chkProficiencyWIS;
+    private javax.swing.JCheckBox chkPublic;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -727,6 +1033,14 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -737,17 +1051,30 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel lblSaveTotalCHA;
     private javax.swing.JLabel lblSaveTotalCON;
     private javax.swing.JLabel lblSaveTotalDEX;
     private javax.swing.JLabel lblSaveTotalINT;
     private javax.swing.JLabel lblSaveTotalSTR;
     private javax.swing.JLabel lblSaveTotalWIS;
+    private javax.swing.JList<String> lstWeapons;
+    private javax.swing.JPanel tabAdditionalNotes;
     private javax.swing.JPanel tabBasics;
     private javax.swing.JPanel tabInventory;
+    private javax.swing.JPanel tabProficiencies;
     private javax.swing.JPanel tabSpells;
     private javax.swing.JPanel tabWeapons;
     private javax.swing.JTabbedPane tpaneCharacterSheet;
+    private javax.swing.JTextArea txaAdditionalNotes;
+    private javax.swing.JTextArea txaWeaponsDisplay;
     private javax.swing.JFormattedTextField txtCharAC;
     private javax.swing.JFormattedTextField txtCharCHA;
     private javax.swing.JFormattedTextField txtCharCON;
@@ -761,5 +1088,10 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JTextField txtCharRace;
     private javax.swing.JFormattedTextField txtCharSTR;
     private javax.swing.JFormattedTextField txtCharWIS;
+    private javax.swing.JFormattedTextField txtWeaponAttackBonus;
+    private javax.swing.JTextField txtWeaponDamage;
+    private javax.swing.JTextArea txtWeaponDescription;
+    private javax.swing.JTextField txtWeaponName;
+    private javax.swing.JFormattedTextField txtWeaponRange;
     // End of variables declaration//GEN-END:variables
 }
