@@ -4,6 +4,8 @@
  */
 package dnd.character.sheet.GUIfolder;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author thoma
@@ -70,7 +72,7 @@ public class CharacterSheet extends javax.swing.JFrame {
         txtCharClass = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        txtCharProficiencyModifier = new javax.swing.JFormattedTextField();
         txtCharLevel = new javax.swing.JFormattedTextField();
         txtCharHP = new javax.swing.JFormattedTextField();
         txtCharAC = new javax.swing.JFormattedTextField();
@@ -78,6 +80,8 @@ public class CharacterSheet extends javax.swing.JFrame {
         tabSpells = new javax.swing.JPanel();
         tabInventory = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnCancel = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,16 +120,46 @@ public class CharacterSheet extends javax.swing.JFrame {
         jLabel18.setText("Save Total:");
 
         txtCharSTR.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharSTR.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharSTRFocusLost(evt);
+            }
+        });
 
         txtCharDEX.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharDEX.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharDEXFocusLost(evt);
+            }
+        });
 
         txtCharCON.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharCON.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharCONFocusLost(evt);
+            }
+        });
 
         txtCharINT.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharINT.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharINTFocusLost(evt);
+            }
+        });
 
         txtCharWIS.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharWIS.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharWISFocusLost(evt);
+            }
+        });
 
         txtCharCHA.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharCHA.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharCHAFocusLost(evt);
+            }
+        });
 
         lblSaveTotalSTR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSaveTotalSTR.setText("0");
@@ -265,13 +299,38 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         jLabel19.setText("Proficiency Modifier:");
 
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharProficiencyModifier.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharProficiencyModifier.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharProficiencyModifierFocusLost(evt);
+            }
+        });
 
         txtCharLevel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharLevel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharLevelFocusLost(evt);
+            }
+        });
+        txtCharLevel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCharLevelKeyTyped(evt);
+            }
+        });
 
         txtCharHP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharHP.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharHPFocusLost(evt);
+            }
+        });
 
         txtCharAC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharAC.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharACFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -294,7 +353,7 @@ public class CharacterSheet extends javax.swing.JFrame {
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                             .addGap(0, 0, Short.MAX_VALUE)
-                                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtCharProficiencyModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(jPanel3Layout.createSequentialGroup()
@@ -345,7 +404,7 @@ public class CharacterSheet extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCharProficiencyModifier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -414,15 +473,35 @@ public class CharacterSheet extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Character Sheet");
 
+        btnCancel.setText("Cancel");
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelMouseClicked(evt);
+            }
+        });
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
+        btnSave.setText("Save");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tpaneCharacterSheet, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(tpaneCharacterSheet, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCancel)
+                .addGap(18, 18, 18)
+                .addComponent(btnSave)
+                .addGap(22, 22, 22))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -431,7 +510,11 @@ public class CharacterSheet extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(tpaneCharacterSheet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(187, 187, 187))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancel)
+                    .addComponent(btnSave))
+                .addGap(136, 136, 136))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -442,7 +525,7 @@ public class CharacterSheet extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 485, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, Short.MAX_VALUE)
         );
 
         pack();
@@ -451,6 +534,142 @@ public class CharacterSheet extends javax.swing.JFrame {
     private void txtCharClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCharClassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCharClassActionPerformed
+
+    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+        // TODO add your handling code here:
+        new CharacterHomePage().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnCancelMouseClicked
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtCharLevelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCharLevelKeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtCharLevelKeyTyped
+
+    private void txtCharLevelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharLevelFocusLost
+        // TODO add your handling code here:
+        if (!txtCharLevel.getText().matches("[0-9]+") && !txtCharLevel.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharLevel.setValue(null);
+        }
+        else if(txtCharLevel.getText().isEmpty()) {
+            txtCharLevel.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharLevelFocusLost
+
+    private void txtCharHPFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharHPFocusLost
+        // TODO add your handling code here:
+        if (!txtCharHP.getText().matches("[0-9]+") && !txtCharHP.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharHP.setValue(null);
+        }
+        else if(txtCharHP.getText().isEmpty()) {
+            txtCharHP.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharHPFocusLost
+
+    private void txtCharACFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharACFocusLost
+        // TODO add your handling code here:
+        if (!txtCharAC.getText().matches("[0-9]+") && !txtCharAC.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharAC.setValue(null);
+        }
+        else if(txtCharAC.getText().isEmpty()) {
+            txtCharAC.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharACFocusLost
+
+    private void txtCharProficiencyModifierFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharProficiencyModifierFocusLost
+        // TODO add your handling code here:
+        if (!txtCharProficiencyModifier.getText().matches("[0-9]+") && !txtCharProficiencyModifier.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharProficiencyModifier.setValue(null);
+        }
+        else if(txtCharProficiencyModifier.getText().isEmpty()) {
+            txtCharProficiencyModifier.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharProficiencyModifierFocusLost
+
+    private void txtCharSTRFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharSTRFocusLost
+        // TODO add your handling code here:
+        if (!txtCharSTR.getText().matches("[0-9]+") && !txtCharSTR.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharSTR.setValue(null);
+        }
+        else if(txtCharSTR.getText().isEmpty()) {
+            txtCharSTR.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharSTRFocusLost
+
+    private void txtCharDEXFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharDEXFocusLost
+        // TODO add your handling code here:
+        if (!txtCharDEX.getText().matches("[0-9]+") && !txtCharDEX.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharDEX.setValue(null);
+        }
+        else if(txtCharDEX.getText().isEmpty()) {
+            txtCharDEX.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharDEXFocusLost
+
+    private void txtCharCONFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharCONFocusLost
+        // TODO add your handling code here:
+        if (!txtCharCON.getText().matches("[0-9]+") && !txtCharCON.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharCON.setValue(null);
+        }
+        else if(txtCharCON.getText().isEmpty()) {
+            txtCharCON.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharCONFocusLost
+
+    private void txtCharINTFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharINTFocusLost
+        // TODO add your handling code here:
+        if (!txtCharINT.getText().matches("[0-9]+") && !txtCharINT.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharINT.setValue(null);
+        }
+        else if(txtCharINT.getText().isEmpty()) {
+            txtCharINT.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharINTFocusLost
+
+    private void txtCharWISFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharWISFocusLost
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        if (!txtCharWIS.getText().matches("[0-9]+") && !txtCharWIS.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharWIS.setValue(null);
+        }
+        else if(txtCharWIS.getText().isEmpty()) {
+            txtCharWIS.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharWISFocusLost
+
+    private void txtCharCHAFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharCHAFocusLost
+        // TODO add your handling code here:
+        if (!txtCharCHA.getText().matches("[0-9]+") && !txtCharCHA.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharCHA.setValue(null);
+        }
+        else if(txtCharCHA.getText().isEmpty()) {
+            txtCharCHA.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharCHAFocusLost
 
     /**
      * @param args the command line arguments
@@ -488,13 +707,14 @@ public class CharacterSheet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnSave;
     private javax.swing.JCheckBox chkProficiencyCHA;
     private javax.swing.JCheckBox chkProficiencyCON;
     private javax.swing.JCheckBox chkProficiencyDEX;
     private javax.swing.JCheckBox chkProficiencyINT;
     private javax.swing.JCheckBox chkProficiencySTR;
     private javax.swing.JCheckBox chkProficiencyWIS;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -537,6 +757,7 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtCharINT;
     private javax.swing.JFormattedTextField txtCharLevel;
     private javax.swing.JTextField txtCharName;
+    private javax.swing.JFormattedTextField txtCharProficiencyModifier;
     private javax.swing.JTextField txtCharRace;
     private javax.swing.JFormattedTextField txtCharSTR;
     private javax.swing.JFormattedTextField txtCharWIS;
