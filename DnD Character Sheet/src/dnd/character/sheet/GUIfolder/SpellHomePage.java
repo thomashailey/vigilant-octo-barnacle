@@ -50,7 +50,7 @@ public class SpellHomePage extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("This is your item homepage. Here, you can see the items you have created,");
+        jLabel3.setText("This is your spell homepage. Here, you can see the spells you have created,");
 
         jLabel4.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -58,11 +58,11 @@ public class SpellHomePage extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Your Items");
+        jLabel5.setText("Your Spells");
 
         jLabel6.setFont(new java.awt.Font("Bookman Old Style", 0, 14)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Public Items");
+        jLabel6.setText("Public Spells");
 
         lstPersonalItems.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -179,7 +179,7 @@ public class SpellHomePage extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSpellCreation)
                         .addComponent(btnEditSpell)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();

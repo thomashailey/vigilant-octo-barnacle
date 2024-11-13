@@ -84,7 +84,7 @@
                       <Component id="btnEditSpell" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -105,7 +105,7 @@
           <Font name="Bookman Old Style" size="14" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="This is your item homepage. Here, you can see the items you have created,"/>
+        <Property name="text" type="java.lang.String" value="This is your spell homepage. Here, you can see the spells you have created,"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -123,7 +123,7 @@
           <Font name="Bookman Old Style" size="14" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Your Items"/>
+        <Property name="text" type="java.lang.String" value="Your Spells"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -132,7 +132,7 @@
           <Font name="Bookman Old Style" size="14" style="0"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Public Items"/>
+        <Property name="text" type="java.lang.String" value="Public Spells"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
