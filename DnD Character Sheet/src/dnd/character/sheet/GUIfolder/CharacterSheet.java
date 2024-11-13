@@ -4,6 +4,8 @@
  */
 package dnd.character.sheet.GUIfolder;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author thoma
@@ -26,21 +28,951 @@ public class CharacterSheet extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        tpaneCharacterSheet = new javax.swing.JTabbedPane();
+        tabBasics = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        chkProficiencySTR = new javax.swing.JCheckBox();
+        chkProficiencyDEX = new javax.swing.JCheckBox();
+        chkProficiencyCON = new javax.swing.JCheckBox();
+        chkProficiencyINT = new javax.swing.JCheckBox();
+        chkProficiencyWIS = new javax.swing.JCheckBox();
+        chkProficiencyCHA = new javax.swing.JCheckBox();
+        jLabel18 = new javax.swing.JLabel();
+        txtCharSTR = new javax.swing.JFormattedTextField();
+        txtCharDEX = new javax.swing.JFormattedTextField();
+        txtCharCON = new javax.swing.JFormattedTextField();
+        txtCharINT = new javax.swing.JFormattedTextField();
+        txtCharWIS = new javax.swing.JFormattedTextField();
+        txtCharCHA = new javax.swing.JFormattedTextField();
+        lblSaveTotalSTR = new javax.swing.JLabel();
+        lblSaveTotalDEX = new javax.swing.JLabel();
+        lblSaveTotalCON = new javax.swing.JLabel();
+        lblSaveTotalINT = new javax.swing.JLabel();
+        lblSaveTotalWIS = new javax.swing.JLabel();
+        lblSaveTotalCHA = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtCharName = new javax.swing.JTextField();
+        txtCharRace = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtCharClass = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        txtCharProficiencyModifier = new javax.swing.JFormattedTextField();
+        txtCharLevel = new javax.swing.JFormattedTextField();
+        txtCharHP = new javax.swing.JFormattedTextField();
+        txtCharAC = new javax.swing.JFormattedTextField();
+        tabProficiencies = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        tabWeapons = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lstWeapons = new javax.swing.JList<>();
+        jLabel20 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txaWeaponsDisplay = new javax.swing.JTextArea();
+        jLabel21 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        txtWeaponName = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        txtWeaponDamage = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        txtWeaponDescription = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
+        txtWeaponRange = new javax.swing.JFormattedTextField();
+        txtWeaponAttackBonus = new javax.swing.JFormattedTextField();
+        tabSpells = new javax.swing.JPanel();
+        tabInventory = new javax.swing.JPanel();
+        tabAdditionalNotes = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txaAdditionalNotes = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        btnCancel = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
+        chkPublic = new javax.swing.JCheckBox();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel9.setText("Stats:");
+
+        jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel16.setText("Score:");
+
+        jLabel11.setText("STR");
+
+        jLabel10.setText("DEX");
+
+        jLabel12.setText("CON");
+
+        jLabel13.setText("INT");
+
+        jLabel14.setText("WIS");
+
+        jLabel15.setText("CHA");
+
+        jLabel17.setText("Save Proficiency:");
+
+        chkProficiencySTR.setText("Proficient");
+
+        chkProficiencyDEX.setText("Proficient");
+
+        chkProficiencyCON.setText("Proficient");
+
+        chkProficiencyINT.setText("Proficient");
+
+        chkProficiencyWIS.setText("Proficient");
+
+        chkProficiencyCHA.setText("Proficient");
+
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("Save Total:");
+
+        txtCharSTR.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharSTR.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharSTRFocusLost(evt);
+            }
+        });
+
+        txtCharDEX.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharDEX.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharDEXFocusLost(evt);
+            }
+        });
+
+        txtCharCON.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharCON.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharCONFocusLost(evt);
+            }
+        });
+
+        txtCharINT.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharINT.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharINTFocusLost(evt);
+            }
+        });
+
+        txtCharWIS.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharWIS.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharWISFocusLost(evt);
+            }
+        });
+
+        txtCharCHA.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharCHA.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharCHAFocusLost(evt);
+            }
+        });
+
+        lblSaveTotalSTR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSaveTotalSTR.setText("0");
+
+        lblSaveTotalDEX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSaveTotalDEX.setText("0");
+
+        lblSaveTotalCON.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSaveTotalCON.setText("0");
+
+        lblSaveTotalINT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSaveTotalINT.setText("0");
+
+        lblSaveTotalWIS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSaveTotalWIS.setText("0");
+
+        lblSaveTotalCHA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSaveTotalCHA.setText("0");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtCharCHA, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtCharWIS, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtCharINT, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtCharCON, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtCharDEX, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtCharSTR, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(chkProficiencySTR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkProficiencyDEX)
+                            .addComponent(chkProficiencyCON)
+                            .addComponent(chkProficiencyINT)
+                            .addComponent(chkProficiencyWIS)
+                            .addComponent(chkProficiencyCHA))
+                        .addGap(46, 46, 46)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                    .addComponent(lblSaveTotalSTR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSaveTotalDEX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSaveTotalCON, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSaveTotalINT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSaveTotalWIS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblSaveTotalCHA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(chkProficiencySTR)
+                    .addComponent(txtCharSTR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSaveTotalSTR))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(chkProficiencyDEX)
+                    .addComponent(txtCharDEX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSaveTotalDEX))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(chkProficiencyCON)
+                    .addComponent(txtCharCON, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSaveTotalCON))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(chkProficiencyINT)
+                    .addComponent(txtCharINT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSaveTotalINT))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(chkProficiencyWIS)
+                    .addComponent(txtCharWIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSaveTotalWIS))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(chkProficiencyCHA)
+                    .addComponent(txtCharCHA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSaveTotalCHA))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel2.setText("Name:");
+
+        jLabel3.setText("Race:");
+
+        jLabel5.setText("Level:");
+
+        jLabel4.setText("Class:");
+
+        jLabel6.setText("AC:");
+
+        jLabel7.setText("HP:");
+
+        txtCharClass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCharClassActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Character Info:");
+
+        jLabel19.setText("Proficiency Modifier:");
+
+        txtCharProficiencyModifier.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharProficiencyModifier.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharProficiencyModifierFocusLost(evt);
+            }
+        });
+
+        txtCharLevel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharLevel.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharLevelFocusLost(evt);
+            }
+        });
+        txtCharLevel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCharLevelKeyTyped(evt);
+            }
+        });
+
+        txtCharHP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharHP.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharHPFocusLost(evt);
+            }
+        });
+
+        txtCharAC.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtCharAC.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtCharACFocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(62, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(40, 40, 40)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtCharName, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                            .addGap(0, 0, Short.MAX_VALUE)
+                                            .addComponent(txtCharProficiencyModifier, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel3Layout.createSequentialGroup()
+                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                                    .addComponent(txtCharLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(txtCharHP, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(27, 27, 27))
+                                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                                    .addComponent(txtCharRace, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(0, 0, Short.MAX_VALUE)))
+                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(txtCharClass, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(txtCharAC, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGap(15, 15, 15)))))
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCharName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtCharRace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtCharClass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addComponent(txtCharLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCharHP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCharAC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(txtCharProficiencyModifier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout tabBasicsLayout = new javax.swing.GroupLayout(tabBasics);
+        tabBasics.setLayout(tabBasicsLayout);
+        tabBasicsLayout.setHorizontalGroup(
+            tabBasicsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabBasicsLayout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        tabBasicsLayout.setVerticalGroup(
+            tabBasicsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabBasicsLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(tabBasicsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
+        );
+
+        tpaneCharacterSheet.addTab("Basics", tabBasics);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 342, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 393, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout tabProficienciesLayout = new javax.swing.GroupLayout(tabProficiencies);
+        tabProficiencies.setLayout(tabProficienciesLayout);
+        tabProficienciesLayout.setHorizontalGroup(
+            tabProficienciesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabProficienciesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(386, Short.MAX_VALUE))
+        );
+        tabProficienciesLayout.setVerticalGroup(
+            tabProficienciesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabProficienciesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        tpaneCharacterSheet.addTab("Proficiencies", tabProficiencies);
+
+        lstWeapons.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(lstWeapons);
+
+        jLabel20.setText("Weapons List:");
+
+        txaWeaponsDisplay.setColumns(20);
+        txaWeaponsDisplay.setRows(25);
+        jScrollPane2.setViewportView(txaWeaponsDisplay);
+
+        jLabel21.setText("Weapon Details:");
+
+        jButton1.setText("Edit");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel21))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
+
+        jLabel22.setText("Weapon Editor:");
+
+        jLabel23.setText("Name:");
+
+        jLabel24.setText("Attack Bonus:");
+
+        jLabel25.setText("Range:");
+
+        jLabel26.setText("Damage:");
+
+        jLabel27.setText("Description:");
+
+        txtWeaponDescription.setColumns(20);
+        txtWeaponDescription.setRows(5);
+        jScrollPane4.setViewportView(txtWeaponDescription);
+
+        jButton2.setText("Add to List");
+
+        txtWeaponRange.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtWeaponRange.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtWeaponRangeFocusLost(evt);
+            }
+        });
+
+        txtWeaponAttackBonus.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtWeaponAttackBonus.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtWeaponAttackBonusFocusLost(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel27)
+                        .addComponent(jLabel22)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel25)
+                                .addComponent(jLabel26)
+                                .addComponent(jLabel23))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtWeaponName, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                    .addComponent(txtWeaponRange, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel24)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtWeaponAttackBonus, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtWeaponDamage)))
+                        .addComponent(jScrollPane4))
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel22)
+                .addGap(15, 15, 15)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(txtWeaponName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel24)
+                    .addComponent(txtWeaponRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtWeaponAttackBonus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(txtWeaponDamage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addContainerGap(9, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout tabWeaponsLayout = new javax.swing.GroupLayout(tabWeapons);
+        tabWeapons.setLayout(tabWeaponsLayout);
+        tabWeaponsLayout.setHorizontalGroup(
+            tabWeaponsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabWeaponsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        tabWeaponsLayout.setVerticalGroup(
+            tabWeaponsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabWeaponsLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(tabWeaponsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        tpaneCharacterSheet.addTab("Weapons", tabWeapons);
+
+        javax.swing.GroupLayout tabSpellsLayout = new javax.swing.GroupLayout(tabSpells);
+        tabSpells.setLayout(tabSpellsLayout);
+        tabSpellsLayout.setHorizontalGroup(
+            tabSpellsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 734, Short.MAX_VALUE)
+        );
+        tabSpellsLayout.setVerticalGroup(
+            tabSpellsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 399, Short.MAX_VALUE)
+        );
+
+        tpaneCharacterSheet.addTab("Spells", tabSpells);
+
+        javax.swing.GroupLayout tabInventoryLayout = new javax.swing.GroupLayout(tabInventory);
+        tabInventory.setLayout(tabInventoryLayout);
+        tabInventoryLayout.setHorizontalGroup(
+            tabInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 734, Short.MAX_VALUE)
+        );
+        tabInventoryLayout.setVerticalGroup(
+            tabInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 399, Short.MAX_VALUE)
+        );
+
+        tpaneCharacterSheet.addTab("Inventory", tabInventory);
+
+        txaAdditionalNotes.setColumns(20);
+        txaAdditionalNotes.setLineWrap(true);
+        txaAdditionalNotes.setRows(50);
+        txaAdditionalNotes.setWrapStyleWord(true);
+        jScrollPane3.setViewportView(txaAdditionalNotes);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout tabAdditionalNotesLayout = new javax.swing.GroupLayout(tabAdditionalNotes);
+        tabAdditionalNotes.setLayout(tabAdditionalNotesLayout);
+        tabAdditionalNotesLayout.setHorizontalGroup(
+            tabAdditionalNotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabAdditionalNotesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        tabAdditionalNotesLayout.setVerticalGroup(
+            tabAdditionalNotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tabAdditionalNotesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        tpaneCharacterSheet.addTab("Additional Notes", tabAdditionalNotes);
+
+        jLabel1.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Character Sheet");
+
+        btnCancel.setText("Cancel");
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelMouseClicked(evt);
+            }
+        });
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
+
+        btnSave.setText("Save");
+
+        chkPublic.setText("Public Character");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tpaneCharacterSheet, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(chkPublic)
+                .addGap(18, 18, 18)
+                .addComponent(btnCancel)
+                .addGap(18, 18, 18)
+                .addComponent(btnSave)
+                .addGap(22, 22, 22))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(tpaneCharacterSheet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancel)
+                    .addComponent(btnSave)
+                    .addComponent(chkPublic))
+                .addGap(136, 136, 136))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 581, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtCharClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCharClassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCharClassActionPerformed
+
+    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+        // TODO add your handling code here:
+        new CharacterHomePage().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnCancelMouseClicked
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void txtCharLevelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCharLevelKeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtCharLevelKeyTyped
+
+    private void txtCharLevelFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharLevelFocusLost
+        // TODO add your handling code here:
+        if (!txtCharLevel.getText().matches("[0-9]+") && !txtCharLevel.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharLevel.setValue(null);
+            
+            txtCharLevel.requestFocusInWindow();
+        }
+        else if(txtCharLevel.getText().isEmpty()) {
+            txtCharLevel.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharLevelFocusLost
+
+    private void txtCharHPFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharHPFocusLost
+        // TODO add your handling code here:
+        if (!txtCharHP.getText().matches("[0-9]+") && !txtCharHP.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharHP.setValue(null);
+            
+            txtCharHP.requestFocusInWindow();
+        }
+        else if(txtCharHP.getText().isEmpty()) {
+            txtCharHP.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharHPFocusLost
+
+    private void txtCharACFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharACFocusLost
+        // TODO add your handling code here:
+        if (!txtCharAC.getText().matches("[0-9]+") && !txtCharAC.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharAC.setValue(null);
+            
+            txtCharAC.requestFocusInWindow();
+        }
+        else if(txtCharAC.getText().isEmpty()) {
+            txtCharAC.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharACFocusLost
+
+    private void txtCharProficiencyModifierFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharProficiencyModifierFocusLost
+        // TODO add your handling code here:
+        if (!txtCharProficiencyModifier.getText().matches("[0-9]+") && !txtCharProficiencyModifier.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharProficiencyModifier.setValue(null);
+            
+            txtCharProficiencyModifier.requestFocusInWindow();
+        }
+        else if(txtCharProficiencyModifier.getText().isEmpty()) {
+            txtCharProficiencyModifier.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharProficiencyModifierFocusLost
+
+    private void txtCharSTRFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharSTRFocusLost
+        // TODO add your handling code here:
+        if (!txtCharSTR.getText().matches("[0-9]+") && !txtCharSTR.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharSTR.setValue(null);
+            
+            txtCharSTR.requestFocusInWindow();
+        }
+        else if(txtCharSTR.getText().isEmpty()) {
+            txtCharSTR.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharSTRFocusLost
+
+    private void txtCharDEXFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharDEXFocusLost
+        // TODO add your handling code here:
+        if (!txtCharDEX.getText().matches("[0-9]+") && !txtCharDEX.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharDEX.setValue(null);
+            
+            txtCharDEX.requestFocusInWindow();
+        }
+        else if(txtCharDEX.getText().isEmpty()) {
+            txtCharDEX.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharDEXFocusLost
+
+    private void txtCharCONFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharCONFocusLost
+        // TODO add your handling code here:
+        if (!txtCharCON.getText().matches("[0-9]+") && !txtCharCON.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharCON.setValue(null);
+            
+            txtCharCON.requestFocusInWindow();
+        }
+        else if(txtCharCON.getText().isEmpty()) {
+            txtCharCON.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharCONFocusLost
+
+    private void txtCharINTFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharINTFocusLost
+        // TODO add your handling code here:
+        if (!txtCharINT.getText().matches("[0-9]+") && !txtCharINT.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharINT.setValue(null);
+            
+            txtCharINT.requestFocusInWindow();
+        }
+        else if(txtCharINT.getText().isEmpty()) {
+            txtCharINT.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharINTFocusLost
+
+    private void txtCharWISFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharWISFocusLost
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        if (!txtCharWIS.getText().matches("[0-9]+") && !txtCharWIS.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharWIS.setValue(null);
+            
+            txtCharWIS.requestFocusInWindow();
+        }
+        else if(txtCharWIS.getText().isEmpty()) {
+            txtCharWIS.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharWISFocusLost
+
+    private void txtCharCHAFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCharCHAFocusLost
+        // TODO add your handling code here:
+        if (!txtCharCHA.getText().matches("[0-9]+") && !txtCharCHA.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtCharCHA.setValue(null);
+            
+            txtCharCHA.requestFocusInWindow();
+        }
+        else if(txtCharCHA.getText().isEmpty()) {
+            txtCharCHA.setValue(null);
+        }
+    }//GEN-LAST:event_txtCharCHAFocusLost
+
+    private void txtWeaponRangeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtWeaponRangeFocusLost
+        // TODO add your handling code here:
+        if (!txtWeaponRange.getText().matches("[0-9]+") && !txtWeaponRange.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtWeaponRange.setValue(null);
+            
+            txtWeaponRange.requestFocusInWindow();
+        }
+        else if(txtWeaponRange.getText().isEmpty()) {
+            txtWeaponRange.setValue(null);
+        }
+    }//GEN-LAST:event_txtWeaponRangeFocusLost
+
+    private void txtWeaponAttackBonusFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtWeaponAttackBonusFocusLost
+        // TODO add your handling code here:
+        if (!txtWeaponAttackBonus.getText().matches("[0-9]+") && !txtWeaponAttackBonus.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtWeaponAttackBonus.setValue(null);
+            
+            txtWeaponAttackBonus.requestFocusInWindow();
+        }
+        else if(txtWeaponAttackBonus.getText().isEmpty()) {
+            txtWeaponAttackBonus.setValue(null);
+        }
+    }//GEN-LAST:event_txtWeaponAttackBonusFocusLost
 
     /**
      * @param args the command line arguments
@@ -78,5 +1010,88 @@ public class CharacterSheet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnSave;
+    private javax.swing.JCheckBox chkProficiencyCHA;
+    private javax.swing.JCheckBox chkProficiencyCON;
+    private javax.swing.JCheckBox chkProficiencyDEX;
+    private javax.swing.JCheckBox chkProficiencyINT;
+    private javax.swing.JCheckBox chkProficiencySTR;
+    private javax.swing.JCheckBox chkProficiencyWIS;
+    private javax.swing.JCheckBox chkPublic;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JLabel lblSaveTotalCHA;
+    private javax.swing.JLabel lblSaveTotalCON;
+    private javax.swing.JLabel lblSaveTotalDEX;
+    private javax.swing.JLabel lblSaveTotalINT;
+    private javax.swing.JLabel lblSaveTotalSTR;
+    private javax.swing.JLabel lblSaveTotalWIS;
+    private javax.swing.JList<String> lstWeapons;
+    private javax.swing.JPanel tabAdditionalNotes;
+    private javax.swing.JPanel tabBasics;
+    private javax.swing.JPanel tabInventory;
+    private javax.swing.JPanel tabProficiencies;
+    private javax.swing.JPanel tabSpells;
+    private javax.swing.JPanel tabWeapons;
+    private javax.swing.JTabbedPane tpaneCharacterSheet;
+    private javax.swing.JTextArea txaAdditionalNotes;
+    private javax.swing.JTextArea txaWeaponsDisplay;
+    private javax.swing.JFormattedTextField txtCharAC;
+    private javax.swing.JFormattedTextField txtCharCHA;
+    private javax.swing.JFormattedTextField txtCharCON;
+    private javax.swing.JTextField txtCharClass;
+    private javax.swing.JFormattedTextField txtCharDEX;
+    private javax.swing.JFormattedTextField txtCharHP;
+    private javax.swing.JFormattedTextField txtCharINT;
+    private javax.swing.JFormattedTextField txtCharLevel;
+    private javax.swing.JTextField txtCharName;
+    private javax.swing.JFormattedTextField txtCharProficiencyModifier;
+    private javax.swing.JTextField txtCharRace;
+    private javax.swing.JFormattedTextField txtCharSTR;
+    private javax.swing.JFormattedTextField txtCharWIS;
+    private javax.swing.JFormattedTextField txtWeaponAttackBonus;
+    private javax.swing.JTextField txtWeaponDamage;
+    private javax.swing.JTextArea txtWeaponDescription;
+    private javax.swing.JTextField txtWeaponName;
+    private javax.swing.JFormattedTextField txtWeaponRange;
     // End of variables declaration//GEN-END:variables
 }
