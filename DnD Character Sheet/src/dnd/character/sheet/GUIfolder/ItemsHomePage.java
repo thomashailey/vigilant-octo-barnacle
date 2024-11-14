@@ -231,7 +231,6 @@ public class ItemsHomePage extends javax.swing.JFrame {
     private void btnItemCreationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnItemCreationMouseClicked
         // TODO add your handling code here:
         new ItemCreation().setVisible(true);
-        setVisible(false);
     }//GEN-LAST:event_btnItemCreationMouseClicked
 
     /**

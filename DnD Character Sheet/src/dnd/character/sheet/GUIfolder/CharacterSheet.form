@@ -1526,10 +1526,10 @@
                                   <Component id="jScrollPane12" alignment="0" min="-2" pref="209" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnEquipWeapon" min="-2" pref="78" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="btnEquipWeapon" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btnWeaponsRefresh" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel20" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
@@ -1537,11 +1537,15 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jScrollPane2" pref="369" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel21" min="-2" pref="96" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <Component id="jScrollPane2" pref="369" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="btnWeaponsEdit" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -1569,6 +1573,7 @@
                                   <Component id="chkUserWeaponsFilter" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnWeaponsRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnWeaponsEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="93" max="32767" attributes="0"/>
                           </Group>
@@ -1681,6 +1686,14 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Filters:"/>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="btnWeaponsEdit">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Edit"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnWeaponsEditMouseClicked"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>

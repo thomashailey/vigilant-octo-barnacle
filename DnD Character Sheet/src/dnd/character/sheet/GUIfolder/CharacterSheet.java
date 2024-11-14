@@ -158,6 +158,7 @@ public class CharacterSheet extends javax.swing.JFrame {
         chkPublicWeaponsFilter = new javax.swing.JCheckBox();
         btnWeaponsRefresh = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
+        btnWeaponsEdit = new javax.swing.JButton();
         tabSpells = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
@@ -992,6 +993,13 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         jLabel23.setText("Filters:");
 
+        btnWeaponsEdit.setText("Edit");
+        btnWeaponsEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnWeaponsEditMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -1008,19 +1016,22 @@ public class CharacterSheet extends javax.swing.JFrame {
                         .addComponent(chkPublicWeaponsFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(btnEquipWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(btnEquipWeapon)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnWeaponsRefresh))
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnWeaponsEdit)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -1042,7 +1053,8 @@ public class CharacterSheet extends javax.swing.JFrame {
                     .addComponent(chkPublicWeaponsFilter)
                     .addComponent(chkUserWeaponsFilter)
                     .addComponent(btnWeaponsRefresh)
-                    .addComponent(jLabel23))
+                    .addComponent(jLabel23)
+                    .addComponent(btnWeaponsEdit))
                 .addContainerGap(93, Short.MAX_VALUE))
         );
 
@@ -1738,6 +1750,11 @@ public class CharacterSheet extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Under Construction", "Notice", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnSaveMouseClicked
 
+    private void btnWeaponsEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnWeaponsEditMouseClicked
+        // TODO add your handling code here:
+        new ItemCreation().setVisible(true);
+    }//GEN-LAST:event_btnWeaponsEditMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1785,6 +1802,7 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSpellEquip;
     private javax.swing.JButton btnSpellListRefresh;
+    private javax.swing.JButton btnWeaponsEdit;
     private javax.swing.JButton btnWeaponsRefresh;
     private javax.swing.JComboBox<String> cboxAcrobatics;
     private javax.swing.JComboBox<String> cboxAnimalHandling;
