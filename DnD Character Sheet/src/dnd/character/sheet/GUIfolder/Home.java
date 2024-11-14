@@ -88,6 +88,11 @@ public class Home extends javax.swing.JFrame {
         });
 
         btnSignOut.setText("Sign Out");
+        btnSignOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSignOutMouseClicked(evt);
+            }
+        });
 
         btnItems.setText("Items");
         btnItems.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -173,6 +178,12 @@ public class Home extends javax.swing.JFrame {
         new ItemsHomePage().setVisible(true);
         
     }//GEN-LAST:event_btnItemsMouseClicked
+
+    private void btnSignOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignOutMouseClicked
+        // TODO add your handling code here:
+        new UserAuth().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSignOutMouseClicked
 
     /**
      * @param args the command line arguments

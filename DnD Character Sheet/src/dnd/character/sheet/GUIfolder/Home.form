@@ -152,6 +152,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Sign Out"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnSignOutMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnItems">
       <Properties>
