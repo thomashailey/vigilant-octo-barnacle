@@ -67,6 +67,11 @@ public class ItemCreation extends javax.swing.JFrame {
         jScrollPane4.setViewportView(txtItemDescription);
 
         btnSubmitItem.setText("Submit");
+        btnSubmitItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSubmitItemMouseClicked(evt);
+            }
+        });
 
         chkPublicItem.setText("Public Item");
         chkPublicItem.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +93,11 @@ public class ItemCreation extends javax.swing.JFrame {
         cboxItemType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         btnCancel.setText("Cancel");
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -111,15 +121,14 @@ public class ItemCreation extends javax.swing.JFrame {
                                 .addComponent(chkPublicItem))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                                        .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(jLabel81, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addComponent(jLabel23)
-                                        .addGap(18, 18, 18)))
+                                        .addGap(18, 18, 18))
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel81, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtItemName)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
@@ -182,7 +191,7 @@ public class ItemCreation extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,6 +209,17 @@ public class ItemCreation extends javax.swing.JFrame {
     private void chkPublicItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPublicItemActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkPublicItemActionPerformed
+
+    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+        // TODO add your handling code here:
+        new ItemsHomePage().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCancelMouseClicked
+
+    private void btnSubmitItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitItemMouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Under Construction", "Notice", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnSubmitItemMouseClicked
 
     /**
      * @param args the command line arguments

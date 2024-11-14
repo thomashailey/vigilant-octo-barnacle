@@ -65,6 +65,11 @@ public class SpellCreation extends javax.swing.JFrame {
         jScrollPane10.setViewportView(txtSpellEffect);
 
         btnSubmitSpell.setText("Submit");
+        btnSubmitSpell.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSubmitSpellMouseClicked(evt);
+            }
+        });
 
         txtSpellRange.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         txtSpellRange.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -87,6 +92,11 @@ public class SpellCreation extends javax.swing.JFrame {
         });
 
         btnCancel.setText("Cancel");
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -189,6 +199,17 @@ public class SpellCreation extends javax.swing.JFrame {
     private void chkPublicSpellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPublicSpellActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_chkPublicSpellActionPerformed
+
+    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+        // TODO add your handling code here:
+        new SpellHomePage().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCancelMouseClicked
+
+    private void btnSubmitSpellMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitSpellMouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Under Construction", "Notice", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnSubmitSpellMouseClicked
 
     /**
      * @param args the command line arguments

@@ -83,11 +83,6 @@ public class SpellHomePage extends javax.swing.JFrame {
                 btnHomeMouseClicked(evt);
             }
         });
-        btnHome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHomeActionPerformed(evt);
-            }
-        });
 
         btnRefreshLists.setText("Refresh");
         btnRefreshLists.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -203,10 +198,6 @@ public class SpellHomePage extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btnHomeMouseClicked
 
-    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnHomeActionPerformed
-
     private void btnRefreshListsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshListsMouseClicked
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Under Construction", "Notice", JOptionPane.INFORMATION_MESSAGE);
@@ -228,6 +219,7 @@ public class SpellHomePage extends javax.swing.JFrame {
 
     private void btnEditSpellMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditSpellMouseClicked
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Under Construction", "Notice", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnEditSpellMouseClicked
 
     private void btnEditSpellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditSpellActionPerformed
