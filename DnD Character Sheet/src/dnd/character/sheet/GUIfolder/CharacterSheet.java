@@ -140,6 +140,8 @@ public class CharacterSheet extends javax.swing.JFrame {
         jScrollPane8 = new javax.swing.JScrollPane();
         txaLanguageDetails = new javax.swing.JTextArea();
         btnEditLanguage = new javax.swing.JButton();
+        btnRemoveLanguage = new javax.swing.JButton();
+        btnRefreshLanguage = new javax.swing.JButton();
         tabWeapons = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -148,64 +150,30 @@ public class CharacterSheet extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txaWeaponsDisplay = new javax.swing.JTextArea();
         jLabel21 = new javax.swing.JLabel();
-        btnEditWeapon = new javax.swing.JButton();
         btnEquipWeapon = new javax.swing.JButton();
-        btnFilterWeaponUserID = new javax.swing.JButton();
-        btnFilterWeaponsAllWeapons = new javax.swing.JButton();
         jLabel83 = new javax.swing.JLabel();
         jScrollPane12 = new javax.swing.JScrollPane();
         lstAvailableWeapons = new javax.swing.JList<>();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
+        chkUserWeaponsFilter = new javax.swing.JCheckBox();
+        chkPublicWeaponsFilter = new javax.swing.JCheckBox();
+        btnWeaponsRefresh = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
-        txtWeaponName = new javax.swing.JTextField();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        txtWeaponDamage = new javax.swing.JTextField();
-        jLabel27 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        txtWeaponDescription = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
-        txtWeaponRange = new javax.swing.JFormattedTextField();
-        txtWeaponAttackBonus = new javax.swing.JFormattedTextField();
-        chkPublicSpell1 = new javax.swing.JCheckBox();
-        jLabel80 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel81 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jCheckBox1 = new javax.swing.JCheckBox();
         tabSpells = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         lstCharSpells = new javax.swing.JList<>();
         jLabel58 = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
         txaSpellDetails = new javax.swing.JTextArea();
         jLabel59 = new javax.swing.JLabel();
-        btnEditSpell = new javax.swing.JButton();
         jScrollPane11 = new javax.swing.JScrollPane();
         lstAvailableSpells = new javax.swing.JList<>();
         jLabel78 = new javax.swing.JLabel();
         btnSpellEquip = new javax.swing.JButton();
-        btnFilterSpellsAllSpells = new javax.swing.JButton();
-        btnFilterSpellsUserID = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel60 = new javax.swing.JLabel();
-        jLabel61 = new javax.swing.JLabel();
-        txtSpellName = new javax.swing.JTextField();
-        jLabel64 = new javax.swing.JLabel();
-        jLabel65 = new javax.swing.JLabel();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        txtSpellEffect = new javax.swing.JTextArea();
-        btnSubmitSpell = new javax.swing.JButton();
-        txtSpellSaveDC1 = new javax.swing.JFormattedTextField();
-        jLabel66 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
-        jLabel79 = new javax.swing.JLabel();
-        cboxSpellSchool = new javax.swing.JComboBox<>();
-        chkPublicSpell = new javax.swing.JCheckBox();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jLabel63 = new javax.swing.JLabel();
         txtSpellSaveDC = new javax.swing.JFormattedTextField();
@@ -259,19 +227,26 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         jLabel15.setText("CHA");
 
+        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel17.setText("Save Proficiency:");
 
         chkProficiencySTR.setText("Proficient");
+        chkProficiencySTR.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         chkProficiencyDEX.setText("Proficient");
+        chkProficiencyDEX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         chkProficiencyCON.setText("Proficient");
+        chkProficiencyCON.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         chkProficiencyINT.setText("Proficient");
+        chkProficiencyINT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         chkProficiencyWIS.setText("Proficient");
+        chkProficiencyWIS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         chkProficiencyCHA.setText("Proficient");
+        chkProficiencyCHA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Save Total:");
@@ -362,21 +337,16 @@ public class CharacterSheet extends javax.swing.JFrame {
                         .addComponent(txtCharSTR, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(chkProficiencySTR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chkProficiencyDEX)
-                            .addComponent(chkProficiencyCON)
-                            .addComponent(chkProficiencyINT)
-                            .addComponent(chkProficiencyWIS)
-                            .addComponent(chkProficiencyCHA))
-                        .addGap(46, 46, 46)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 64, Short.MAX_VALUE)
+                    .addComponent(chkProficiencyCON, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                    .addComponent(chkProficiencySTR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(chkProficiencyDEX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(chkProficiencyINT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(chkProficiencyWIS, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(chkProficiencyCHA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
                     .addComponent(lblSaveTotalSTR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblSaveTotalDEX, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblSaveTotalCON, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -522,16 +492,16 @@ public class CharacterSheet extends javax.swing.JFrame {
                                                 .addComponent(txtCharHP, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                                                 .addGap(27, 27, 27))
                                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(txtCharRace, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                                                .addComponent(txtCharRace, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                                                 .addGap(28, 28, 28)
                                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(23, 23, 23)))
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtCharClass, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                            .addComponent(txtCharClass, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                                             .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(txtCharAC, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))))
+                                                .addComponent(txtCharAC, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)))))
                                 .addGap(15, 15, 15))))
                     .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -590,9 +560,9 @@ public class CharacterSheet extends javax.swing.JFrame {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel28)
-                .addGap(10, 10, 10)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         javax.swing.GroupLayout tabBasicsLayout = new javax.swing.GroupLayout(tabBasics);
@@ -605,31 +575,32 @@ public class CharacterSheet extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         tabBasicsLayout.setVerticalGroup(
             tabBasicsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabBasicsLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addGroup(tabBasicsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabBasicsLayout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(210, Short.MAX_VALUE))
+                .addGroup(tabBasicsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(tabBasicsLayout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 44, Short.MAX_VALUE))
         );
 
         tpaneCharacterSheet.addTab("Basics", tabBasics);
 
         jLabel29.setText("Skill Proficiencies:");
 
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel30.setText("STR");
 
         jLabel31.setText("Athletics");
 
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel32.setText("DEX");
 
         jLabel33.setText("Acrobatics");
@@ -638,6 +609,7 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         jLabel35.setText("Stealth");
 
+        jLabel36.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel36.setText("INT");
 
         jLabel37.setText("Arcana");
@@ -668,6 +640,7 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         cboxReligion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabel42.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel42.setText("WIS");
 
         jLabel43.setText("Animal Handling");
@@ -680,6 +653,7 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         jLabel47.setText("Survival");
 
+        jLabel48.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel48.setText("CHA");
 
         jLabel49.setText("Deception");
@@ -719,7 +693,6 @@ public class CharacterSheet extends javax.swing.JFrame {
                     .addComponent(jLabel32)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel30)
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -743,7 +716,8 @@ public class CharacterSheet extends javax.swing.JFrame {
                                     .addComponent(cboxAthletics, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cboxAcrobatics, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cboxSleightOfHand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel36))
+                            .addComponent(jLabel36)
+                            .addComponent(jLabel30))
                         .addGap(35, 35, 35)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel48)
@@ -844,10 +818,10 @@ public class CharacterSheet extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel41)
                     .addComponent(cboxReligion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
-        jLabel53.setText("Languages:");
+        jLabel53.setText("Language:");
 
         jLabel54.setText("Name:");
 
@@ -857,9 +831,9 @@ public class CharacterSheet extends javax.swing.JFrame {
         txaLanguageDescription.setRows(5);
         jScrollPane6.setViewportView(txaLanguageDescription);
 
-        btnAddLanguage.setText("Add Language");
+        btnAddLanguage.setText("Add");
 
-        jLabel56.setText("Languages List:");
+        jLabel56.setText("Character Languages:");
 
         lstLanguages.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -868,13 +842,18 @@ public class CharacterSheet extends javax.swing.JFrame {
         });
         jScrollPane7.setViewportView(lstLanguages);
 
-        jLabel57.setText("Details:");
+        jLabel57.setText("Language Details:");
 
+        txaLanguageDetails.setEditable(false);
         txaLanguageDetails.setColumns(20);
         txaLanguageDetails.setRows(5);
         jScrollPane8.setViewportView(txaLanguageDetails);
 
-        btnEditLanguage.setText("Edit Language");
+        btnEditLanguage.setText("Edit");
+
+        btnRemoveLanguage.setText("Remove");
+
+        btnRefreshLanguage.setText("Refresh");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -891,21 +870,21 @@ public class CharacterSheet extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtLanguageName)
-                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)))
+                            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)))
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jLabel56)
-                        .addGap(49, 49, 49)
-                        .addComponent(jLabel57)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAddLanguage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEditLanguage, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel56)
+                            .addComponent(btnRefreshLanguage)
+                            .addComponent(jScrollPane7))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                .addComponent(btnRemoveLanguage)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnEditLanguage))
+                            .addComponent(btnAddLanguage, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel57))))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -932,7 +911,10 @@ public class CharacterSheet extends javax.swing.JFrame {
                     .addComponent(jScrollPane8)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEditLanguage)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEditLanguage)
+                    .addComponent(btnRemoveLanguage)
+                    .addComponent(btnRefreshLanguage))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -966,21 +948,16 @@ public class CharacterSheet extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(lstCharWeapons);
 
-        jLabel20.setText("Weapon List:");
+        jLabel20.setText("Character Weapons List:");
 
+        txaWeaponsDisplay.setEditable(false);
         txaWeaponsDisplay.setColumns(20);
         txaWeaponsDisplay.setRows(25);
         jScrollPane2.setViewportView(txaWeaponsDisplay);
 
         jLabel21.setText("Weapon Details:");
 
-        btnEditWeapon.setText("Edit");
-
         btnEquipWeapon.setText("Equip");
-
-        btnFilterWeaponUserID.setText("User Weapons");
-
-        btnFilterWeaponsAllWeapons.setText("Public Weapons");
 
         jLabel83.setText("Available Weapons:");
 
@@ -991,36 +968,45 @@ public class CharacterSheet extends javax.swing.JFrame {
         });
         jScrollPane12.setViewportView(lstAvailableWeapons);
 
+        chkUserWeaponsFilter.setText("User Made");
+
+        chkPublicWeaponsFilter.setText("Public");
+
+        btnWeaponsRefresh.setText("Refresh");
+
+        jLabel23.setText("Filters:");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel83)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(chkUserWeaponsFilter)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chkPublicWeaponsFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane12)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel83)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(btnEquipWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFilterWeaponUserID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFilterWeaponsAllWeapons)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditWeapon))))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addComponent(btnEquipWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(59, 59, 59)
+                            .addComponent(btnWeaponsRefresh))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1028,156 +1014,21 @@ public class CharacterSheet extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(jLabel21))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel83)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEditWeapon)
-                    .addComponent(btnEquipWeapon)
-                    .addComponent(btnFilterWeaponsAllWeapons)
-                    .addComponent(btnFilterWeaponUserID))
-                .addContainerGap())
-        );
-
-        jLabel22.setText("Weapon Editor:");
-
-        jLabel23.setText("Name:");
-
-        jLabel24.setText("Attack Bonus:");
-
-        jLabel25.setText("Range:");
-
-        jLabel26.setText("Damage:");
-
-        jLabel27.setText("Description:");
-
-        txtWeaponDescription.setColumns(20);
-        txtWeaponDescription.setRows(5);
-        jScrollPane4.setViewportView(txtWeaponDescription);
-
-        jButton2.setText("Submit");
-
-        txtWeaponRange.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtWeaponRange.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtWeaponRangeFocusLost(evt);
-            }
-        });
-
-        txtWeaponAttackBonus.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtWeaponAttackBonus.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtWeaponAttackBonusFocusLost(evt);
-            }
-        });
-
-        chkPublicSpell1.setText("Public Weapon");
-        chkPublicSpell1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkPublicSpell1ActionPerformed(evt);
-            }
-        });
-
-        jLabel80.setText("Rarity:");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel81.setText("Cost:");
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jCheckBox1.setText("Attunement Required");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addComponent(jLabel22)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(chkPublicSpell1))
-                        .addComponent(jScrollPane4)
-                        .addComponent(jLabel27)
-                        .addComponent(jCheckBox1, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(11, 11, 11))
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(6, 6, 6))
-                                .addComponent(jLabel23)
-                                .addComponent(jLabel80))
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel81, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(txtWeaponDamage)
-                                .addGroup(jPanel5Layout.createSequentialGroup()
-                                    .addComponent(txtWeaponRange, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtWeaponAttackBonus, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE))
-                                .addComponent(txtWeaponName))))
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel22)
-                    .addComponent(chkPublicSpell1))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(txtWeaponName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel24)
-                    .addComponent(txtWeaponRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtWeaponAttackBonus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(txtWeaponDamage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel80)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel81)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jCheckBox1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel27)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel83))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addContainerGap())
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEquipWeapon)
+                    .addComponent(chkPublicWeaponsFilter)
+                    .addComponent(chkUserWeaponsFilter)
+                    .addComponent(btnWeaponsRefresh)
+                    .addComponent(jLabel23))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout tabWeaponsLayout = new javax.swing.GroupLayout(tabWeapons);
@@ -1186,22 +1037,20 @@ public class CharacterSheet extends javax.swing.JFrame {
             tabWeaponsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabWeaponsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         tabWeaponsLayout.setVerticalGroup(
             tabWeaponsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabWeaponsLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(tabWeaponsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         tpaneCharacterSheet.addTab("Weapons", tabWeapons);
+
+        jLabel22.setText("Filters:");
 
         lstCharSpells.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -1212,13 +1061,12 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         jLabel58.setText("Character Spell List:");
 
+        txaSpellDetails.setEditable(false);
         txaSpellDetails.setColumns(20);
         txaSpellDetails.setRows(25);
         jScrollPane9.setViewportView(txaSpellDetails);
 
         jLabel59.setText("Spell Details:");
-
-        btnEditSpell.setText("Edit");
 
         lstAvailableSpells.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -1231,9 +1079,11 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         btnSpellEquip.setText("Equip");
 
-        btnFilterSpellsAllSpells.setText("Public Spells");
+        jCheckBox1.setText("Public");
 
-        btnFilterSpellsUserID.setText("User Spells");
+        jCheckBox2.setText("User Made");
+
+        jButton1.setText("Refresh");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1242,26 +1092,30 @@ public class CharacterSheet extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel78)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel58, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane3)
-                            .addComponent(jScrollPane11)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel78)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane9)))
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel22)
+                        .addGap(29, 29, 29)
+                        .addComponent(jCheckBox2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(btnSpellEquip, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFilterSpellsUserID, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnFilterSpellsAllSpells, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditSpell, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSpellEquip)
+                        .addGap(87, 87, 87)
+                        .addComponent(jButton1))
+                    .addComponent(jScrollPane3)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel58, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane9)
+                    .addComponent(jLabel59, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -1270,131 +1124,21 @@ public class CharacterSheet extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel58)
-                    .addComponent(jLabel59))
+                    .addComponent(jLabel59)
+                    .addComponent(jLabel78))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel78)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane11))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEditSpell)
                     .addComponent(btnSpellEquip)
-                    .addComponent(btnFilterSpellsAllSpells)
-                    .addComponent(btnFilterSpellsUserID))
-                .addContainerGap())
-        );
-
-        jLabel60.setText("Spell Editor:");
-
-        jLabel61.setText("Name:");
-
-        jLabel64.setText("Range:");
-
-        jLabel65.setText("Effect:");
-
-        txtSpellEffect.setColumns(20);
-        txtSpellEffect.setRows(5);
-        jScrollPane10.setViewportView(txtSpellEffect);
-
-        btnSubmitSpell.setText("Submit");
-
-        txtSpellSaveDC1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        txtSpellSaveDC1.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                txtSpellSaveDC1FocusLost(evt);
-            }
-        });
-
-        jLabel66.setText("Level:");
-
-        jLabel79.setText("School:");
-
-        cboxSpellSchool.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        chkPublicSpell.setText("Public Spell");
-        chkPublicSpell.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chkPublicSpellActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel60)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(238, 238, 238)
-                                .addComponent(btnSubmitSpell, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(jLabel65)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(chkPublicSpell))
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel61)
-                                            .addComponent(jLabel66))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                                .addComponent(jFormattedTextField1)
-                                                .addGap(40, 40, 40)
-                                                .addComponent(jLabel64)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(txtSpellSaveDC1))
-                                            .addComponent(txtSpellName)))
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(jLabel79)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cboxSpellSchool, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                        .addGap(19, 19, 19))))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel60)
-                    .addComponent(chkPublicSpell))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel61)
-                    .addComponent(txtSpellName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel66)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel64)
-                    .addComponent(txtSpellSaveDC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel79)
-                    .addComponent(cboxSpellSchool, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel65)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addComponent(btnSubmitSpell)
-                .addContainerGap())
+                    .addComponent(jButton1)
+                    .addComponent(jLabel22)
+                    .addComponent(jCheckBox1)
+                    .addComponent(jCheckBox2))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jLabel63.setText("Save DC:");
@@ -1423,16 +1167,18 @@ public class CharacterSheet extends javax.swing.JFrame {
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel67)
-                    .addComponent(jLabel63))
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel62))
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel67)
+                        .addComponent(jLabel63)))
                 .addGap(18, 18, 18)
-                .addComponent(txtSpellSaveDC)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel62)
-                .addGap(18, 18, 18)
-                .addComponent(txtSpellAttackBonus)
-                .addGap(34, 34, 34))
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtSpellSaveDC, javax.swing.GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+                    .addComponent(txtSpellAttackBonus))
+                .addContainerGap())
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1442,7 +1188,9 @@ public class CharacterSheet extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel63)
-                    .addComponent(txtSpellSaveDC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSpellSaveDC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel62)
                     .addComponent(txtSpellAttackBonus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1509,44 +1257,44 @@ public class CharacterSheet extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel75)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSpellSlotLevel7, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                .addComponent(txtSpellSlotLevel7, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createSequentialGroup()
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel68)
                                     .addComponent(jLabel72))
                                 .addGap(12, 12, 12)
                                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSpellSlotLevel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                    .addComponent(txtSpellSlotLevel4, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))))
+                                    .addComponent(txtSpellSlotLevel1)
+                                    .addComponent(txtSpellSlotLevel4))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel76)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSpellSlotLevel8, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                .addComponent(txtSpellSlotLevel8, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel69)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSpellSlotLevel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                .addComponent(txtSpellSlotLevel2))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel73)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSpellSlotLevel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
+                                .addComponent(txtSpellSlotLevel5)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel71)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSpellSlotLevel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                .addComponent(txtSpellSlotLevel3, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel74)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSpellSlotLevel6, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                                .addComponent(txtSpellSlotLevel6))
                             .addGroup(jPanel12Layout.createSequentialGroup()
                                 .addComponent(jLabel77)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSpellSlotLevel9, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))))
-                .addGap(32, 32, 32))
+                                .addComponent(txtSpellSlotLevel9)))))
+                .addGap(22, 22, 22))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1588,31 +1336,22 @@ public class CharacterSheet extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addGroup(tabSpellsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(tabSpellsLayout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(29, 29, 29))
-                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tabSpellsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         tabSpellsLayout.setVerticalGroup(
             tabSpellsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabSpellsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tabSpellsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabSpellsLayout.createSequentialGroup()
-                        .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(6, 6, 6))
-                    .addGroup(tabSpellsLayout.createSequentialGroup()
-                        .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(3, 3, 3)))
-                .addContainerGap())
+                .addGroup(tabSpellsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tpaneCharacterSheet.addTab("Spells", tabSpells);
@@ -1621,11 +1360,11 @@ public class CharacterSheet extends javax.swing.JFrame {
         tabInventory.setLayout(tabInventoryLayout);
         tabInventoryLayout.setHorizontalGroup(
             tabInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
+            .addGap(0, 832, Short.MAX_VALUE)
         );
         tabInventoryLayout.setVerticalGroup(
             tabInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 504, Short.MAX_VALUE)
+            .addGap(0, 496, Short.MAX_VALUE)
         );
 
         tpaneCharacterSheet.addTab("Inventory", tabInventory);
@@ -1662,9 +1401,9 @@ public class CharacterSheet extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(492, 492, 492)
                         .addComponent(chkPublic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(19, 19, 19)))
                 .addContainerGap())
@@ -1672,29 +1411,29 @@ public class CharacterSheet extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(tpaneCharacterSheet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tpaneCharacterSheet, javax.swing.GroupLayout.PREFERRED_SIZE, 531, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel)
                     .addComponent(btnSave)
                     .addComponent(chkPublic))
-                .addGap(250, 250, 250))
+                .addGap(37, 37, 37))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 662, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 13, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -1860,34 +1599,6 @@ public class CharacterSheet extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtCharCHAFocusLost
 
-    private void txtWeaponRangeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtWeaponRangeFocusLost
-        // TODO add your handling code here:
-        if (!txtWeaponRange.getText().matches("[0-9]+") && !txtWeaponRange.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
-            txtWeaponRange.setValue(null);
-            
-            txtWeaponRange.requestFocusInWindow();
-        }
-        else if(txtWeaponRange.getText().isEmpty()) {
-            txtWeaponRange.setValue(null);
-        }
-    }//GEN-LAST:event_txtWeaponRangeFocusLost
-
-    private void txtWeaponAttackBonusFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtWeaponAttackBonusFocusLost
-        // TODO add your handling code here:
-        if (!txtWeaponAttackBonus.getText().matches("[0-9]+") && !txtWeaponAttackBonus.getText().isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
-            txtWeaponAttackBonus.setValue(null);
-            
-            txtWeaponAttackBonus.requestFocusInWindow();
-        }
-        else if(txtWeaponAttackBonus.getText().isEmpty()) {
-            txtWeaponAttackBonus.setValue(null);
-        }
-    }//GEN-LAST:event_txtWeaponAttackBonusFocusLost
-
     private void txtSpellSaveDCFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSpellSaveDCFocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSpellSaveDCFocusLost
@@ -1896,10 +1607,6 @@ public class CharacterSheet extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSpellAttackBonusFocusLost
 
-    private void txtSpellSaveDC1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSpellSaveDC1FocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSpellSaveDC1FocusLost
-
     private void txtSpellSlotLevel1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSpellSlotLevel1FocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSpellSlotLevel1FocusLost
@@ -1907,14 +1614,6 @@ public class CharacterSheet extends javax.swing.JFrame {
     private void txtSpellSlotLevel2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSpellSlotLevel2FocusLost
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSpellSlotLevel2FocusLost
-
-    private void chkPublicSpellActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPublicSpellActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkPublicSpellActionPerformed
-
-    private void chkPublicSpell1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chkPublicSpell1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chkPublicSpell1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1955,16 +1654,12 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JButton btnAddLanguage;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnEditLanguage;
-    private javax.swing.JButton btnEditSpell;
-    private javax.swing.JButton btnEditWeapon;
     private javax.swing.JButton btnEquipWeapon;
-    private javax.swing.JButton btnFilterSpellsAllSpells;
-    private javax.swing.JButton btnFilterSpellsUserID;
-    private javax.swing.JButton btnFilterWeaponUserID;
-    private javax.swing.JButton btnFilterWeaponsAllWeapons;
+    private javax.swing.JButton btnRefreshLanguage;
+    private javax.swing.JButton btnRemoveLanguage;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSpellEquip;
-    private javax.swing.JButton btnSubmitSpell;
+    private javax.swing.JButton btnWeaponsRefresh;
     private javax.swing.JComboBox<String> cboxAcrobatics;
     private javax.swing.JComboBox<String> cboxAnimalHandling;
     private javax.swing.JComboBox<String> cboxArcana;
@@ -1981,7 +1676,6 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cboxPersuasion;
     private javax.swing.JComboBox<String> cboxReligion;
     private javax.swing.JComboBox<String> cboxSleightOfHand;
-    private javax.swing.JComboBox<String> cboxSpellSchool;
     private javax.swing.JComboBox<String> cboxStealth;
     private javax.swing.JComboBox<String> cboxSurvival;
     private javax.swing.JCheckBox chkProficiencyCHA;
@@ -1991,14 +1685,11 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkProficiencySTR;
     private javax.swing.JCheckBox chkProficiencyWIS;
     private javax.swing.JCheckBox chkPublic;
-    private javax.swing.JCheckBox chkPublicSpell;
-    private javax.swing.JCheckBox chkPublicSpell1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JCheckBox chkPublicWeaponsFilter;
+    private javax.swing.JCheckBox chkUserWeaponsFilter;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2015,10 +1706,6 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
@@ -2055,13 +1742,8 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
@@ -2075,10 +1757,7 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel78;
-    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel80;
-    private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel9;
@@ -2089,18 +1768,14 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
@@ -2143,10 +1818,7 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtCharWIS;
     private javax.swing.JTextField txtLanguageName;
     private javax.swing.JFormattedTextField txtSpellAttackBonus;
-    private javax.swing.JTextArea txtSpellEffect;
-    private javax.swing.JTextField txtSpellName;
     private javax.swing.JFormattedTextField txtSpellSaveDC;
-    private javax.swing.JFormattedTextField txtSpellSaveDC1;
     private javax.swing.JFormattedTextField txtSpellSlotLevel1;
     private javax.swing.JFormattedTextField txtSpellSlotLevel2;
     private javax.swing.JFormattedTextField txtSpellSlotLevel3;
@@ -2156,10 +1828,5 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtSpellSlotLevel7;
     private javax.swing.JFormattedTextField txtSpellSlotLevel8;
     private javax.swing.JFormattedTextField txtSpellSlotLevel9;
-    private javax.swing.JFormattedTextField txtWeaponAttackBonus;
-    private javax.swing.JTextField txtWeaponDamage;
-    private javax.swing.JTextArea txtWeaponDescription;
-    private javax.swing.JTextField txtWeaponName;
-    private javax.swing.JFormattedTextField txtWeaponRange;
     // End of variables declaration//GEN-END:variables
 }
