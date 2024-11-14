@@ -33,6 +33,9 @@ public class RoleManagement extends javax.swing.JFrame {
         cboxUserFilterAdmin1 = new javax.swing.JCheckBox();
         cboxUserFilterModerator = new javax.swing.JCheckBox();
         jLabel5 = new javax.swing.JLabel();
+        cboxUserFilterFlagged = new javax.swing.JCheckBox();
+        cboxUserFilterProbation = new javax.swing.JCheckBox();
+        cboxUserFilterBanned = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -65,6 +68,12 @@ public class RoleManagement extends javax.swing.JFrame {
 
         jLabel5.setText("Filters:");
 
+        cboxUserFilterFlagged.setText("Flagged");
+
+        cboxUserFilterProbation.setText("Probation");
+
+        cboxUserFilterBanned.setText("Banned");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -78,7 +87,13 @@ public class RoleManagement extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(cboxUserFilterAdmin1)
                         .addGap(18, 18, 18)
-                        .addComponent(cboxUserFilterModerator)))
+                        .addComponent(cboxUserFilterModerator)
+                        .addGap(18, 18, 18)
+                        .addComponent(cboxUserFilterFlagged)
+                        .addGap(18, 18, 18)
+                        .addComponent(cboxUserFilterProbation)
+                        .addGap(18, 18, 18)
+                        .addComponent(cboxUserFilterBanned)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -89,7 +104,10 @@ public class RoleManagement extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cboxUserFilterAdmin2)
                     .addComponent(cboxUserFilterAdmin1)
-                    .addComponent(cboxUserFilterModerator))
+                    .addComponent(cboxUserFilterModerator)
+                    .addComponent(cboxUserFilterFlagged)
+                    .addComponent(cboxUserFilterProbation)
+                    .addComponent(cboxUserFilterBanned))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -111,7 +129,7 @@ public class RoleManagement extends javax.swing.JFrame {
         jLabel4.setText("Notes:");
 
         txtUserNotes.setColumns(20);
-        txtUserNotes.setRows(5);
+        txtUserNotes.setRows(50);
         jScrollPane3.setViewportView(txtUserNotes);
 
         btnAddUserNotes.setText("Add Note");
@@ -143,20 +161,20 @@ public class RoleManagement extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel4Layout.createSequentialGroup()
                                     .addComponent(btnFlagUser)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(btnBanUser)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnAddUserNotes))
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)))))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(6, 6, 6))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -169,7 +187,7 @@ public class RoleManagement extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddUserNotes)
@@ -222,16 +240,17 @@ public class RoleManagement extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(302, 302, 302))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
         );
         jPanel3Layout.setVerticalGroup(
@@ -243,7 +262,7 @@ public class RoleManagement extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnHome)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
@@ -342,7 +361,10 @@ public class RoleManagement extends javax.swing.JFrame {
     private javax.swing.JButton btnPromoteUser;
     private javax.swing.JCheckBox cboxUserFilterAdmin1;
     private javax.swing.JCheckBox cboxUserFilterAdmin2;
+    private javax.swing.JCheckBox cboxUserFilterBanned;
+    private javax.swing.JCheckBox cboxUserFilterFlagged;
     private javax.swing.JCheckBox cboxUserFilterModerator;
+    private javax.swing.JCheckBox cboxUserFilterProbation;
     private javax.swing.JComboBox<String> cboxUserSearchType;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
