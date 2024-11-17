@@ -222,6 +222,24 @@ public class CharacterSheet extends javax.swing.JFrame {
         jLabel77 = new javax.swing.JLabel();
         txtSpellSlotLevel9 = new javax.swing.JFormattedTextField();
         tabFeats = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane24 = new javax.swing.JScrollPane();
+        lstCharacterFeats = new javax.swing.JList<>();
+        jLabel33 = new javax.swing.JLabel();
+        jScrollPane25 = new javax.swing.JScrollPane();
+        txaFeatDetails = new javax.swing.JTextArea();
+        jLabel34 = new javax.swing.JLabel();
+        btnAddToInventory1 = new javax.swing.JButton();
+        jLabel89 = new javax.swing.JLabel();
+        jScrollPane26 = new javax.swing.JScrollPane();
+        lstAvailableFeats = new javax.swing.JList<>();
+        chkUserFeatsFilter = new javax.swing.JCheckBox();
+        chkPublicFeatsFilter1 = new javax.swing.JCheckBox();
+        btnItemsRefresh1 = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        spnCharInventoryAmount1 = new javax.swing.JSpinner();
+        btnRemoveFromInventory1 = new javax.swing.JButton();
+        btnEditItem1 = new javax.swing.JButton();
         tabInventory = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -239,6 +257,8 @@ public class CharacterSheet extends javax.swing.JFrame {
         btnItemsRefresh = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         spnCharInventoryAmount = new javax.swing.JSpinner();
+        btnRemoveFromInventory = new javax.swing.JButton();
+        btnEditItem = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnCancel = new javax.swing.JButton();
         btnSave = new javax.swing.JButton();
@@ -1612,15 +1632,126 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         tpaneCharacterSheet.addTab("Spells", tabSpells);
 
+        lstCharacterFeats.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane24.setViewportView(lstCharacterFeats);
+
+        jLabel33.setText("Character Feats List:");
+
+        txaFeatDetails.setEditable(false);
+        txaFeatDetails.setColumns(20);
+        txaFeatDetails.setRows(25);
+        jScrollPane25.setViewportView(txaFeatDetails);
+
+        jLabel34.setText("Feat Details:");
+
+        btnAddToInventory1.setText("Add");
+
+        jLabel89.setText("Available Feats:");
+
+        lstAvailableFeats.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane26.setViewportView(lstAvailableFeats);
+
+        chkUserFeatsFilter.setText("User Made");
+
+        chkPublicFeatsFilter1.setText("Public");
+
+        btnItemsRefresh1.setText("Refresh");
+
+        jLabel35.setText("Filters:");
+
+        btnRemoveFromInventory1.setText("Remove");
+
+        btnEditItem1.setText("Edit");
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel89)
+                    .addComponent(jScrollPane26, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel35)
+                        .addGap(9, 9, 9)
+                        .addComponent(chkUserFeatsFilter)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chkPublicFeatsFilter1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane24, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane25, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnItemsRefresh1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(spnCharInventoryAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAddToInventory1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRemoveFromInventory1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditItem1)))
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(jLabel34)
+                    .addComponent(jLabel89))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane24, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane25, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                    .addComponent(jScrollPane26, javax.swing.GroupLayout.Alignment.LEADING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnItemsRefresh1)
+                    .addComponent(btnAddToInventory1)
+                    .addComponent(spnCharInventoryAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemoveFromInventory1)
+                    .addComponent(btnEditItem1)
+                    .addComponent(chkPublicFeatsFilter1)
+                    .addComponent(chkUserFeatsFilter)
+                    .addComponent(jLabel35))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout tabFeatsLayout = new javax.swing.GroupLayout(tabFeats);
         tabFeats.setLayout(tabFeatsLayout);
         tabFeatsLayout.setHorizontalGroup(
             tabFeatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 832, Short.MAX_VALUE)
+            .addGroup(tabFeatsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         tabFeatsLayout.setVerticalGroup(
             tabFeatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 496, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabFeatsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         tpaneCharacterSheet.addTab("Feats", tabFeats);
@@ -1660,6 +1791,10 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         jLabel26.setText("Filters:");
 
+        btnRemoveFromInventory.setText("Remove");
+
+        btnEditItem.setText("Edit");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -1668,30 +1803,36 @@ public class CharacterSheet extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel84)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel26)
                         .addGap(9, 9, 9)
                         .addComponent(chkUserItemsFilter)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkPublicItemsFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnItemsRefresh)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(chkPublicItemsFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnItemsRefresh)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(spnCharInventoryAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAddToInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 366, Short.MAX_VALUE))
+                        .addComponent(btnAddToInventory, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRemoveFromInventory)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditItem)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -1703,19 +1844,21 @@ public class CharacterSheet extends javax.swing.JFrame {
                     .addComponent(jLabel25)
                     .addComponent(jLabel84))
                 .addGap(6, 6, 6)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.Alignment.LEADING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnItemsRefresh)
+                    .addComponent(btnAddToInventory)
+                    .addComponent(spnCharInventoryAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRemoveFromInventory)
+                    .addComponent(btnEditItem)
                     .addComponent(chkPublicItemsFilter)
                     .addComponent(chkUserItemsFilter)
-                    .addComponent(btnItemsRefresh)
-                    .addComponent(jLabel26)
-                    .addComponent(btnAddToInventory)
-                    .addComponent(spnCharInventoryAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(93, Short.MAX_VALUE))
+                    .addComponent(jLabel26))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout tabInventoryLayout = new javax.swing.GroupLayout(tabInventory);
@@ -1729,8 +1872,8 @@ public class CharacterSheet extends javax.swing.JFrame {
         );
         tabInventoryLayout.setVerticalGroup(
             tabInventoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabInventoryLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabInventoryLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -2045,13 +2188,19 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JButton btnAddSkillExpertise;
     private javax.swing.JButton btnAddSkillProficiency;
     private javax.swing.JButton btnAddToInventory;
+    private javax.swing.JButton btnAddToInventory1;
     private javax.swing.JButton btnArmorEdit;
     private javax.swing.JButton btnArmorRefresh;
     private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnEditItem;
+    private javax.swing.JButton btnEditItem1;
     private javax.swing.JButton btnEquipArmor;
     private javax.swing.JButton btnEquipWeapon;
     private javax.swing.JButton btnItemsRefresh;
+    private javax.swing.JButton btnItemsRefresh1;
     private javax.swing.JButton btnRemoveArmor;
+    private javax.swing.JButton btnRemoveFromInventory;
+    private javax.swing.JButton btnRemoveFromInventory1;
     private javax.swing.JButton btnRemoveProficientArmor;
     private javax.swing.JButton btnRemoveProficientLanguage;
     private javax.swing.JButton btnRemoveProficientTools;
@@ -2079,11 +2228,13 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkProficiencyWIS;
     private javax.swing.JCheckBox chkPublic;
     private javax.swing.JCheckBox chkPublicArmorFilter;
+    private javax.swing.JCheckBox chkPublicFeatsFilter1;
     private javax.swing.JCheckBox chkPublicItemsFilter;
     private javax.swing.JCheckBox chkPublicWeaponsFilter;
     private javax.swing.JCheckBox chkToolProfPublicFilter;
     private javax.swing.JCheckBox chkToolProfUserFilter;
     private javax.swing.JCheckBox chkUserArmorFilter;
+    private javax.swing.JCheckBox chkUserFeatsFilter;
     private javax.swing.JCheckBox chkUserItemsFilter;
     private javax.swing.JCheckBox chkUserWeaponsFilter;
     private javax.swing.JCheckBox chkWeaponsProfPublicFilter;
@@ -2114,6 +2265,9 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel53;
@@ -2151,6 +2305,7 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel86;
     private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
@@ -2159,6 +2314,7 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
@@ -2176,6 +2332,9 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane21;
     private javax.swing.JScrollPane jScrollPane22;
     private javax.swing.JScrollPane jScrollPane23;
+    private javax.swing.JScrollPane jScrollPane24;
+    private javax.swing.JScrollPane jScrollPane25;
+    private javax.swing.JScrollPane jScrollPane26;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -2191,6 +2350,7 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JLabel lblSaveTotalWIS;
     private javax.swing.JList<String> lstArmorProf;
     private javax.swing.JList<String> lstAvailableArmor;
+    private javax.swing.JList<String> lstAvailableFeats;
     private javax.swing.JList<String> lstAvailableItems;
     private javax.swing.JList<String> lstAvailableSkills;
     private javax.swing.JList<String> lstAvailableSpells;
@@ -2199,6 +2359,7 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JList<String> lstCharItems;
     private javax.swing.JList<String> lstCharSpells;
     private javax.swing.JList<String> lstCharWeapons;
+    private javax.swing.JList<String> lstCharacterFeats;
     private javax.swing.JList<String> lstCharacterSkills;
     private javax.swing.JList<String> lstLanguageProf;
     private javax.swing.JList<String> lstProficientArmor;
@@ -2208,6 +2369,7 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JList<String> lstToolProf;
     private javax.swing.JList<String> lstWeaponsProf;
     private javax.swing.JSpinner spnCharInventoryAmount;
+    private javax.swing.JSpinner spnCharInventoryAmount1;
     private javax.swing.JPanel tabArmorProficiencies;
     private javax.swing.JPanel tabBasics;
     private javax.swing.JPanel tabEquippedArmor;
@@ -2225,6 +2387,7 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JPanel tabWeaponProficiencies;
     private javax.swing.JTabbedPane tpaneCharacterSheet;
     private javax.swing.JTextArea txaArmorDisplay;
+    private javax.swing.JTextArea txaFeatDetails;
     private javax.swing.JTextArea txaItemDetails;
     private javax.swing.JTextArea txaSpellDetails;
     private javax.swing.JTextArea txaWeaponsDisplay;
