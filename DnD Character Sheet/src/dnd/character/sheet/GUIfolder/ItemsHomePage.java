@@ -45,6 +45,7 @@ public class ItemsHomePage extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtItemDescription = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
+        btnEditItem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,6 +117,8 @@ public class ItemsHomePage extends javax.swing.JFrame {
 
         jLabel2.setText("Item Description:");
 
+        btnEditItem.setText("Edit Item");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -131,6 +134,8 @@ public class ItemsHomePage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnRefreshLists)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEditItem)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnItemCreation))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -167,7 +172,9 @@ public class ItemsHomePage extends javax.swing.JFrame {
                     .addComponent(jScrollPane1))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnItemCreation)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnItemCreation)
+                        .addComponent(btnEditItem))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnHome)
                         .addComponent(btnRefreshLists)))
@@ -269,6 +276,7 @@ public class ItemsHomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEditItem;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnItemCreation;
     private javax.swing.JButton btnRefreshLists;

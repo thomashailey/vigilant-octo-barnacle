@@ -962,7 +962,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JList" name="lstWeaponsProf">
+                            <Component class="javax.swing.JList" name="lstWeaponsAvailable">
                               <Properties>
                                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                                   <StringArray count="5">
@@ -1119,7 +1119,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JList" name="lstArmorProf">
+                            <Component class="javax.swing.JList" name="lstArmorAvailable">
                               <Properties>
                                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                                   <StringArray count="5">
@@ -1286,7 +1286,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JList" name="lstLanguageProf">
+                            <Component class="javax.swing.JList" name="lstLanguageAvailable">
                               <Properties>
                                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                                   <StringArray count="5">
@@ -1453,7 +1453,7 @@
 
                           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                           <SubComponents>
-                            <Component class="javax.swing.JList" name="lstToolProf">
+                            <Component class="javax.swing.JList" name="lstToolAvailable">
                               <Properties>
                                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                                   <StringArray count="5">
@@ -2584,7 +2584,7 @@
                                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                       <Component id="chkUserFeatsFilter" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="chkPublicFeatsFilter1" min="-2" pref="66" max="-2" attributes="0"/>
+                                      <Component id="chkPublicFeatsFilter" min="-2" pref="66" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -2605,15 +2605,13 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="btnItemsRefresh1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnFeatsListRefresh" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="spnCharInventoryAmount1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnAddFeat" min="-2" pref="78" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnAddToInventory1" min="-2" pref="78" max="-2" attributes="0"/>
+                                      <Component id="btnRemoveFeat" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnRemoveFromInventory1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnEditItem1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnEditFeat" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2637,12 +2635,11 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnItemsRefresh1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnAddToInventory1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="spnCharInventoryAmount1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnRemoveFromInventory1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnEditItem1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="chkPublicFeatsFilter1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnFeatsListRefresh" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAddFeat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRemoveFeat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEditFeat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chkPublicFeatsFilter" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="chkUserFeatsFilter" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel35" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -2703,7 +2700,7 @@
                         <Property name="text" type="java.lang.String" value="Feat Details:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnAddToInventory1">
+                    <Component class="javax.swing.JButton" name="btnAddFeat">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Add"/>
                       </Properties>
@@ -2743,12 +2740,12 @@
                         <Property name="text" type="java.lang.String" value="User Made"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JCheckBox" name="chkPublicFeatsFilter1">
+                    <Component class="javax.swing.JCheckBox" name="chkPublicFeatsFilter">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Public"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnItemsRefresh1">
+                    <Component class="javax.swing.JButton" name="btnFeatsListRefresh">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Refresh"/>
                       </Properties>
@@ -2758,14 +2755,12 @@
                         <Property name="text" type="java.lang.String" value="Filters:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JSpinner" name="spnCharInventoryAmount1">
-                    </Component>
-                    <Component class="javax.swing.JButton" name="btnRemoveFromInventory1">
+                    <Component class="javax.swing.JButton" name="btnRemoveFeat">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Remove"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnEditItem1">
+                    <Component class="javax.swing.JButton" name="btnEditFeat">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Edit"/>
                       </Properties>

@@ -98,7 +98,7 @@ public class CharacterSheet extends javax.swing.JFrame {
         chkWeaponsProfUserFilter = new javax.swing.JCheckBox();
         chkWeaponsProfPublicFilter = new javax.swing.JCheckBox();
         jScrollPane14 = new javax.swing.JScrollPane();
-        lstWeaponsProf = new javax.swing.JList<>();
+        lstWeaponsAvailable = new javax.swing.JList<>();
         jLabel60 = new javax.swing.JLabel();
         jScrollPane15 = new javax.swing.JScrollPane();
         lstProficientWeapons = new javax.swing.JList<>();
@@ -108,7 +108,7 @@ public class CharacterSheet extends javax.swing.JFrame {
         tabArmorProficiencies = new javax.swing.JPanel();
         jLabel64 = new javax.swing.JLabel();
         jScrollPane16 = new javax.swing.JScrollPane();
-        lstArmorProf = new javax.swing.JList<>();
+        lstArmorAvailable = new javax.swing.JList<>();
         jLabel65 = new javax.swing.JLabel();
         chkArmorProfUserFilter = new javax.swing.JCheckBox();
         chkArmorProfPublicFilter = new javax.swing.JCheckBox();
@@ -120,7 +120,7 @@ public class CharacterSheet extends javax.swing.JFrame {
         tabLanguageProficiencies = new javax.swing.JPanel();
         jLabel79 = new javax.swing.JLabel();
         jScrollPane18 = new javax.swing.JScrollPane();
-        lstLanguageProf = new javax.swing.JList<>();
+        lstLanguageAvailable = new javax.swing.JList<>();
         jLabel80 = new javax.swing.JLabel();
         jScrollPane19 = new javax.swing.JScrollPane();
         lstProficientLanguage = new javax.swing.JList<>();
@@ -132,7 +132,7 @@ public class CharacterSheet extends javax.swing.JFrame {
         tabToolProficiencies = new javax.swing.JPanel();
         jLabel85 = new javax.swing.JLabel();
         jScrollPane20 = new javax.swing.JScrollPane();
-        lstToolProf = new javax.swing.JList<>();
+        lstToolAvailable = new javax.swing.JList<>();
         btnAddProficientTools = new javax.swing.JButton();
         btnRemoveProficientTools = new javax.swing.JButton();
         jScrollPane21 = new javax.swing.JScrollPane();
@@ -229,17 +229,16 @@ public class CharacterSheet extends javax.swing.JFrame {
         jScrollPane25 = new javax.swing.JScrollPane();
         txaFeatDetails = new javax.swing.JTextArea();
         jLabel34 = new javax.swing.JLabel();
-        btnAddToInventory1 = new javax.swing.JButton();
+        btnAddFeat = new javax.swing.JButton();
         jLabel89 = new javax.swing.JLabel();
         jScrollPane26 = new javax.swing.JScrollPane();
         lstAvailableFeats = new javax.swing.JList<>();
         chkUserFeatsFilter = new javax.swing.JCheckBox();
-        chkPublicFeatsFilter1 = new javax.swing.JCheckBox();
-        btnItemsRefresh1 = new javax.swing.JButton();
+        chkPublicFeatsFilter = new javax.swing.JCheckBox();
+        btnFeatsListRefresh = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
-        spnCharInventoryAmount1 = new javax.swing.JSpinner();
-        btnRemoveFromInventory1 = new javax.swing.JButton();
-        btnEditItem1 = new javax.swing.JButton();
+        btnRemoveFeat = new javax.swing.JButton();
+        btnEditFeat = new javax.swing.JButton();
         tabInventory = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -734,12 +733,12 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         chkWeaponsProfPublicFilter.setText("Public");
 
-        lstWeaponsProf.setModel(new javax.swing.AbstractListModel<String>() {
+        lstWeaponsAvailable.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane14.setViewportView(lstWeaponsProf);
+        jScrollPane14.setViewportView(lstWeaponsAvailable);
 
         jLabel60.setText("Weapons List:");
 
@@ -815,12 +814,12 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         jLabel64.setText("Armor List:");
 
-        lstArmorProf.setModel(new javax.swing.AbstractListModel<String>() {
+        lstArmorAvailable.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane16.setViewportView(lstArmorProf);
+        jScrollPane16.setViewportView(lstArmorAvailable);
 
         jLabel65.setText("Filters:");
 
@@ -900,12 +899,12 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         jLabel79.setText("Language List:");
 
-        lstLanguageProf.setModel(new javax.swing.AbstractListModel<String>() {
+        lstLanguageAvailable.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane18.setViewportView(lstLanguageProf);
+        jScrollPane18.setViewportView(lstLanguageAvailable);
 
         jLabel80.setText("Proficient Languages:");
 
@@ -985,12 +984,12 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         jLabel85.setText("Tool List:");
 
-        lstToolProf.setModel(new javax.swing.AbstractListModel<String>() {
+        lstToolAvailable.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane20.setViewportView(lstToolProf);
+        jScrollPane20.setViewportView(lstToolAvailable);
 
         btnAddProficientTools.setText("Add");
 
@@ -1652,7 +1651,7 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         jLabel34.setText("Feat Details:");
 
-        btnAddToInventory1.setText("Add");
+        btnAddFeat.setText("Add");
 
         jLabel89.setText("Available Feats:");
 
@@ -1665,15 +1664,15 @@ public class CharacterSheet extends javax.swing.JFrame {
 
         chkUserFeatsFilter.setText("User Made");
 
-        chkPublicFeatsFilter1.setText("Public");
+        chkPublicFeatsFilter.setText("Public");
 
-        btnItemsRefresh1.setText("Refresh");
+        btnFeatsListRefresh.setText("Refresh");
 
         jLabel35.setText("Filters:");
 
-        btnRemoveFromInventory1.setText("Remove");
+        btnRemoveFeat.setText("Remove");
 
-        btnEditItem1.setText("Edit");
+        btnEditFeat.setText("Edit");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -1689,7 +1688,7 @@ public class CharacterSheet extends javax.swing.JFrame {
                         .addGap(9, 9, 9)
                         .addComponent(chkUserFeatsFilter)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(chkPublicFeatsFilter1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(chkPublicFeatsFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1704,15 +1703,13 @@ public class CharacterSheet extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnItemsRefresh1)
+                        .addComponent(btnFeatsListRefresh)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spnCharInventoryAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnAddFeat, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAddToInventory1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRemoveFeat)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRemoveFromInventory1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEditItem1)))
+                        .addComponent(btnEditFeat)))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -1730,12 +1727,11 @@ public class CharacterSheet extends javax.swing.JFrame {
                     .addComponent(jScrollPane26, javax.swing.GroupLayout.Alignment.LEADING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnItemsRefresh1)
-                    .addComponent(btnAddToInventory1)
-                    .addComponent(spnCharInventoryAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRemoveFromInventory1)
-                    .addComponent(btnEditItem1)
-                    .addComponent(chkPublicFeatsFilter1)
+                    .addComponent(btnFeatsListRefresh)
+                    .addComponent(btnAddFeat)
+                    .addComponent(btnRemoveFeat)
+                    .addComponent(btnEditFeat)
+                    .addComponent(chkPublicFeatsFilter)
                     .addComponent(chkUserFeatsFilter)
                     .addComponent(jLabel35))
                 .addContainerGap())
@@ -2185,6 +2181,7 @@ public class CharacterSheet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddFeat;
     private javax.swing.JButton btnAddProficientArmor;
     private javax.swing.JButton btnAddProficientLanguage;
     private javax.swing.JButton btnAddProficientTools;
@@ -2192,19 +2189,18 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JButton btnAddSkillExpertise;
     private javax.swing.JButton btnAddSkillProficiency;
     private javax.swing.JButton btnAddToInventory;
-    private javax.swing.JButton btnAddToInventory1;
     private javax.swing.JButton btnArmorEdit;
     private javax.swing.JButton btnArmorRefresh;
     private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnEditFeat;
     private javax.swing.JButton btnEditItem;
-    private javax.swing.JButton btnEditItem1;
     private javax.swing.JButton btnEquipArmor;
     private javax.swing.JButton btnEquipWeapon;
+    private javax.swing.JButton btnFeatsListRefresh;
     private javax.swing.JButton btnItemsRefresh;
-    private javax.swing.JButton btnItemsRefresh1;
     private javax.swing.JButton btnRemoveArmor;
+    private javax.swing.JButton btnRemoveFeat;
     private javax.swing.JButton btnRemoveFromInventory;
-    private javax.swing.JButton btnRemoveFromInventory1;
     private javax.swing.JButton btnRemoveProficientArmor;
     private javax.swing.JButton btnRemoveProficientLanguage;
     private javax.swing.JButton btnRemoveProficientTools;
@@ -2232,7 +2228,7 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkProficiencyWIS;
     private javax.swing.JCheckBox chkPublic;
     private javax.swing.JCheckBox chkPublicArmorFilter;
-    private javax.swing.JCheckBox chkPublicFeatsFilter1;
+    private javax.swing.JCheckBox chkPublicFeatsFilter;
     private javax.swing.JCheckBox chkPublicItemsFilter;
     private javax.swing.JCheckBox chkPublicWeaponsFilter;
     private javax.swing.JCheckBox chkToolProfPublicFilter;
@@ -2352,7 +2348,7 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JLabel lblSaveTotalINT;
     private javax.swing.JLabel lblSaveTotalSTR;
     private javax.swing.JLabel lblSaveTotalWIS;
-    private javax.swing.JList<String> lstArmorProf;
+    private javax.swing.JList<String> lstArmorAvailable;
     private javax.swing.JList<String> lstAvailableArmor;
     private javax.swing.JList<String> lstAvailableFeats;
     private javax.swing.JList<String> lstAvailableItems;
@@ -2365,15 +2361,14 @@ public class CharacterSheet extends javax.swing.JFrame {
     private javax.swing.JList<String> lstCharWeapons;
     private javax.swing.JList<String> lstCharacterFeats;
     private javax.swing.JList<String> lstCharacterSkills;
-    private javax.swing.JList<String> lstLanguageProf;
+    private javax.swing.JList<String> lstLanguageAvailable;
     private javax.swing.JList<String> lstProficientArmor;
     private javax.swing.JList<String> lstProficientLanguage;
     private javax.swing.JList<String> lstProficientTools;
     private javax.swing.JList<String> lstProficientWeapons;
-    private javax.swing.JList<String> lstToolProf;
-    private javax.swing.JList<String> lstWeaponsProf;
+    private javax.swing.JList<String> lstToolAvailable;
+    private javax.swing.JList<String> lstWeaponsAvailable;
     private javax.swing.JSpinner spnCharInventoryAmount;
-    private javax.swing.JSpinner spnCharInventoryAmount1;
     private javax.swing.JPanel tabArmorProficiencies;
     private javax.swing.JPanel tabBasics;
     private javax.swing.JPanel tabEquippedArmor;

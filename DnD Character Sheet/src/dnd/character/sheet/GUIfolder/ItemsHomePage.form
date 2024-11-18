@@ -78,6 +78,8 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnRefreshLists" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
+                              <Component id="btnEditItem" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="btnItemCreation" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -124,7 +126,10 @@
                       </Group>
                       <EmptySpace type="separate" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnItemCreation" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="btnItemCreation" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnEditItem" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="btnHome" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnRefreshLists" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -268,6 +273,11 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Item Description:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnEditItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Edit Item"/>
               </Properties>
             </Component>
           </SubComponents>
