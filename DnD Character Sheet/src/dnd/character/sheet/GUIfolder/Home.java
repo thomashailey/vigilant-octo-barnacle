@@ -36,7 +36,9 @@ public class Home extends javax.swing.JFrame {
         btnCharacters = new javax.swing.JButton();
         btnSignOut = new javax.swing.JButton();
         btnItems = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnRoles = new javax.swing.JButton();
+        btnFeats = new javax.swing.JButton();
+        btnProficiencies = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -107,10 +109,24 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Roles");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRoles.setText("Roles");
+        btnRoles.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnRolesMouseClicked(evt);
+            }
+        });
+
+        btnFeats.setText("Feats");
+        btnFeats.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnFeatsMouseClicked(evt);
+            }
+        });
+
+        btnProficiencies.setText("Proficiencies");
+        btnProficiencies.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnProficienciesMouseClicked(evt);
             }
         });
 
@@ -134,7 +150,9 @@ public class Home extends javax.swing.JFrame {
                             .addComponent(btnCharacters, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnItems, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSignOut, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnRoles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnFeats, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnProficiencies, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(154, 154, 154)))
                 .addContainerGap())
         );
@@ -156,14 +174,18 @@ public class Home extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCharacters)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnProficiencies)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnItems)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSpells)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnFeats)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRoles)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSignOut)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
@@ -192,7 +214,7 @@ public class Home extends javax.swing.JFrame {
     private void btnItemsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnItemsMouseClicked
         // TODO add your handling code here:
         new ItemsHomePage().setVisible(true);
-        
+        this.setVisible(false);
     }//GEN-LAST:event_btnItemsMouseClicked
 
     private void btnSignOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignOutMouseClicked
@@ -205,11 +227,23 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSignOutActionPerformed
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void btnRolesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRolesMouseClicked
         // TODO add your handling code here:
         new RoleManagement().setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_btnRolesMouseClicked
+
+    private void btnProficienciesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProficienciesMouseClicked
+        // TODO add your handling code here:
+        new ProficienciesHomePage().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnProficienciesMouseClicked
+
+    private void btnFeatsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFeatsMouseClicked
+        // TODO add your handling code here:
+        new FeatsHomePage().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnFeatsMouseClicked
 
     /**
      * @param args the command line arguments
@@ -248,10 +282,12 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCharacters;
+    private javax.swing.JButton btnFeats;
     private javax.swing.JButton btnItems;
+    private javax.swing.JButton btnProficiencies;
+    private javax.swing.JButton btnRoles;
     private javax.swing.JButton btnSignOut;
     private javax.swing.JButton btnSpells;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
