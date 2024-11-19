@@ -4,14 +4,13 @@
  */
 package dnd.character.sheet;
 
-import com.sun.jdi.connect.spi.Connection;
 import java.sql.*;
 
 /**
  *
  * @author thoma
  */
-public class DBconnect {
+public class DatabaseConnection {
     public Connection OpenConnection() throws SQLException, ClassNotFoundException {
         // Load the driver
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -19,10 +18,11 @@ public class DBconnect {
         // Create connection
         java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/dnd_app_database","root","devry123");
         
-        return (Connection) connection;
+        return connection;
     }
-        public static void CloseConnection() throws SQLException {
+    
+    public static void CloseConnection() throws SQLException {
         java.sql.Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/dnd_app_database","root","devry123");
         connection.close();
-        }
+    }
 }
