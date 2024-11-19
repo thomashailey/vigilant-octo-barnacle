@@ -4,6 +4,10 @@
  */
 package dnd.character.sheet.GUIfolder;
 
+import dnd.character.sheet.AuthenticateUser;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -38,6 +42,8 @@ public class UserAuth extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtVerificationCode = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,6 +77,15 @@ public class UserAuth extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText(" username and password, then register instead.");
 
+        jLabel6.setText("Verification Code:");
+
+        txtVerificationCode.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        txtVerificationCode.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtVerificationCodeFocusLost(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -79,7 +94,7 @@ public class UserAuth extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnRegister)
                                 .addGap(18, 18, 18)
@@ -91,7 +106,11 @@ public class UserAuth extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtVerificationCode))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -119,9 +138,13 @@ public class UserAuth extends javax.swing.JFrame {
                     .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtVerificationCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogIn)
                     .addComponent(btnRegister))
-                .addGap(25, 25, 25))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,23 +163,38 @@ public class UserAuth extends javax.swing.JFrame {
 
     private void btnLogInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogInMouseClicked
         // TODO add your handling code here:
-        new Home().setVisible(true);
-        setVisible(false);
-        
-//        TODO:
-
-//        Add code to connect to the database
-//        Check for existing user account
-//        Check for matching username/password
-//        Trigger code check input
-//        If that matches, save the userID
-//        Open the Home page
+        AuthenticateUser auth = new AuthenticateUser();
+        String username = txtUsername.getText();
+        String password = pwdPassword.toString();
+        Number nValue = (Number) txtVerificationCode.getValue();
+        int code = nValue.intValue();
+        try {
+            auth.SearchDatabase(username, password, code);
+        } catch (SQLException ex) {
+            Logger.getLogger(UserAuth.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(UserAuth.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnLogInMouseClicked
 
     private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Under Construction", "Notice", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnRegisterMouseClicked
+
+    private void txtVerificationCodeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtVerificationCodeFocusLost
+        // TODO add your handling code here:
+        if (!txtVerificationCode.getText().matches("[0-9]+") && !txtVerificationCode.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Please enter integers only.", "Error", JOptionPane.ERROR_MESSAGE);
+            txtVerificationCode.setValue(null);
+            
+            txtVerificationCode.requestFocusInWindow();
+        }
+        else if(txtVerificationCode.getText().isEmpty()) {
+            txtVerificationCode.setValue(null);
+        }
+    }//GEN-LAST:event_txtVerificationCodeFocusLost
 
     /**
      * @param args the command line arguments
@@ -201,8 +239,10 @@ public class UserAuth extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField pwdPassword;
     private javax.swing.JTextField txtUsername;
+    private javax.swing.JFormattedTextField txtVerificationCode;
     // End of variables declaration//GEN-END:variables
 }
