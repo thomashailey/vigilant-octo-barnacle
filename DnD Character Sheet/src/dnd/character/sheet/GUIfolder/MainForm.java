@@ -5,7 +5,10 @@
 package dnd.character.sheet.GUIfolder;
 
 import dnd.character.sheet.AuthenticateUser;
+import dnd.character.sheet.RegisterUser;
 import java.awt.CardLayout;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -204,9 +207,9 @@ public class MainForm extends javax.swing.JFrame {
         });
 
         btnRegister.setText("Register");
-        btnRegister.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRegisterMouseClicked(evt);
+        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterActionPerformed(evt);
             }
         });
 
@@ -312,6 +315,12 @@ public class MainForm extends javax.swing.JFrame {
         );
 
         jPanel1.add(pnlUserAuth, "card2");
+
+        pnlHomePage.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                pnlHomePageComponentShown(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Bookman Old Style", 0, 18)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1508,11 +1517,6 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegisterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegisterMouseClicked
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Under Construction", "Notice", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_btnRegisterMouseClicked
-
     private void txtVerificationCodeFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtVerificationCodeFocusLost
         // TODO add your handling code here:
         if (!txtVerificationCode.getText().matches("[0-9]+") && !txtVerificationCode.getText().isEmpty())
@@ -1743,6 +1747,55 @@ public class MainForm extends javax.swing.JFrame {
     private void btnEditCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditCharacterActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditCharacterActionPerformed
+
+    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            RegisterUser ru = new RegisterUser();
+            String username = txtUsername.getText();
+            String password = pwdPassword.getText().toString();
+            Number nValue = (Number) txtVerificationCode.getValue();
+            int code = nValue.intValue();
+            boolean goHome;
+            
+            goHome = ru.UserRegistration(username, password, code);
+            if (goHome == true) {
+                pnlHomePage.show();
+                pnlUserAuth.hide();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_btnRegisterActionPerformed
+
+    private void pnlHomePageComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_pnlHomePageComponentShown
+        try {
+            // TODO add your handling code here:
+            AuthenticateUser auth = new AuthenticateUser();
+            String textFromFile;
+            String type;
+            int userID;
+            textFromFile = auth.ReadFile();
+            userID = Integer.parseInt(textFromFile);
+            type = auth.CheckUserType(userID);
+            
+            if (type.equals("Standard")) {
+                btnRoles.setEnabled(false);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_pnlHomePageComponentShown
 
     /**
      * @param args the command line arguments

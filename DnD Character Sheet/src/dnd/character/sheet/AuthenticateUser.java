@@ -4,10 +4,15 @@
  */
 package dnd.character.sheet;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -53,7 +58,7 @@ public class AuthenticateUser {
         return goHome;
     }
     
-    private boolean UserExists(String username) throws SQLException, ClassNotFoundException {
+    boolean UserExists(String username) throws SQLException, ClassNotFoundException {
         boolean exists;
         
         connection = database.OpenConnection();
@@ -70,7 +75,7 @@ public class AuthenticateUser {
         return exists;
     }
     
-    private boolean VerifyUser(String username, String password, int verificationCode) throws SQLException, ClassNotFoundException {
+    boolean VerifyUser(String username, String password, int verificationCode) throws SQLException, ClassNotFoundException {
         boolean verified = false;
         connection = database.OpenConnection();
         String name = username;
@@ -89,7 +94,7 @@ public class AuthenticateUser {
         return verified;
     }
     
-    private void SetCurrentUser(String username) throws SQLException, ClassNotFoundException {
+    void SetCurrentUser(String username) throws SQLException, ClassNotFoundException {
         int userID = 0;
         
         connection = database.OpenConnection();
@@ -116,14 +121,47 @@ public class AuthenticateUser {
             ex.printStackTrace();
         }
         
+        Integer tempNum = new Integer(userID);
+        String data = tempNum.toString();
+        
         try {
             FileWriter myWriter = new FileWriter("currentuser.txt");
-            myWriter.write(userID);
-            myWriter.close();
-            System.out.println("Successfully wrote to file");
+            BufferedWriter br = new BufferedWriter(myWriter);
+            br.write(data);
+            br.close();
+            System.out.println("Successfully wrote to file, userID set to: " + data);
         } catch (IOException ex) {
             System.out.println("An error occurred");
             ex.printStackTrace();
         }
+    }
+    
+    
+    public String CheckUserType(int userID) throws SQLException, ClassNotFoundException {
+        connection = database.OpenConnection();
+        int id = userID;
+        String type = "";
+        
+        sql = String.format("SELECT userType FROM user_data WHERE userID = \'%d\'",
+                id);
+        statement = connection.prepareStatement(sql);
+        results = statement.executeQuery();
+        
+        while (results.next()) {
+            type = results.getString(1);
+        }
+        System.out.println(type);
+        
+        return type;
+    }
+    
+    public String ReadFile() throws FileNotFoundException, IOException {
+        FileReader file = new FileReader("currentuser.txt");
+        String data = "";
+        
+        BufferedReader br = new BufferedReader(file);
+        data = br.readLine();
+        
+        return data;
     }
 }
