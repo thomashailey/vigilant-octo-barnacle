@@ -37,7 +37,9 @@ public class AuthenticateUser {
         
         if (userExists) {
             userVerified = VerifyUser(name, pass, code);
+            System.out.println("userVerified method completed");
             if (userVerified) {
+                System.out.println("User Successfully Verified");
                 SetCurrentUser(name);
                 new Home().setVisible(true);
             }
@@ -55,7 +57,7 @@ public class AuthenticateUser {
     private boolean UserExists(String username) throws SQLException, ClassNotFoundException {
         boolean exists;
         
-        connection = (Connection) database.OpenConnection();
+        connection = database.OpenConnection();
         sql = String.format("SELECT * FROM user_data WHERE userName = \'%s\'", username);
         statement = connection.prepareStatement(sql);
         results = statement.executeQuery();
@@ -71,23 +73,35 @@ public class AuthenticateUser {
     
     private boolean VerifyUser(String username, String password, int verificationCode) throws SQLException, ClassNotFoundException {
         boolean verified = false;
-        connection = (Connection) database.OpenConnection();
+        connection = database.OpenConnection();
+        String name = username;
+        String pass = password;
+        int code = verificationCode;
         
+        sql = String.format("SELECT * FROM user_data WHERE userName = \'%s\' AND userPassword = \'%s\' AND userVerificationCode = \'%d\'",
+                name, pass, code);
+        statement = connection.prepareStatement(sql);
+        results = statement.executeQuery();
         
+        if (results.next()) {
+            verified = true;
+        }
         
         return verified;
     }
     
     private void SetCurrentUser(String username) throws SQLException, ClassNotFoundException {
-        int userID;
+        int userID = 0;
         
-        connection = (Connection) database.OpenConnection();
-        sql = String.format("SELECT userID FROM user_data WHERE userName = \'%s\'", username);
+        connection = database.OpenConnection();
+        sql = String.format("SELECT * FROM user_data WHERE userName = \'%s\'", username);
         statement = connection.prepareStatement(sql);
         results = statement.executeQuery();
         
-        userID = results.getInt(1);
-        
+        while (results.next()) {
+            userID = results.getInt("userID");
+            System.out.println(userID);
+        }
         System.out.println(userID);
         
         try {

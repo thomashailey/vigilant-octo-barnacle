@@ -165,7 +165,7 @@ public class UserAuth extends javax.swing.JFrame {
         // TODO add your handling code here:
         AuthenticateUser auth = new AuthenticateUser();
         String username = txtUsername.getText();
-        String password = pwdPassword.toString();
+        String password = pwdPassword.getText().toString();
         Number nValue = (Number) txtVerificationCode.getValue();
         int code = nValue.intValue();
         try {
