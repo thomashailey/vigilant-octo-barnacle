@@ -19,7 +19,7 @@ import javax.swing.JOptionPane;
  * @author thoma
  */
 public class AuthenticateUser {
-    DBConnect database = new DBConnect();
+    DatabaseConnection database = new DatabaseConnection();
     Connection connection = null;
     PreparedStatement statement;
     ResultSet results;

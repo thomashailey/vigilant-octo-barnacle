@@ -11,7 +11,7 @@ import java.sql.*;
  *
  * @author thoma
  */
-public class DBconnect {
+public class DatabaseConnection {
     public Connection OpenConnection() throws SQLException, ClassNotFoundException {
         // Load the driver
         Class.forName("com.mysql.cj.jdbc.Driver");
