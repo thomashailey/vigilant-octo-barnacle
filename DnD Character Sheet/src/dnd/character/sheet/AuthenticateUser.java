@@ -26,7 +26,7 @@ public class AuthenticateUser {
     String sql = null;
     
     public void SearchDatabase(String username, String password, int verificationCode) throws SQLException, ClassNotFoundException {
-        connection = (Connection) database.OpenConnection();
+        connection = database.OpenConnection();
         String name = username;
         String pass = password;
         int code = verificationCode;
