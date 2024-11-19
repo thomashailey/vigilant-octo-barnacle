@@ -77,7 +77,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
         btnCreateCharacter = new javax.swing.JButton();
-        btnRefreshLists6 = new javax.swing.JButton();
+        btnRefreshCharList = new javax.swing.JButton();
         jLabel54 = new javax.swing.JLabel();
         jScrollPane21 = new javax.swing.JScrollPane();
         txtCharacterOverview = new javax.swing.JTextArea();
@@ -96,7 +96,7 @@ public class MainForm extends javax.swing.JFrame {
         jLabel65 = new javax.swing.JLabel();
         btnEditProficiency = new javax.swing.JButton();
         btnProficiencyCreation = new javax.swing.JButton();
-        btnRefreshLists7 = new javax.swing.JButton();
+        btnRefreshProficiencyList = new javax.swing.JButton();
         btnProficiencyToHome = new javax.swing.JButton();
         jScrollPane27 = new javax.swing.JScrollPane();
         txtProficiencyDescription = new javax.swing.JTextArea();
@@ -112,13 +112,13 @@ public class MainForm extends javax.swing.JFrame {
         lstPublicItems3 = new javax.swing.JList<>();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
-        btnItemCreation3 = new javax.swing.JButton();
-        btnRefreshLists4 = new javax.swing.JButton();
+        btnCreateItem = new javax.swing.JButton();
+        btnRefreshItemList = new javax.swing.JButton();
         btnItemToHome = new javax.swing.JButton();
         jScrollPane15 = new javax.swing.JScrollPane();
         txtItemDescription3 = new javax.swing.JTextArea();
         jLabel42 = new javax.swing.JLabel();
-        btnEditItem3 = new javax.swing.JButton();
+        btnItemEditor = new javax.swing.JButton();
         pnlSpellHome = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -131,7 +131,7 @@ public class MainForm extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         lstPublicSpells = new javax.swing.JList<>();
         btnSpellToHome = new javax.swing.JButton();
-        btnRefreshLists = new javax.swing.JButton();
+        btnRefreshSpellList = new javax.swing.JButton();
         btnSpellCreation = new javax.swing.JButton();
         btnEditSpell = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -149,11 +149,12 @@ public class MainForm extends javax.swing.JFrame {
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         btnFeatCreation = new javax.swing.JButton();
-        btnRefreshLists5 = new javax.swing.JButton();
+        btnRefreshFeatsList = new javax.swing.JButton();
         btnFeatToHome = new javax.swing.JButton();
         jScrollPane18 = new javax.swing.JScrollPane();
         txtFeatsDescription = new javax.swing.JTextArea();
         jLabel48 = new javax.swing.JLabel();
+        btnEditFeat = new javax.swing.JButton();
         pnlRoleManager = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
@@ -501,22 +502,22 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel53.setText("Your Characters");
 
-        btnCreateCharacter.setText("Create");
+        btnCreateCharacter.setText("Create Character");
         btnCreateCharacter.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCreateCharacterMouseClicked(evt);
             }
         });
 
-        btnRefreshLists6.setText("Refresh");
-        btnRefreshLists6.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRefreshCharList.setText("Refresh");
+        btnRefreshCharList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRefreshLists6MouseClicked(evt);
+                btnRefreshCharListMouseClicked(evt);
             }
         });
-        btnRefreshLists6.addActionListener(new java.awt.event.ActionListener() {
+        btnRefreshCharList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshLists6ActionPerformed(evt);
+                btnRefreshCharListActionPerformed(evt);
             }
         });
 
@@ -527,9 +528,14 @@ public class MainForm extends javax.swing.JFrame {
         txtCharacterOverview.setRows(5);
         jScrollPane21.setViewportView(txtCharacterOverview);
 
-        btnEditCharacter.setText("Edit");
+        btnEditCharacter.setText("Edit Character");
+        btnEditCharacter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditCharacterActionPerformed(evt);
+            }
+        });
 
-        btnViewCharacter.setText("View");
+        btnViewCharacter.setText("View Character");
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -539,8 +545,8 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnCharToHome, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRefreshLists6, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
+                .addComponent(btnRefreshCharList, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                 .addComponent(btnViewCharacter)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEditCharacter)
@@ -577,7 +583,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap(459, Short.MAX_VALUE)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCharToHome)
-                    .addComponent(btnRefreshLists6)
+                    .addComponent(btnRefreshCharList)
                     .addComponent(btnCreateCharacter)
                     .addComponent(btnEditCharacter)
                     .addComponent(btnViewCharacter))
@@ -659,15 +665,15 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        btnRefreshLists7.setText("Refresh");
-        btnRefreshLists7.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRefreshProficiencyList.setText("Refresh");
+        btnRefreshProficiencyList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRefreshLists7MouseClicked(evt);
+                btnRefreshProficiencyListMouseClicked(evt);
             }
         });
-        btnRefreshLists7.addActionListener(new java.awt.event.ActionListener() {
+        btnRefreshProficiencyList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshLists7ActionPerformed(evt);
+                btnRefreshProficiencyListActionPerformed(evt);
             }
         });
 
@@ -703,7 +709,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                         .addComponent(btnProficiencyToHome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRefreshLists7)
+                        .addComponent(btnRefreshProficiencyList)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEditProficiency)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -748,7 +754,7 @@ public class MainForm extends javax.swing.JFrame {
                         .addComponent(btnEditProficiency))
                     .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnProficiencyToHome)
-                        .addComponent(btnRefreshLists7)))
+                        .addComponent(btnRefreshProficiencyList)))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -797,22 +803,22 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel41.setText("Public Items");
 
-        btnItemCreation3.setText("Create Item");
-        btnItemCreation3.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCreateItem.setText("Create Item");
+        btnCreateItem.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnItemCreation3MouseClicked(evt);
+                btnCreateItemMouseClicked(evt);
             }
         });
 
-        btnRefreshLists4.setText("Refresh");
-        btnRefreshLists4.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRefreshItemList.setText("Refresh");
+        btnRefreshItemList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRefreshLists4MouseClicked(evt);
+                btnRefreshItemListMouseClicked(evt);
             }
         });
-        btnRefreshLists4.addActionListener(new java.awt.event.ActionListener() {
+        btnRefreshItemList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshLists4ActionPerformed(evt);
+                btnRefreshItemListActionPerformed(evt);
             }
         });
 
@@ -835,7 +841,7 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel42.setText("Item Description:");
 
-        btnEditItem3.setText("Edit Item");
+        btnItemEditor.setText("Edit Item");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -850,11 +856,11 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
                         .addComponent(btnItemToHome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRefreshLists4)
+                        .addComponent(btnRefreshItemList)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEditItem3)
+                        .addComponent(btnItemEditor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnItemCreation3))
+                        .addComponent(btnCreateItem))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel40, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
@@ -891,11 +897,11 @@ public class MainForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnItemCreation3)
-                        .addComponent(btnEditItem3))
+                        .addComponent(btnCreateItem)
+                        .addComponent(btnItemEditor))
                     .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnItemToHome)
-                        .addComponent(btnRefreshLists4)))
+                        .addComponent(btnRefreshItemList)))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -956,15 +962,15 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        btnRefreshLists.setText("Refresh");
-        btnRefreshLists.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRefreshSpellList.setText("Refresh");
+        btnRefreshSpellList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRefreshListsMouseClicked(evt);
+                btnRefreshSpellListMouseClicked(evt);
             }
         });
-        btnRefreshLists.addActionListener(new java.awt.event.ActionListener() {
+        btnRefreshSpellList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshListsActionPerformed(evt);
+                btnRefreshSpellListActionPerformed(evt);
             }
         });
 
@@ -1023,7 +1029,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(jPanel19Layout.createSequentialGroup()
                         .addComponent(btnSpellToHome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRefreshLists)
+                        .addComponent(btnRefreshSpellList)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEditSpell)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1056,7 +1062,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSpellToHome)
-                        .addComponent(btnRefreshLists))
+                        .addComponent(btnRefreshSpellList))
                     .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnSpellCreation)
                         .addComponent(btnEditSpell)))
@@ -1122,15 +1128,15 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        btnRefreshLists5.setText("Refresh");
-        btnRefreshLists5.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRefreshFeatsList.setText("Refresh");
+        btnRefreshFeatsList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnRefreshLists5MouseClicked(evt);
+                btnRefreshFeatsListMouseClicked(evt);
             }
         });
-        btnRefreshLists5.addActionListener(new java.awt.event.ActionListener() {
+        btnRefreshFeatsList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRefreshLists5ActionPerformed(evt);
+                btnRefreshFeatsListActionPerformed(evt);
             }
         });
 
@@ -1153,6 +1159,8 @@ public class MainForm extends javax.swing.JFrame {
 
         jLabel48.setText("Feats Description:");
 
+        btnEditFeat.setText("Edit Feat");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -1166,8 +1174,10 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addComponent(btnFeatToHome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRefreshLists5)
+                        .addComponent(btnRefreshFeatsList)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEditFeat)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnFeatCreation))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1204,10 +1214,12 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnFeatCreation)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnFeatCreation)
+                        .addComponent(btnEditFeat))
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnFeatToHome)
-                        .addComponent(btnRefreshLists5)))
+                        .addComponent(btnRefreshFeatsList)))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -1542,14 +1554,14 @@ public class MainForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnSpellToHomeMouseClicked
 
-    private void btnRefreshListsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshListsMouseClicked
+    private void btnRefreshSpellListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshSpellListMouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_btnRefreshListsMouseClicked
+    }//GEN-LAST:event_btnRefreshSpellListMouseClicked
 
-    private void btnRefreshListsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshListsActionPerformed
+    private void btnRefreshSpellListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshSpellListActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRefreshListsActionPerformed
+    }//GEN-LAST:event_btnRefreshSpellListActionPerformed
 
     private void btnSpellCreationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSpellCreationMouseClicked
         // TODO add your handling code here:
@@ -1569,19 +1581,19 @@ public class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnEditSpellActionPerformed
 
-    private void btnItemCreation3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnItemCreation3MouseClicked
+    private void btnCreateItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateItemMouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_btnItemCreation3MouseClicked
+    }//GEN-LAST:event_btnCreateItemMouseClicked
 
-    private void btnRefreshLists4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshLists4MouseClicked
+    private void btnRefreshItemListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshItemListMouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_btnRefreshLists4MouseClicked
+    }//GEN-LAST:event_btnRefreshItemListMouseClicked
 
-    private void btnRefreshLists4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshLists4ActionPerformed
+    private void btnRefreshItemListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshItemListActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRefreshLists4ActionPerformed
+    }//GEN-LAST:event_btnRefreshItemListActionPerformed
 
     private void btnItemToHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnItemToHomeMouseClicked
         // TODO add your handling code here:
@@ -1605,28 +1617,28 @@ public class MainForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnCreateCharacterMouseClicked
 
-    private void btnRefreshLists6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshLists6MouseClicked
+    private void btnRefreshCharListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshCharListMouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_btnRefreshLists6MouseClicked
+    }//GEN-LAST:event_btnRefreshCharListMouseClicked
 
-    private void btnRefreshLists6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshLists6ActionPerformed
+    private void btnRefreshCharListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshCharListActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRefreshLists6ActionPerformed
+    }//GEN-LAST:event_btnRefreshCharListActionPerformed
 
     private void btnFeatCreationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFeatCreationMouseClicked
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btnFeatCreationMouseClicked
 
-    private void btnRefreshLists5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshLists5MouseClicked
+    private void btnRefreshFeatsListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshFeatsListMouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_btnRefreshLists5MouseClicked
+    }//GEN-LAST:event_btnRefreshFeatsListMouseClicked
 
-    private void btnRefreshLists5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshLists5ActionPerformed
+    private void btnRefreshFeatsListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshFeatsListActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRefreshLists5ActionPerformed
+    }//GEN-LAST:event_btnRefreshFeatsListActionPerformed
 
     private void btnFeatToHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFeatToHomeMouseClicked
         // TODO add your handling code here:
@@ -1649,14 +1661,14 @@ public class MainForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnProficiencyCreationMouseClicked
 
-    private void btnRefreshLists7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshLists7MouseClicked
+    private void btnRefreshProficiencyListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshProficiencyListMouseClicked
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_btnRefreshLists7MouseClicked
+    }//GEN-LAST:event_btnRefreshProficiencyListMouseClicked
 
-    private void btnRefreshLists7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshLists7ActionPerformed
+    private void btnRefreshProficiencyListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshProficiencyListActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRefreshLists7ActionPerformed
+    }//GEN-LAST:event_btnRefreshProficiencyListActionPerformed
 
     private void btnProficiencyToHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnProficiencyToHomeMouseClicked
         // TODO add your handling code here:
@@ -1728,6 +1740,10 @@ public class MainForm extends javax.swing.JFrame {
         pnlRoleManager.hide();
     }//GEN-LAST:event_btnRoleToHomeActionPerformed
 
+    private void btnEditCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditCharacterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEditCharacterActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1769,12 +1785,13 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton btnCharToHome;
     private javax.swing.JButton btnCharacters;
     private javax.swing.JButton btnCreateCharacter;
+    private javax.swing.JButton btnCreateItem;
     private javax.swing.JButton btnDemoteUser;
     private javax.swing.JButton btnEditCharacter;
+    private javax.swing.JButton btnEditFeat;
     private javax.swing.JButton btnEditItem;
     private javax.swing.JButton btnEditItem1;
     private javax.swing.JButton btnEditItem2;
-    private javax.swing.JButton btnEditItem3;
     private javax.swing.JButton btnEditProficiency;
     private javax.swing.JButton btnEditSpell;
     private javax.swing.JButton btnFeatCreation;
@@ -1787,7 +1804,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton btnItemCreation;
     private javax.swing.JButton btnItemCreation1;
     private javax.swing.JButton btnItemCreation2;
-    private javax.swing.JButton btnItemCreation3;
+    private javax.swing.JButton btnItemEditor;
     private javax.swing.JButton btnItemToHome;
     private javax.swing.JButton btnItems;
     private javax.swing.JButton btnLogIn;
@@ -1795,14 +1812,14 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton btnProficiencyCreation;
     private javax.swing.JButton btnProficiencyToHome;
     private javax.swing.JButton btnPromoteUser;
-    private javax.swing.JButton btnRefreshLists;
+    private javax.swing.JButton btnRefreshCharList;
+    private javax.swing.JButton btnRefreshFeatsList;
+    private javax.swing.JButton btnRefreshItemList;
     private javax.swing.JButton btnRefreshLists1;
     private javax.swing.JButton btnRefreshLists2;
     private javax.swing.JButton btnRefreshLists3;
-    private javax.swing.JButton btnRefreshLists4;
-    private javax.swing.JButton btnRefreshLists5;
-    private javax.swing.JButton btnRefreshLists6;
-    private javax.swing.JButton btnRefreshLists7;
+    private javax.swing.JButton btnRefreshProficiencyList;
+    private javax.swing.JButton btnRefreshSpellList;
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton btnRoleToHome;
     private javax.swing.JButton btnRoles;

@@ -477,8 +477,8 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnCharToHome" min="-2" pref="86" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnRefreshLists6" min="-2" pref="87" max="-2" attributes="0"/>
-                          <EmptySpace pref="234" max="32767" attributes="0"/>
+                          <Component id="btnRefreshCharList" min="-2" pref="87" max="-2" attributes="0"/>
+                          <EmptySpace pref="119" max="32767" attributes="0"/>
                           <Component id="btnViewCharacter" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="btnEditCharacter" min="-2" max="-2" attributes="0"/>
@@ -526,7 +526,7 @@
                           <EmptySpace pref="459" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnCharToHome" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnRefreshLists6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnRefreshCharList" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnCreateCharacter" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnEditCharacter" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnViewCharacter" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -657,19 +657,19 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="btnCreateCharacter">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Create"/>
+                    <Property name="text" type="java.lang.String" value="Create Character"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCreateCharacterMouseClicked"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnRefreshLists6">
+                <Component class="javax.swing.JButton" name="btnRefreshCharList">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Refresh"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshLists6MouseClicked"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshLists6ActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshCharListMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshCharListActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel54">
@@ -695,12 +695,15 @@
                 </Container>
                 <Component class="javax.swing.JButton" name="btnEditCharacter">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Edit"/>
+                    <Property name="text" type="java.lang.String" value="Edit Character"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditCharacterActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnViewCharacter">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="View"/>
+                    <Property name="text" type="java.lang.String" value="View Character"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -744,7 +747,7 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="btnProficiencyToHome" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnRefreshLists7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRefreshProficiencyList" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="btnEditProficiency" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -800,7 +803,7 @@
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="btnProficiencyToHome" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnRefreshLists7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRefreshProficiencyList" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="47" max="32767" attributes="0"/>
@@ -909,13 +912,13 @@
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnProficiencyCreationMouseClicked"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnRefreshLists7">
+                <Component class="javax.swing.JButton" name="btnRefreshProficiencyList">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Refresh"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshLists7MouseClicked"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshLists7ActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshProficiencyListMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshProficiencyListActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnProficiencyToHome">
@@ -989,11 +992,11 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="btnItemToHome" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnRefreshLists4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRefreshItemList" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="btnEditItem3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnItemEditor" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnItemCreation3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnCreateItem" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1040,12 +1043,12 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="btnItemCreation3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnEditItem3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnCreateItem" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnItemEditor" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="btnItemToHome" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnRefreshLists4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRefreshItemList" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="47" max="32767" attributes="0"/>
@@ -1141,21 +1144,21 @@
                     <Property name="text" type="java.lang.String" value="Public Items"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnItemCreation3">
+                <Component class="javax.swing.JButton" name="btnCreateItem">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Create Item"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnItemCreation3MouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCreateItemMouseClicked"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnRefreshLists4">
+                <Component class="javax.swing.JButton" name="btnRefreshItemList">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Refresh"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshLists4MouseClicked"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshLists4ActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshItemListMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshItemListActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnItemToHome">
@@ -1188,7 +1191,7 @@
                     <Property name="text" type="java.lang.String" value="Item Description:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnEditItem3">
+                <Component class="javax.swing.JButton" name="btnItemEditor">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Edit Item"/>
                   </Properties>
@@ -1252,7 +1255,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="btnSpellToHome" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnRefreshLists" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRefreshSpellList" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="btnEditSpell" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -1293,7 +1296,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="btnSpellToHome" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnRefreshLists" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRefreshSpellList" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="btnSpellCreation" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1409,13 +1412,13 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSpellToHomeActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnRefreshLists">
+                <Component class="javax.swing.JButton" name="btnRefreshSpellList">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Refresh"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshListsMouseClicked"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshListsActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshSpellListMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshSpellListActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnSpellCreation">
@@ -1498,8 +1501,10 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="btnFeatToHome" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnRefreshLists5" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRefreshFeatsList" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="btnEditFeat" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btnFeatCreation" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -1546,10 +1551,13 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnFeatCreation" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="btnFeatCreation" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnEditFeat" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                   <Component id="btnFeatToHome" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnRefreshLists5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnRefreshFeatsList" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="47" max="32767" attributes="0"/>
@@ -1653,13 +1661,13 @@
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnFeatCreationMouseClicked"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnRefreshLists5">
+                <Component class="javax.swing.JButton" name="btnRefreshFeatsList">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Refresh"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshLists5MouseClicked"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshLists5ActionPerformed"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnRefreshFeatsListMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRefreshFeatsListActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnFeatToHome">
@@ -1690,6 +1698,11 @@
                 <Component class="javax.swing.JLabel" name="jLabel48">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Feats Description:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnEditFeat">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Edit Feat"/>
                   </Properties>
                 </Component>
               </SubComponents>

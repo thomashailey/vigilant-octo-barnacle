@@ -4,9 +4,6 @@
  */
 package dnd.character.sheet;
 
-import dnd.character.sheet.GUIfolder.Home;
-import dnd.character.sheet.GUIfolder.MainForm;
-import dnd.character.sheet.GUIfolder.UserAuth;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
