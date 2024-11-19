@@ -5,6 +5,7 @@
 package dnd.character.sheet;
 
 import dnd.character.sheet.GUIfolder.Home;
+import dnd.character.sheet.GUIfolder.MainForm;
 import dnd.character.sheet.GUIfolder.UserAuth;
 import java.io.File;
 import java.io.FileWriter;
@@ -25,13 +26,14 @@ public class AuthenticateUser {
     ResultSet results;
     String sql = null;
     
-    public void SearchDatabase(String username, String password, int verificationCode) throws SQLException, ClassNotFoundException {
+    public boolean SearchDatabase(String username, String password, int verificationCode) throws SQLException, ClassNotFoundException {
         connection = database.OpenConnection();
         String name = username;
         String pass = password;
         int code = verificationCode;
         boolean userExists;
         boolean userVerified;
+        boolean goHome = false;
         
         userExists = UserExists(name);
         
@@ -41,7 +43,7 @@ public class AuthenticateUser {
             if (userVerified) {
                 System.out.println("User Successfully Verified");
                 SetCurrentUser(name);
-                new Home().setVisible(true);
+                goHome = true;
             }
             else {
                 JOptionPane.showMessageDialog(null, "Username, password, or code incorrect. Please retry.", "Notice", JOptionPane.ERROR_MESSAGE);
@@ -50,8 +52,8 @@ public class AuthenticateUser {
         else {
             JOptionPane.showMessageDialog(null, "User does not exist, please Register", "Notice", JOptionPane.INFORMATION_MESSAGE);
         }
-        // "com.mysql.cj.jdbc.Driver"
-        // "jdbc:mysql://localhost:3306/dnd_app_database","root","devry123"
+        
+        return goHome;
     }
     
     private boolean UserExists(String username) throws SQLException, ClassNotFoundException {
@@ -100,9 +102,9 @@ public class AuthenticateUser {
         
         while (results.next()) {
             userID = results.getInt("userID");
-            System.out.println(userID);
+//            System.out.println(userID);
         }
-        System.out.println(userID);
+//        System.out.println(userID);
         
         try {
             File userIdFile = new File("currentuser.txt");
@@ -127,5 +129,4 @@ public class AuthenticateUser {
             ex.printStackTrace();
         }
     }
-    
 }
