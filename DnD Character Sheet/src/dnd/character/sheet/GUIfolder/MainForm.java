@@ -26,6 +26,7 @@ public class MainForm extends javax.swing.JFrame {
      */
     public MainForm() {
         initComponents();
+        this.setSize(480, 380);
     }
 
     /**
@@ -195,6 +196,12 @@ public class MainForm extends javax.swing.JFrame {
 
         jPanel1.setLayout(new java.awt.CardLayout());
 
+        pnlUserAuth.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                pnlUserAuthComponentShown(evt);
+            }
+        });
+
         jLabel1.setText("Password:");
 
         jLabel2.setText("Username:");
@@ -242,34 +249,31 @@ public class MainForm extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel67, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(155, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(btnRegister)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnLogIn))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(pwdPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtVerificationCode, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(142, 142, 142))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                            .addComponent(btnRegister)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnLogIn))
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtUsername))
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(pwdPassword))
+                        .addGroup(jPanel8Layout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtVerificationCode, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel67, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(217, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1618,6 +1622,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void btnCreateCharacterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateCharacterMouseClicked
         // TODO add your handling code here:
+        new CharacterSheet().setVisible(true);
         
     }//GEN-LAST:event_btnCreateCharacterMouseClicked
 
@@ -1773,6 +1778,7 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void pnlHomePageComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_pnlHomePageComponentShown
+        this.setSize(680, 600);
         try {
             // TODO add your handling code here:
             AuthenticateUser auth = new AuthenticateUser();
@@ -1796,6 +1802,11 @@ public class MainForm extends javax.swing.JFrame {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_pnlHomePageComponentShown
+
+    private void pnlUserAuthComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_pnlUserAuthComponentShown
+        // TODO add your handling code here:
+        this.setSize(480, 380);
+    }//GEN-LAST:event_pnlUserAuthComponentShown
 
     /**
      * @param args the command line arguments
@@ -1842,21 +1853,12 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton btnDemoteUser;
     private javax.swing.JButton btnEditCharacter;
     private javax.swing.JButton btnEditFeat;
-    private javax.swing.JButton btnEditItem;
-    private javax.swing.JButton btnEditItem1;
-    private javax.swing.JButton btnEditItem2;
     private javax.swing.JButton btnEditProficiency;
     private javax.swing.JButton btnEditSpell;
     private javax.swing.JButton btnFeatCreation;
     private javax.swing.JButton btnFeatToHome;
     private javax.swing.JButton btnFeats;
     private javax.swing.JButton btnFlagUser;
-    private javax.swing.JButton btnHome1;
-    private javax.swing.JButton btnHome2;
-    private javax.swing.JButton btnHome3;
-    private javax.swing.JButton btnItemCreation;
-    private javax.swing.JButton btnItemCreation1;
-    private javax.swing.JButton btnItemCreation2;
     private javax.swing.JButton btnItemEditor;
     private javax.swing.JButton btnItemToHome;
     private javax.swing.JButton btnItems;
@@ -1868,9 +1870,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton btnRefreshCharList;
     private javax.swing.JButton btnRefreshFeatsList;
     private javax.swing.JButton btnRefreshItemList;
-    private javax.swing.JButton btnRefreshLists1;
-    private javax.swing.JButton btnRefreshLists2;
-    private javax.swing.JButton btnRefreshLists3;
     private javax.swing.JButton btnRefreshProficiencyList;
     private javax.swing.JButton btnRefreshSpellList;
     private javax.swing.JButton btnRegister;
@@ -1898,26 +1897,8 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
@@ -1956,7 +1937,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
@@ -1966,18 +1946,10 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
@@ -1995,25 +1967,13 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane26;
     private javax.swing.JScrollPane jScrollPane27;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JList<String> lstPersonalCharacters;
     private javax.swing.JList<String> lstPersonalFeats;
-    private javax.swing.JList<String> lstPersonalItems;
-    private javax.swing.JList<String> lstPersonalItems1;
-    private javax.swing.JList<String> lstPersonalItems2;
     private javax.swing.JList<String> lstPersonalItems3;
     private javax.swing.JList<String> lstPersonalProficiencies;
     private javax.swing.JList<String> lstPersonalSpells;
     private javax.swing.JList<String> lstPublicCharacters;
     private javax.swing.JList<String> lstPublicFeats;
-    private javax.swing.JList<String> lstPublicItems;
-    private javax.swing.JList<String> lstPublicItems1;
-    private javax.swing.JList<String> lstPublicItems2;
     private javax.swing.JList<String> lstPublicItems3;
     private javax.swing.JList<String> lstPublicProficiencies;
     private javax.swing.JList<String> lstPublicSpells;
@@ -2029,9 +1989,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPasswordField pwdPassword;
     private javax.swing.JTextArea txtCharacterOverview;
     private javax.swing.JTextArea txtFeatsDescription;
-    private javax.swing.JTextArea txtItemDescription;
-    private javax.swing.JTextArea txtItemDescription1;
-    private javax.swing.JTextArea txtItemDescription2;
     private javax.swing.JTextArea txtItemDescription3;
     private javax.swing.JTextArea txtProficiencyDescription;
     private javax.swing.JTextArea txtSpellDetails;

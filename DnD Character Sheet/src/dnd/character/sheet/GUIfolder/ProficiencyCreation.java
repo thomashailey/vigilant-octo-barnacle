@@ -15,6 +15,7 @@ public class ProficiencyCreation extends javax.swing.JFrame {
      */
     public ProficiencyCreation() {
         initComponents();
+        setDefaultCloseOperation(this.HIDE_ON_CLOSE);
     }
 
     /**

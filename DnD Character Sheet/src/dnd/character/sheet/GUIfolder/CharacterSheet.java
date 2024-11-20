@@ -17,6 +17,7 @@ public class CharacterSheet extends javax.swing.JFrame {
      */
     public CharacterSheet() {
         initComponents();
+        setDefaultCloseOperation(this.HIDE_ON_CLOSE);
     }
 
     /**

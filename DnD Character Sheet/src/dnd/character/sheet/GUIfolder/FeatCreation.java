@@ -15,6 +15,7 @@ public class FeatCreation extends javax.swing.JFrame {
      */
     public FeatCreation() {
         initComponents();
+        setDefaultCloseOperation(this.HIDE_ON_CLOSE);
     }
 
     /**

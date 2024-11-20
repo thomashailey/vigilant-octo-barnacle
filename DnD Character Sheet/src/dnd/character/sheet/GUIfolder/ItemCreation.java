@@ -18,6 +18,7 @@ public class ItemCreation extends javax.swing.JFrame {
      */
     public ItemCreation() {
         initComponents();
+        setDefaultCloseOperation(this.HIDE_ON_CLOSE);
     }
 
     /**

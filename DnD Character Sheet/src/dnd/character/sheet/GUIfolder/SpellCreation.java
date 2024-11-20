@@ -17,6 +17,7 @@ public class SpellCreation extends javax.swing.JFrame {
      */
     public SpellCreation() {
         initComponents();
+        setDefaultCloseOperation(this.HIDE_ON_CLOSE);
     }
 
     /**
