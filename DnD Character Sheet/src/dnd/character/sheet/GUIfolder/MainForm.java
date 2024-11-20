@@ -5,15 +5,19 @@
 package dnd.character.sheet.GUIfolder;
 
 import dnd.character.sheet.AuthenticateUser;
+import dnd.character.sheet.ManageCharacters;
 import dnd.character.sheet.RegisterUser;
 import java.awt.CardLayout;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.ListModel;
 
 /**
  *
@@ -27,6 +31,23 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
         initComponents();
         this.setSize(480, 380);
+        // instantiate variables for character lists
+        ArrayList<String> list = new ArrayList();
+        DefaultListModel listModel = new DefaultListModel();
+        
+        // set empty list
+        listModel.addElement("");
+        lstPersonalCharacters.setModel(listModel);
+        lstPublicCharacters.setModel(listModel);
+        lstPersonalProficiencies.setModel(listModel);
+        lstPublicProficiencies.setModel(listModel);
+        lstPersonalItems.setModel(listModel);
+        lstPublicItems.setModel(listModel);
+        lstPersonalSpells.setModel(listModel);
+        lstPublicSpells.setModel(listModel);
+        lstPersonalFeats.setModel(listModel);
+        lstPublicFeats.setModel(listModel);
+        lstUserList.setModel(listModel);
     }
 
     /**
@@ -111,9 +132,9 @@ public class MainForm extends javax.swing.JFrame {
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
-        lstPersonalItems3 = new javax.swing.JList<>();
+        lstPersonalItems = new javax.swing.JList<>();
         jScrollPane14 = new javax.swing.JScrollPane();
-        lstPublicItems3 = new javax.swing.JList<>();
+        lstPublicItems = new javax.swing.JList<>();
         jLabel40 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         btnCreateItem = new javax.swing.JButton();
@@ -197,6 +218,9 @@ public class MainForm extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.CardLayout());
 
         pnlUserAuth.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentHidden(java.awt.event.ComponentEvent evt) {
+                pnlUserAuthComponentHidden(evt);
+            }
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 pnlUserAuthComponentShown(evt);
             }
@@ -477,6 +501,12 @@ public class MainForm extends javax.swing.JFrame {
         );
 
         jPanel1.add(pnlHomePage, "card3");
+
+        pnlCharacterHome.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                pnlCharacterHomeComponentShown(evt);
+            }
+        });
 
         btnCharToHome.setText("Home");
         btnCharToHome.addActionListener(new java.awt.event.ActionListener() {
@@ -798,19 +828,19 @@ public class MainForm extends javax.swing.JFrame {
         jLabel39.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel39.setText("as well as those shared by other users.");
 
-        lstPersonalItems3.setModel(new javax.swing.AbstractListModel<String>() {
+        lstPersonalItems.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane13.setViewportView(lstPersonalItems3);
+        jScrollPane13.setViewportView(lstPersonalItems);
 
-        lstPublicItems3.setModel(new javax.swing.AbstractListModel<String>() {
+        lstPublicItems.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane14.setViewportView(lstPublicItems3);
+        jScrollPane14.setViewportView(lstPublicItems);
 
         jLabel40.setText("Your Items");
 
@@ -1779,6 +1809,15 @@ public class MainForm extends javax.swing.JFrame {
 
     private void pnlHomePageComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_pnlHomePageComponentShown
         this.setSize(680, 600);
+    }//GEN-LAST:event_pnlHomePageComponentShown
+
+    private void pnlUserAuthComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_pnlUserAuthComponentShown
+        // TODO add your handling code here:
+        this.setSize(480, 380);
+    }//GEN-LAST:event_pnlUserAuthComponentShown
+
+    private void pnlUserAuthComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_pnlUserAuthComponentHidden
+        // TODO add your handling code here:
         try {
             // TODO add your handling code here:
             AuthenticateUser auth = new AuthenticateUser();
@@ -1801,12 +1840,55 @@ public class MainForm extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_pnlHomePageComponentShown
+    }//GEN-LAST:event_pnlUserAuthComponentHidden
 
-    private void pnlUserAuthComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_pnlUserAuthComponentShown
+    private void pnlCharacterHomeComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_pnlCharacterHomeComponentShown
         // TODO add your handling code here:
-        this.setSize(480, 380);
-    }//GEN-LAST:event_pnlUserAuthComponentShown
+        // instantiate variables for character lists
+        ArrayList<Integer> idList = new ArrayList();
+        ArrayList<String> nameList = new ArrayList();
+        DefaultListModel listModel = new DefaultListModel();
+        ManageCharacters manage = new ManageCharacters();
+        // Call ManageCharacters() class
+        // Pull characters attached to userID currently active
+        // Set results to lstPersonalCharacters
+        try {
+            // TODO add your handling code here:
+            AuthenticateUser auth = new AuthenticateUser();
+            String textFromFile;
+            int userID;
+            
+            // read currentuser file for userID
+            textFromFile = auth.ReadFile();
+            userID = Integer.parseInt(textFromFile);
+            
+            // obtain character ID and Name in separate lists
+            idList = manage.DisplayID(userID);
+            nameList = manage.DisplayName(userID);
+            
+            // set list model/object with formatted information from lists
+            if (!idList.isEmpty() && !nameList.isEmpty()) {
+                for (int i = 0; i < idList.size(); i++) {
+                    listModel.addElement(idList.get(i) + " - " + nameList.get(i));
+                    lstPersonalCharacters.setModel(listModel);
+                }
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        // Call ManageCharacters() class
+        // Pull characters set to public
+        // Set results to lstPublicCharacters
+        
+    }//GEN-LAST:event_pnlCharacterHomeComponentShown
 
     /**
      * @param args the command line arguments
@@ -1969,12 +2051,12 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JList<String> lstPersonalCharacters;
     private javax.swing.JList<String> lstPersonalFeats;
-    private javax.swing.JList<String> lstPersonalItems3;
+    private javax.swing.JList<String> lstPersonalItems;
     private javax.swing.JList<String> lstPersonalProficiencies;
     private javax.swing.JList<String> lstPersonalSpells;
     private javax.swing.JList<String> lstPublicCharacters;
     private javax.swing.JList<String> lstPublicFeats;
-    private javax.swing.JList<String> lstPublicItems3;
+    private javax.swing.JList<String> lstPublicItems;
     private javax.swing.JList<String> lstPublicProficiencies;
     private javax.swing.JList<String> lstPublicSpells;
     private javax.swing.JList<String> lstUserList;
