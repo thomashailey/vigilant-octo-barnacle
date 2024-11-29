@@ -277,23 +277,22 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                            .addComponent(btnRegister)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnLogIn))
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtUsername))
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(pwdPassword))
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addGap(18, 18, 18)
-                            .addComponent(txtVerificationCode, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addComponent(btnRegister)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnLogIn))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtUsername))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pwdPassword))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtVerificationCode, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel67, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 412, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -531,6 +530,11 @@ public class MainForm extends javax.swing.JFrame {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
+        });
+        lstPersonalCharacters.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstPersonalCharactersValueChanged(evt);
+            }
         });
         jScrollPane19.setViewportView(lstPersonalCharacters);
 
@@ -1889,6 +1893,34 @@ public class MainForm extends javax.swing.JFrame {
         // Set results to lstPublicCharacters
         
     }//GEN-LAST:event_pnlCharacterHomeComponentShown
+
+    private void lstPersonalCharactersValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstPersonalCharactersValueChanged
+        // TODO add your handling code here:
+        // Clear txtCharacterOverview
+        if (!evt.getValueIsAdjusting()) {
+            txtCharacterOverview.setText(null);
+            // Obtain characterID
+            String listSelection = lstPersonalCharacters.getSelectedValue();
+            String regex = " - ";
+            String[] list = listSelection.split(regex);
+            int characterID = Integer.parseInt(list[0]);
+
+            System.out.println(characterID);
+            // Database search using characterID for character_basics
+            ManageCharacters mc = new ManageCharacters();
+            try {
+                mc.DisplayCharacter(characterID);
+                // Character object created
+                // txtCharacterOverview populated with character information (name, level, race, class, public/private status
+            } catch (SQLException ex) {
+                Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        }
+        
+    }//GEN-LAST:event_lstPersonalCharactersValueChanged
 
     /**
      * @param args the command line arguments

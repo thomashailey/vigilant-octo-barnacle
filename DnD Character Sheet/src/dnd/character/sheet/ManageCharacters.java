@@ -35,7 +35,6 @@ public class ManageCharacters {
         
         while (results.next()) {
             id.add(results.getInt(1));
-            System.out.println(results.getInt(1));
         }
         
         return id;
@@ -54,5 +53,25 @@ public class ManageCharacters {
         }
         
         return name;
+    }
+    
+    public void CreateCharacterObject(int characterID) throws SQLException, ClassNotFoundException {
+        connection = database.OpenConnection();
+        ArrayList<String> characterList = new ArrayList<>();
+        
+        sql = String.format("SELECT * FROM character_basics WHERE characterID = \'%d\'", characterID);
+        statement = connection.prepareStatement(sql);
+        results = statement.executeQuery();
+        
+        // name, level, race, class
+        
+        while (results.next()) {
+            characterList.add(results.getString("characterName") +","+ results.getInt("characterLevel") 
+                    + ","+ results.getString("characterRace") + "," + results.getString("characterClass"));
+        }
+    }
+    
+    public void DisplayCharacter(int characterID) throws SQLException, ClassNotFoundException {
+        
     }
 }
