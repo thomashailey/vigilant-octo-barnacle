@@ -15,7 +15,7 @@ public class Character {
     private int charLevel;
     private String charRace;
     private String charClass;
-    private boolean publicChar;
+    private String publicChar;
     
     private int charAC;
     private int charProfMod;
@@ -39,7 +39,7 @@ public class Character {
     private int chaStat;
     private boolean chaProf;
 
-    public Character(int charID, String charName, int charLevel, String charRace, String charClass, boolean publicChar, int charAC, int charProfMod, int charHP, int spellSaveDC, int spellAttackMod, String additionalNotes, int strStat, boolean strProf, int dexStat, boolean dexProf, int conStat, boolean conProf, int intStat, boolean intProf, int wisStat, boolean wisProf, int chaStat, boolean chaProf) {
+    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, int charAC, int charProfMod, int charHP, int spellSaveDC, int spellAttackMod, String additionalNotes, int strStat, boolean strProf, int dexStat, boolean dexProf, int conStat, boolean conProf, int intStat, boolean intProf, int wisStat, boolean wisProf, int chaStat, boolean chaProf) {
         this.charID = charID;
         this.charName = charName;
         this.charLevel = charLevel;
@@ -67,7 +67,7 @@ public class Character {
     }
 
 
-    public Character(int charID, String charName, int charLevel, String charRace, String charClass, boolean publicChar, int charAC, int charProfMod, int charHP, String additionalNotes, int strStat, boolean strProf, int dexStat, boolean dexProf, int conStat, boolean conProf, int intStat, boolean intProf, int wisStat, boolean wisProf, int chaStat, boolean chaProf) {
+    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, int charAC, int charProfMod, int charHP, String additionalNotes, int strStat, boolean strProf, int dexStat, boolean dexProf, int conStat, boolean conProf, int intStat, boolean intProf, int wisStat, boolean wisProf, int chaStat, boolean chaProf) {
         this.charID = charID;
         this.charName = charName;
         this.charLevel = charLevel;
@@ -92,7 +92,7 @@ public class Character {
         this.chaProf = chaProf;
     }
 
-    public Character(int charID, String charName, int charLevel, String charRace, String charClass, boolean publicChar, int charAC, int charProfMod, int charHP, String additionalNotes) {
+    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, int charAC, int charProfMod, int charHP, String additionalNotes) {
         this.charID = charID;
         this.charName = charName;
         this.charLevel = charLevel;
@@ -105,7 +105,7 @@ public class Character {
         this.additionalNotes = additionalNotes;
     }
 
-    public Character(int charID, String charName, int charLevel, String charRace, String charClass, boolean publicChar) {
+    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar) {
         this.charID = charID;
         this.charName = charName;
         this.charLevel = charLevel;
@@ -154,11 +154,11 @@ public class Character {
         this.charClass = charClass;
     }
 
-    public boolean isPublicChar() {
+    public String isPublicChar() {
         return publicChar;
     }
 
-    public void setPublicChar(boolean publicChar) {
+    public void setPublicChar(String publicChar) {
         this.publicChar = publicChar;
     }
 

@@ -4,6 +4,7 @@
  */
 package dnd.character.sheet;
 
+import dnd.character.sheet.GUIfolder.MainForm;
 import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -55,7 +56,7 @@ public class ManageCharacters {
         return name;
     }
     
-    public void CreateCharacterObject(int characterID) throws SQLException, ClassNotFoundException {
+    public Character CreateCharacterObject(int characterID) throws SQLException, ClassNotFoundException {
         connection = database.OpenConnection();
         ArrayList<String> characterList = new ArrayList<>();
         
@@ -67,11 +68,32 @@ public class ManageCharacters {
         
         while (results.next()) {
             characterList.add(results.getString("characterName") +","+ results.getInt("characterLevel") 
-                    + ","+ results.getString("characterRace") + "," + results.getString("characterClass"));
+                    + ","+ results.getString("characterRace") + "," + results.getString("characterClass") + "," 
+                            + results.getString("characterPublic"));
         }
+        
+        String parsing = characterList.get(0);
+        String[] informationList = parsing.split(",");
+        
+        String name = informationList[0];
+        int level = Integer.parseInt(informationList[1]);
+        String race = informationList[2];
+        String charClass = informationList[3];
+        String privacy = informationList[4];
+        
+        Character character = new Character(characterID, name, level, race, charClass, privacy);
+        
+        return character;
     }
     
-    public void DisplayCharacter(int characterID) throws SQLException, ClassNotFoundException {
+    public String DisplayCharacter(Character character) throws SQLException, ClassNotFoundException {
+        String displayString;
         
+        displayString = "Name: " + character.getCharName() + "\n" + 
+                "Level: " + character.getCharLevel() + "\n" + 
+                "Class: " + character.getCharClass() + "\n" + 
+                "Race: " + character.getCharRace();
+        
+        return displayString;
     }
 }

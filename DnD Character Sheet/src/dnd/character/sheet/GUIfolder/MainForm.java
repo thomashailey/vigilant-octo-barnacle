@@ -1651,6 +1651,7 @@ public class MainForm extends javax.swing.JFrame {
     private void btnCharToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCharToHomeActionPerformed
         // TODO add your handling code here:
         pnlHomePage.show();
+        lstPersonalCharacters.setSelectedIndex(0);
         pnlCharacterHome.hide();
     }//GEN-LAST:event_btnCharToHomeActionPerformed
 
@@ -1898,20 +1899,26 @@ public class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         // Clear txtCharacterOverview
         if (!evt.getValueIsAdjusting()) {
-            txtCharacterOverview.setText(null);
-            // Obtain characterID
-            String listSelection = lstPersonalCharacters.getSelectedValue();
-            String regex = " - ";
-            String[] list = listSelection.split(regex);
-            int characterID = Integer.parseInt(list[0]);
-
-            System.out.println(characterID);
-            // Database search using characterID for character_basics
-            ManageCharacters mc = new ManageCharacters();
             try {
-                mc.DisplayCharacter(characterID);
-                // Character object created
-                // txtCharacterOverview populated with character information (name, level, race, class, public/private status
+                txtCharacterOverview.setText(null);
+                // Obtain characterID
+                if (lstPersonalCharacters.isSelectionEmpty()) {
+                    
+                } else {
+                    String listSelection = lstPersonalCharacters.getSelectedValue();
+                    String regex = " - ";
+                    String[] list = listSelection.split(regex);
+                    int characterID = Integer.parseInt(list[0]);
+
+                    System.out.println(characterID);
+                    // Database search using characterID for character_basics
+                    ManageCharacters mc = new ManageCharacters();
+                    dnd.character.sheet.Character character = mc.CreateCharacterObject(characterID);
+
+                    txtCharacterOverview.setText(mc.DisplayCharacter(character));
+                }
+                
+                
             } catch (SQLException ex) {
                 Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
