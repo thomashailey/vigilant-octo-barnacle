@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `dnd_app_database` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `dnd_app_database`;
--- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dnd_app_database
 -- ------------------------------------------------------
--- Server version	8.0.40
+-- Server version	8.0.36
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,13 +27,14 @@ DROP TABLE IF EXISTS `character_armor`;
 CREATE TABLE `character_armor` (
   `characterArmorPK` int NOT NULL AUTO_INCREMENT,
   `characterIDarmor` int NOT NULL,
-  `armorName` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
-  `armorDescription` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `armorItemID` int NOT NULL,
   PRIMARY KEY (`characterArmorPK`),
   UNIQUE KEY `characterArmorPK_UNIQUE` (`characterArmorPK`),
   KEY `characterIDarmor_idx` (`characterIDarmor`),
+  KEY `armorID_idx` (`armorItemID`),
+  CONSTRAINT `armorID` FOREIGN KEY (`armorItemID`) REFERENCES `saved_items` (`itemID`),
   CONSTRAINT `characterIDarmor` FOREIGN KEY (`characterIDarmor`) REFERENCES `character_basics` (`characterID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -55,7 +56,7 @@ CREATE TABLE `character_basics` (
   UNIQUE KEY `characterID_UNIQUE` (`characterID`),
   KEY `characterIDuser_idx` (`characterIDuser`),
   CONSTRAINT `characterIDuser` FOREIGN KEY (`characterIDuser`) REFERENCES `user_data` (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=197 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=297 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,7 +76,7 @@ CREATE TABLE `character_feats` (
   KEY `featListID_idx` (`featListID`),
   CONSTRAINT `characterIDfeat` FOREIGN KEY (`characterIDfeat`) REFERENCES `character_basics` (`characterID`),
   CONSTRAINT `featListID` FOREIGN KEY (`featListID`) REFERENCES `feats_list` (`featID`)
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=231 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +97,7 @@ CREATE TABLE `character_fundamentals` (
   UNIQUE KEY `characterFundID_UNIQUE` (`characterFundID`),
   UNIQUE KEY `characterFundPK_UNIQUE` (`characterFundPK`),
   CONSTRAINT `characterFundID` FOREIGN KEY (`characterFundID`) REFERENCES `character_basics` (`characterID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=203 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,7 +117,7 @@ CREATE TABLE `character_inventory` (
   UNIQUE KEY `characterInventoryID_UNIQUE` (`characterInventoryPK`),
   KEY `characterIDinv_idx` (`characterIDinventory`),
   CONSTRAINT `characterIDinventory` FOREIGN KEY (`characterIDinventory`) REFERENCES `character_basics` (`characterID`)
-) ENGINE=InnoDB AUTO_INCREMENT=241 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=591 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,7 +137,7 @@ CREATE TABLE `character_otherproficiencies` (
   KEY `characterProficiencyListID_idx` (`characterProficiencyListID`),
   CONSTRAINT `characterIDotherproficiency` FOREIGN KEY (`characterIDotherproficiency`) REFERENCES `character_basics` (`characterID`),
   CONSTRAINT `characterProficiencyListID` FOREIGN KEY (`characterProficiencyListID`) REFERENCES `proficiencies_list` (`proficiencyID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -156,7 +157,7 @@ CREATE TABLE `character_skillproficiencies` (
   UNIQUE KEY `characterProficiencyID_UNIQUE` (`characterSkillProficiencyPK`),
   KEY `characterIDprof_idx` (`characterIDskillproficiency`),
   CONSTRAINT `characterIDproficiency` FOREIGN KEY (`characterIDskillproficiency`) REFERENCES `character_basics` (`characterID`)
-) ENGINE=InnoDB AUTO_INCREMENT=390 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=590 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,7 +175,7 @@ CREATE TABLE `character_spellattackinfo` (
   PRIMARY KEY (`characterSpellAttackPK`),
   UNIQUE KEY `characterSpellAttackPK_UNIQUE` (`characterSpellAttackID`),
   CONSTRAINT `characterSpellAttackID` FOREIGN KEY (`characterSpellAttackID`) REFERENCES `character_basics` (`characterID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,7 +195,7 @@ CREATE TABLE `character_spells` (
   KEY `spellListID_idx` (`spellListID`),
   CONSTRAINT `characterIDspell` FOREIGN KEY (`characterIDspell`) REFERENCES `character_basics` (`characterID`),
   CONSTRAINT `spellListID` FOREIGN KEY (`spellListID`) REFERENCES `spell_table` (`spellID`)
-) ENGINE=InnoDB AUTO_INCREMENT=295 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=395 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,7 +213,7 @@ CREATE TABLE `character_spellslots` (
   UNIQUE KEY `characterSlotID_UNIQUE` (`characterSlotPK`),
   KEY `characterIDspells_idx` (`characterIDspellslots`),
   CONSTRAINT `characterIDspellslots` FOREIGN KEY (`characterIDspellslots`) REFERENCES `character_basics` (`characterID`)
-) ENGINE=InnoDB AUTO_INCREMENT=445 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=545 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,7 +243,7 @@ CREATE TABLE `character_stats` (
   UNIQUE KEY `characterID_UNIQUE` (`characterIDstats`),
   KEY `characterID_idx` (`characterIDstats`),
   CONSTRAINT `characterIDstats` FOREIGN KEY (`characterIDstats`) REFERENCES `character_basics` (`characterID`)
-) ENGINE=InnoDB AUTO_INCREMENT=364 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=564 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,16 +256,14 @@ DROP TABLE IF EXISTS `character_weapons`;
 CREATE TABLE `character_weapons` (
   `characterWeaponPK` int NOT NULL AUTO_INCREMENT,
   `characterIDweapons` int NOT NULL,
-  `weaponName` varchar(60) NOT NULL,
-  `weaponAttackBonus` int NOT NULL,
-  `weaponDamage` varchar(30) NOT NULL,
-  `weaponDescription` varchar(250) DEFAULT NULL,
-  `weaponRange` int DEFAULT NULL,
+  `weaponsListID` int NOT NULL,
   PRIMARY KEY (`characterWeaponPK`),
   UNIQUE KEY `weaponID_UNIQUE` (`characterWeaponPK`),
   KEY `characterIDweapon_idx` (`characterIDweapons`),
-  CONSTRAINT `characterIDweapons` FOREIGN KEY (`characterIDweapons`) REFERENCES `character_basics` (`characterID`)
-) ENGINE=InnoDB AUTO_INCREMENT=246 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `weaponsListID_idx` (`weaponsListID`),
+  CONSTRAINT `characterIDweapons` FOREIGN KEY (`characterIDweapons`) REFERENCES `character_basics` (`characterID`),
+  CONSTRAINT `weaponsListID` FOREIGN KEY (`weaponsListID`) REFERENCES `weapons_list` (`weaponPK`)
+) ENGINE=InnoDB AUTO_INCREMENT=346 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -284,7 +283,7 @@ CREATE TABLE `feats_list` (
   UNIQUE KEY `featID_UNIQUE` (`featID`),
   KEY `featCreatorID_idx` (`featCreatorID`),
   CONSTRAINT `featCreatorID` FOREIGN KEY (`featCreatorID`) REFERENCES `user_data` (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=276 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -305,7 +304,7 @@ CREATE TABLE `proficiencies_list` (
   UNIQUE KEY `proficiencyID_UNIQUE` (`proficiencyID`),
   KEY `userIDproficiencies_idx` (`userIDproficiencies`),
   CONSTRAINT `userIDproficiencies` FOREIGN KEY (`userIDproficiencies`) REFERENCES `user_data` (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -330,7 +329,7 @@ CREATE TABLE `saved_items` (
   UNIQUE KEY `itemID_UNIQUE` (`itemID`),
   KEY `userID_idx` (`userIDitems`),
   CONSTRAINT `userIDitems` FOREIGN KEY (`userIDitems`) REFERENCES `user_data` (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=296 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=546 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -353,7 +352,7 @@ CREATE TABLE `spell_table` (
   UNIQUE KEY `spellID_UNIQUE` (`spellID`),
   KEY `spellCreatorID_idx` (`spellCreatorID`),
   CONSTRAINT `spellCreatorID` FOREIGN KEY (`spellCreatorID`) REFERENCES `user_data` (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=251 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -372,7 +371,7 @@ CREATE TABLE `user_data` (
   PRIMARY KEY (`userID`),
   UNIQUE KEY `userID_UNIQUE` (`userID`),
   UNIQUE KEY `userName_UNIQUE` (`userName`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -392,7 +391,7 @@ CREATE TABLE `weapons_list` (
   UNIQUE KEY `weaponPK_UNIQUE` (`weaponPK`),
   UNIQUE KEY `weaponsItemID_UNIQUE` (`weaponItemID`),
   CONSTRAINT `weaponItemID` FOREIGN KEY (`weaponItemID`) REFERENCES `saved_items` (`itemID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -404,4 +403,4 @@ CREATE TABLE `weapons_list` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-02 16:30:34
+-- Dump completed on 2024-12-02 19:37:05
