@@ -452,7 +452,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addContainerGap(188, Short.MAX_VALUE)
+                .addContainerGap(195, Short.MAX_VALUE)
                 .addComponent(btnCharacters)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnProficiencies)
@@ -550,9 +550,9 @@ public class MainForm extends javax.swing.JFrame {
         jLabel53.setText("Your Characters");
 
         btnCreateCharacter.setText("Create Character");
-        btnCreateCharacter.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCreateCharacterMouseClicked(evt);
+        btnCreateCharacter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateCharacterActionPerformed(evt);
             }
         });
 
@@ -627,7 +627,7 @@ public class MainForm extends javax.swing.JFrame {
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
-                .addContainerGap(459, Short.MAX_VALUE)
+                .addContainerGap(463, Short.MAX_VALUE)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCharToHome)
                     .addComponent(btnRefreshCharList)
@@ -1655,12 +1655,6 @@ public class MainForm extends javax.swing.JFrame {
         pnlCharacterHome.hide();
     }//GEN-LAST:event_btnCharToHomeActionPerformed
 
-    private void btnCreateCharacterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateCharacterMouseClicked
-        // TODO add your handling code here:
-        new CharacterSheet().setVisible(true);
-        
-    }//GEN-LAST:event_btnCreateCharacterMouseClicked
-
     private void btnRefreshCharListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRefreshCharListMouseClicked
         // TODO add your handling code here:
         
@@ -1786,6 +1780,13 @@ public class MainForm extends javax.swing.JFrame {
 
     private void btnEditCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditCharacterActionPerformed
         // TODO add your handling code here:
+        String listSelection = lstPersonalCharacters.getSelectedValue();
+        String regex = " - ";
+        String[] list = listSelection.split(regex);
+        int characterID = Integer.parseInt(list[0]);
+        
+        CharacterSheet charSheet = new CharacterSheet(characterID);
+        charSheet.setVisible(true);
     }//GEN-LAST:event_btnEditCharacterActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
@@ -1913,7 +1914,7 @@ public class MainForm extends javax.swing.JFrame {
                     System.out.println(characterID);
                     // Database search using characterID for character_basics
                     ManageCharacters mc = new ManageCharacters();
-                    dnd.character.sheet.Character character = mc.CreateCharacterObject(characterID);
+                    dnd.character.sheet.Character character = mc.CreateSimpleCharacterObject(characterID);
 
                     txtCharacterOverview.setText(mc.DisplayCharacter(character));
                 }
@@ -1928,6 +1929,12 @@ public class MainForm extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_lstPersonalCharactersValueChanged
+
+    private void btnCreateCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateCharacterActionPerformed
+        // TODO add your handling code here:
+        CharacterSheet character = new CharacterSheet();
+        character.setVisible(true);
+    }//GEN-LAST:event_btnCreateCharacterActionPerformed
 
     /**
      * @param args the command line arguments

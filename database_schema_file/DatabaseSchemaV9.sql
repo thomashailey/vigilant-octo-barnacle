@@ -56,7 +56,7 @@ CREATE TABLE `character_basics` (
   UNIQUE KEY `characterID_UNIQUE` (`characterID`),
   KEY `characterIDuser_idx` (`characterIDuser`),
   CONSTRAINT `characterIDuser` FOREIGN KEY (`characterIDuser`) REFERENCES `user_data` (`userID`)
-) ENGINE=InnoDB AUTO_INCREMENT=297 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=298 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +97,7 @@ CREATE TABLE `character_fundamentals` (
   UNIQUE KEY `characterFundID_UNIQUE` (`characterFundID`),
   UNIQUE KEY `characterFundPK_UNIQUE` (`characterFundPK`),
   CONSTRAINT `characterFundID` FOREIGN KEY (`characterFundID`) REFERENCES `character_basics` (`characterID`)
-) ENGINE=InnoDB AUTO_INCREMENT=203 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=205 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,12 +152,11 @@ CREATE TABLE `character_skillproficiencies` (
   `characterIDskillproficiency` int NOT NULL,
   `proficiencyName` enum('Athletics','Acrobatics','Sleight of Hand','Stealth','Arcana','History','Investigation','Nature','Religion','Animal Handling','Insight','Medicine','Perception','Survival','Deception','Intimidation','Performance','Persuasion') NOT NULL,
   `proficiencyStatus` enum('Not Proficient','Proficient','Expertise') NOT NULL DEFAULT 'Not Proficient',
-  `proficiencyTotal` int NOT NULL,
   PRIMARY KEY (`characterSkillProficiencyPK`),
   UNIQUE KEY `characterProficiencyID_UNIQUE` (`characterSkillProficiencyPK`),
   KEY `characterIDprof_idx` (`characterIDskillproficiency`),
   CONSTRAINT `characterIDproficiency` FOREIGN KEY (`characterIDskillproficiency`) REFERENCES `character_basics` (`characterID`)
-) ENGINE=InnoDB AUTO_INCREMENT=590 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=593 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -403,4 +402,4 @@ CREATE TABLE `weapons_list` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-02 19:37:05
+-- Dump completed on 2024-12-02 20:17:00

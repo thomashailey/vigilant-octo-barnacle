@@ -4,6 +4,12 @@
  */
 package dnd.character.sheet.GUIfolder;
 
+import dnd.character.sheet.ManageCharacters;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -11,6 +17,8 @@ import javax.swing.JOptionPane;
  * @author thoma
  */
 public class CharacterSheet extends javax.swing.JFrame {
+    
+    private int characterID;
 
     /**
      * Creates new form CharacterSheet
@@ -18,6 +26,64 @@ public class CharacterSheet extends javax.swing.JFrame {
     public CharacterSheet() {
         initComponents();
         setDefaultCloseOperation(this.HIDE_ON_CLOSE);
+    }
+    public CharacterSheet(int characterID) {
+        initComponents();
+        setDefaultCloseOperation(this.HIDE_ON_CLOSE);
+        characterID = characterID;
+        
+        try {
+                if (characterID != 0) {
+                    ManageCharacters mc = new ManageCharacters();
+                    dnd.character.sheet.Character character = mc.CreateFullCharacterObject(characterID);
+                    
+                    // characterID, name, level, race, charClass, privacy
+                    txtCharName.setText(character.getCharName());
+                    txtCharLevel.setValue(character.getCharLevel());
+                    txtCharRace.setText(character.getCharRace());
+                    txtCharClass.setText(character.getCharClass());
+                    
+                    // ac, profmod, hp, spellsavedc, spellattack
+                    txtCharAC.setValue(character.getCharAC());
+                    txtCharProficiencyModifier.setValue(character.getCharProfMod());
+                    txtCharHP.setValue(character.getCharHP());
+                    
+                    // notes
+                    txtAdditionalDetails.setText(character.getAdditionalNotes());
+                    
+                    // stats
+                    txtCharSTR.setValue(character.getStrStat());
+                    txtCharDEX.setValue(character.getDexStat());
+                    txtCharCON.setValue(character.getConStat());
+                    txtCharINT.setValue(character.getIntStat());
+                    txtCharWIS.setValue(character.getWisStat());
+                    txtCharCHA.setValue(character.getChaStat());
+                    
+                    // check boxes for stats
+                    if (character.getStrProf().equals("Yes"))
+                        chkProficiencySTR.setSelected(true);
+                    if (character.getDexProf().equals("Yes"))
+                        chkProficiencyDEX.setSelected(true);
+                    if (character.getConProf().equals("Yes"))
+                        chkProficiencyCON.setSelected(true);
+                    if (character.getIntProf().equals("Yes"))
+                        chkProficiencyINT.setSelected(true);
+                    if (character.getWisProf().equals("Yes"))
+                        chkProficiencyWIS.setSelected(true);
+                    if (character.getChaProf().equals("Yes"))
+                        chkProficiencyCHA.setSelected(true);
+                    
+                    // check box for public/private
+                    if (character.getPublicChar().equals("Yes")) {
+                        chkPublic.setSelected(true);
+                    }
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(CharacterSheet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CharacterSheet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     /**
@@ -267,6 +333,11 @@ public class CharacterSheet extends javax.swing.JFrame {
         jLabel82.setText("jLabel82");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         jLabel9.setText("Stats:");
 
@@ -2142,6 +2213,39 @@ public class CharacterSheet extends javax.swing.JFrame {
     private void btnArmorEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnArmorEditMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnArmorEditMouseClicked
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+        // load list models to show saved proficiencies from database
+        ArrayList<String> skillProficiencyList = new ArrayList();
+        skillProficiencyList.add("Acrobatics");
+        skillProficiencyList.add("Animal Handling");
+        skillProficiencyList.add("Arcana");
+        skillProficiencyList.add("Athletics");
+        skillProficiencyList.add("Deception");
+        skillProficiencyList.add("History");
+        skillProficiencyList.add("Insight");
+        skillProficiencyList.add("Intimidation");
+        skillProficiencyList.add("Investigation");
+        skillProficiencyList.add("Medicine");
+        skillProficiencyList.add("Nature");
+        skillProficiencyList.add("Perception");
+        skillProficiencyList.add("Performance");
+        skillProficiencyList.add("Persuasion");
+        skillProficiencyList.add("Religion");
+        skillProficiencyList.add("Sleight of Hand");
+        skillProficiencyList.add("Stealth");
+        skillProficiencyList.add("Survival");
+        
+        DefaultListModel availableSkillsListModel = new DefaultListModel();
+        DefaultListModel characterSkillsListModel = new DefaultListModel();
+        
+        lstAvailableSkills.setModel(availableSkillsListModel);
+        lstCharacterSkills.setModel(characterSkillsListModel);
+        for (int i = 0; i < skillProficiencyList.size(); i++) {
+            availableSkillsListModel.addElement(skillProficiencyList.get(i));
+        }
+    }//GEN-LAST:event_formComponentShown
 
     /**
      * @param args the command line arguments

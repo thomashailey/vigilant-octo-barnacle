@@ -27,19 +27,19 @@ public class Character {
     private String additionalNotes;
     
     private int strStat;
-    private boolean strProf;
+    private String strProf;
     private int dexStat;
-    private boolean dexProf;
+    private String dexProf;
     private int conStat;
-    private boolean conProf;
+    private String conProf;
     private int intStat;
-    private boolean intProf;
+    private String intProf;
     private int wisStat;
-    private boolean wisProf;
+    private String wisProf;
     private int chaStat;
-    private boolean chaProf;
+    private String chaProf;
 
-    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, int charAC, int charProfMod, int charHP, int spellSaveDC, int spellAttackMod, String additionalNotes, int strStat, boolean strProf, int dexStat, boolean dexProf, int conStat, boolean conProf, int intStat, boolean intProf, int wisStat, boolean wisProf, int chaStat, boolean chaProf) {
+    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, int charAC, int charProfMod, int charHP, int spellSaveDC, int spellAttackMod, String additionalNotes, int strStat, String strProf, int dexStat, String dexProf, int conStat, String conProf, int intStat, String intProf, int wisStat, String wisProf, int chaStat, String chaProf) {
         this.charID = charID;
         this.charName = charName;
         this.charLevel = charLevel;
@@ -66,8 +66,7 @@ public class Character {
         this.chaProf = chaProf;
     }
 
-
-    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, int charAC, int charProfMod, int charHP, String additionalNotes, int strStat, boolean strProf, int dexStat, boolean dexProf, int conStat, boolean conProf, int intStat, boolean intProf, int wisStat, boolean wisProf, int chaStat, boolean chaProf) {
+    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, int charAC, int charProfMod, int charHP, String additionalNotes, int strStat, String strProf, int dexStat, String dexProf, int conStat, String conProf, int intStat, String intProf, int wisStat, String wisProf, int chaStat, String chaProf) {
         this.charID = charID;
         this.charName = charName;
         this.charLevel = charLevel;
@@ -154,7 +153,7 @@ public class Character {
         this.charClass = charClass;
     }
 
-    public String isPublicChar() {
+    public String getPublicChar() {
         return publicChar;
     }
 
@@ -186,6 +185,22 @@ public class Character {
         this.charHP = charHP;
     }
 
+    public int getSpellSaveDC() {
+        return spellSaveDC;
+    }
+
+    public void setSpellSaveDC(int spellSaveDC) {
+        this.spellSaveDC = spellSaveDC;
+    }
+
+    public int getSpellAttackMod() {
+        return spellAttackMod;
+    }
+
+    public void setSpellAttackMod(int spellAttackMod) {
+        this.spellAttackMod = spellAttackMod;
+    }
+
     public String getAdditionalNotes() {
         return additionalNotes;
     }
@@ -202,11 +217,11 @@ public class Character {
         this.strStat = strStat;
     }
 
-    public boolean isStrProf() {
+    public String getStrProf() {
         return strProf;
     }
 
-    public void setStrProf(boolean strProf) {
+    public void setStrProf(String strProf) {
         this.strProf = strProf;
     }
 
@@ -218,11 +233,11 @@ public class Character {
         this.dexStat = dexStat;
     }
 
-    public boolean isDexProf() {
+    public String getDexProf() {
         return dexProf;
     }
 
-    public void setDexProf(boolean dexProf) {
+    public void setDexProf(String dexProf) {
         this.dexProf = dexProf;
     }
 
@@ -234,11 +249,11 @@ public class Character {
         this.conStat = conStat;
     }
 
-    public boolean isConProf() {
+    public String getConProf() {
         return conProf;
     }
 
-    public void setConProf(boolean conProf) {
+    public void setConProf(String conProf) {
         this.conProf = conProf;
     }
 
@@ -250,11 +265,11 @@ public class Character {
         this.intStat = intStat;
     }
 
-    public boolean isIntProf() {
+    public String getIntProf() {
         return intProf;
     }
 
-    public void setIntProf(boolean intProf) {
+    public void setIntProf(String intProf) {
         this.intProf = intProf;
     }
 
@@ -266,11 +281,11 @@ public class Character {
         this.wisStat = wisStat;
     }
 
-    public boolean isWisProf() {
+    public String getWisProf() {
         return wisProf;
     }
 
-    public void setWisProf(boolean wisProf) {
+    public void setWisProf(String wisProf) {
         this.wisProf = wisProf;
     }
 
@@ -282,30 +297,14 @@ public class Character {
         this.chaStat = chaStat;
     }
 
-    public boolean isChaProf() {
+    public String getChaProf() {
         return chaProf;
     }
 
-    public void setChaProf(boolean chaProf) {
+    public void setChaProf(String chaProf) {
         this.chaProf = chaProf;
     }
 
-    public int getSpellSaveDC() {
-        return spellSaveDC;
-    }
-
-    public void setSpellSaveDC(int spellSaveDC) {
-        this.spellSaveDC = spellSaveDC;
-    }
-
-    public int getSpellAttackMod() {
-        return spellAttackMod;
-    }
-
-    public void setSpellAttackMod(int spellAttackMod) {
-        this.spellAttackMod = spellAttackMod;
-    }
-    
     
     
 }
