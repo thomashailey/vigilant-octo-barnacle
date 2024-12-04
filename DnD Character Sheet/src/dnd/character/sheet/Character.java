@@ -39,7 +39,32 @@ public class Character {
     private int chaStat;
     private String chaProf;
 
-    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, int charAC, int charProfMod, int charHP, int spellSaveDC, int spellAttackMod, String additionalNotes, int strStat, String strProf, int dexStat, String dexProf, int conStat, String conProf, int intStat, String intProf, int wisStat, String wisProf, int chaStat, String chaProf) {
+    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, 
+            int strStat, String strProf, int dexStat, String dexProf, int conStat, String conProf, int intStat, String intProf, 
+            int wisStat, String wisProf, int chaStat, String chaProf) {
+        this.charID = charID;
+        this.charName = charName;
+        this.charLevel = charLevel;
+        this.charRace = charRace;
+        this.charClass = charClass;
+        this.publicChar = publicChar;
+        this.strStat = strStat;
+        this.strProf = strProf;
+        this.dexStat = dexStat;
+        this.dexProf = dexProf;
+        this.conStat = conStat;
+        this.conProf = conProf;
+        this.intStat = intStat;
+        this.intProf = intProf;
+        this.wisStat = wisStat;
+        this.wisProf = wisProf;
+        this.chaStat = chaStat;
+        this.chaProf = chaProf;
+    }
+
+    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, 
+            int charAC, int charProfMod, int charHP, int spellSaveDC, int spellAttackMod, String additionalNotes, int strStat, String strProf, 
+            int dexStat, String dexProf, int conStat, String conProf, int intStat, String intProf, int wisStat, String wisProf, int chaStat, String chaProf) {
         this.charID = charID;
         this.charName = charName;
         this.charLevel = charLevel;
@@ -66,7 +91,9 @@ public class Character {
         this.chaProf = chaProf;
     }
 
-    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, int charAC, int charProfMod, int charHP, String additionalNotes, int strStat, String strProf, int dexStat, String dexProf, int conStat, String conProf, int intStat, String intProf, int wisStat, String wisProf, int chaStat, String chaProf) {
+    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, 
+            int charAC, int charProfMod, int charHP, String additionalNotes, int strStat, String strProf, int dexStat, String dexProf, 
+            int conStat, String conProf, int intStat, String intProf, int wisStat, String wisProf, int chaStat, String chaProf) {
         this.charID = charID;
         this.charName = charName;
         this.charLevel = charLevel;
@@ -91,7 +118,8 @@ public class Character {
         this.chaProf = chaProf;
     }
 
-    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, int charAC, int charProfMod, int charHP, String additionalNotes) {
+    public Character(int charID, String charName, int charLevel, String charRace, String charClass, String publicChar, 
+            int charAC, int charProfMod, int charHP, String additionalNotes) {
         this.charID = charID;
         this.charName = charName;
         this.charLevel = charLevel;

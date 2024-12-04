@@ -31,59 +31,7 @@ public class CharacterSheet extends javax.swing.JFrame {
         initComponents();
         setDefaultCloseOperation(this.HIDE_ON_CLOSE);
         characterID = characterID;
-        
-        try {
-                if (characterID != 0) {
-                    ManageCharacters mc = new ManageCharacters();
-                    dnd.character.sheet.Character character = mc.CreateFullCharacterObject(characterID);
-                    
-                    // characterID, name, level, race, charClass, privacy
-                    txtCharName.setText(character.getCharName());
-                    txtCharLevel.setValue(character.getCharLevel());
-                    txtCharRace.setText(character.getCharRace());
-                    txtCharClass.setText(character.getCharClass());
-                    
-                    // ac, profmod, hp, spellsavedc, spellattack
-                    txtCharAC.setValue(character.getCharAC());
-                    txtCharProficiencyModifier.setValue(character.getCharProfMod());
-                    txtCharHP.setValue(character.getCharHP());
-                    
-                    // notes
-                    txtAdditionalDetails.setText(character.getAdditionalNotes());
-                    
-                    // stats
-                    txtCharSTR.setValue(character.getStrStat());
-                    txtCharDEX.setValue(character.getDexStat());
-                    txtCharCON.setValue(character.getConStat());
-                    txtCharINT.setValue(character.getIntStat());
-                    txtCharWIS.setValue(character.getWisStat());
-                    txtCharCHA.setValue(character.getChaStat());
-                    
-                    // check boxes for stats
-                    if (character.getStrProf().equals("Yes"))
-                        chkProficiencySTR.setSelected(true);
-                    if (character.getDexProf().equals("Yes"))
-                        chkProficiencyDEX.setSelected(true);
-                    if (character.getConProf().equals("Yes"))
-                        chkProficiencyCON.setSelected(true);
-                    if (character.getIntProf().equals("Yes"))
-                        chkProficiencyINT.setSelected(true);
-                    if (character.getWisProf().equals("Yes"))
-                        chkProficiencyWIS.setSelected(true);
-                    if (character.getChaProf().equals("Yes"))
-                        chkProficiencyCHA.setSelected(true);
-                    
-                    // check box for public/private
-                    if (character.getPublicChar().equals("Yes")) {
-                        chkPublic.setSelected(true);
-                    }
-                }
-        } catch (SQLException ex) {
-            Logger.getLogger(CharacterSheet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CharacterSheet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        PopulateCharacterSheet(characterID);
     }
 
     /**
@@ -2024,6 +1972,78 @@ public class CharacterSheet extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void PopulateCharacterSheet(int characterID) {
+        
+        try {
+                if (characterID != 0) {
+                    ManageCharacters mc = new ManageCharacters();
+                    dnd.character.sheet.Character character = mc.CreateFullCharacterObject(characterID);
+                    
+                    
+                    // characterID, name, level, race, charClass, privacy
+                    txtCharName.setText(character.getCharName());
+                    txtCharLevel.setValue(character.getCharLevel());
+                    txtCharRace.setText(character.getCharRace());
+                    txtCharClass.setText(character.getCharClass());
+                    
+                    
+                    try {
+                        // ac, profmod, hp, spellsavedc, spellattack
+                        txtCharAC.setValue(character.getCharAC());
+                        txtCharProficiencyModifier.setValue(character.getCharProfMod());
+                        txtCharHP.setValue(character.getCharHP());
+                        // notes
+                        txtAdditionalDetails.setText(character.getAdditionalNotes());
+                    } catch (Exception e) {
+                        txtCharAC.setValue(null);
+                        txtCharProficiencyModifier.setValue(null);
+                        txtCharHP.setValue(null);
+                        
+                        txtAdditionalDetails.setText(null);
+                    }
+                    
+                    try {
+                    // stats
+                    txtCharSTR.setValue(character.getStrStat());
+                    txtCharDEX.setValue(character.getDexStat());
+                    txtCharCON.setValue(character.getConStat());
+                    txtCharINT.setValue(character.getIntStat());
+                    txtCharWIS.setValue(character.getWisStat());
+                    txtCharCHA.setValue(character.getChaStat());
+                    
+                    // check boxes for stats
+                    if (character.getStrProf().equals("Yes"))
+                        chkProficiencySTR.setSelected(true);
+                    if (character.getDexProf().equals("Yes"))
+                        chkProficiencyDEX.setSelected(true);
+                    if (character.getConProf().equals("Yes"))
+                        chkProficiencyCON.setSelected(true);
+                    if (character.getIntProf().equals("Yes"))
+                        chkProficiencyINT.setSelected(true);
+                    if (character.getWisProf().equals("Yes"))
+                        chkProficiencyWIS.setSelected(true);
+                    if (character.getChaProf().equals("Yes"))
+                        chkProficiencyCHA.setSelected(true);
+                    } catch (Exception e) {
+                        txtCharSTR.setValue(null);
+                        txtCharDEX.setValue(null);
+                        txtCharCON.setValue(null);
+                        txtCharINT.setValue(null);
+                        txtCharWIS.setValue(null);
+                        txtCharCHA.setValue(null);
+                    }
+                    
+                    // check box for public/private
+                    if (character.getPublicChar().equals("Yes")) {
+                        chkPublic.setSelected(true);
+                    }
+                }
+        } catch (SQLException ex) {
+            Logger.getLogger(CharacterSheet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CharacterSheet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     private void txtCharClassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCharClassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCharClassActionPerformed
